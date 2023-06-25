@@ -15,7 +15,7 @@ support iOS application and  Android now.
 **IF THIS PROJECT HELPS YOU, PLEASE GIVE ME A LITTLE STAR⭐️.**
 
 ## Screenshots
-![screenshots/page_7.png]
+![](screenshots/page_7.png)
  
 
 ## Environment
