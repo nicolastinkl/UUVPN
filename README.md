@@ -16,6 +16,9 @@ support iOS application and  Android now.
 
 ## Screenshots
 ![](screenshots/page_7.png)
+
+## App Store 
+![](screenshots/Snipaste_2023-06-10_14-21-20.png)
  
 
 ## Environment
@@ -51,7 +54,6 @@ build ios
 flutter build ios
 ```
 
-# 加密混淆导出ipa
-flutter build  ipa  --obfuscate  --split-debug-info=/Volumes/TOSHIBA\ EXT/iOS_Project/VPN/uuvpn_android/ios/
+
 
 
