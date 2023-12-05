@@ -56,11 +56,7 @@ flutter build ios
 ```
 
 
-
-
-
-
-### How to use it ?
+### How to use it?
 
 
 - 1:  Change Domain File Path : ~UUVPN/flutter/lib/constant/app_urls.dart
@@ -68,5 +64,9 @@ flutter build ios
     static const String baseUrl = "https://xxxx.com";
   ```
 
-- 2: 
+- 2: Xcode Settings:
+![](screenshots/Snipaste_2023-12-05_09-48-45.png)
+![](screenshots/Snipaste_2023-12-05_09-49-14.png)
+![](screenshots/Snipaste_2023-12-05_09-49-23.png)
+![](screenshots/4db2f52524536ff706c99472a767f6b6.gif)
 
