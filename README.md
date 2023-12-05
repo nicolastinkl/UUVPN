@@ -28,6 +28,7 @@ support iOS application and  Android now.
     Engine • revision b4fb11214d
     Tools • Dart 3.0.1 • DevTools 2.23.1
     - Download this version url: https://drive.google.com/file/d/1ksM4_PK9Ibk7ycyrfF7XffM_99_4JYV3/view?usp=sharing
+    - leaf sdk downlaod url: https://github.com/eycorsican/leaf/releases/tag/v0.10.7
 
 - macOS 13.3.1 +
 - Xcode 14 +
