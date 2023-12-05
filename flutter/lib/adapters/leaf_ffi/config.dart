@@ -340,7 +340,7 @@ class General {
 
   @override
   String toString() {
-    String result = "[General]\n";
+    String result = "\n[General]\n";
 
     if (tun != null) {
       result += "tun = $tun\n";
