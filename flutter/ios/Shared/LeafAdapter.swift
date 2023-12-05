@@ -7,7 +7,8 @@
 
 import Foundation
 import NetworkExtension
-import LeafFFI
+//import LeafFFI
+import leaf
 
 public enum LeafAdapterError: Error {
     /// Failure to locate tunnel file descriptor.

@@ -1,6 +1,7 @@
 import Foundation
 import NetworkExtension
-import LeafFFI
+//import LeafFFI
+import leaf
 
 extension NEVPNStatus: CustomStringConvertible {
     public var description: String {

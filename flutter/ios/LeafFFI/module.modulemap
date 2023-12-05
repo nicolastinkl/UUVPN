@@ -1,6 +1,0 @@
-module LeafFFI {
-    umbrella header "leaf.h"
-    link "leaf"
-    export *
-}
-
