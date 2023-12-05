@@ -1,0 +1,11 @@
+framework module flutter_icmp_ping {
+  umbrella header "flutter_icmp_ping-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module flutter_icmp_ping.Swift {
+  header "flutter_icmp_ping-Swift.h"
+  requires objc
+}

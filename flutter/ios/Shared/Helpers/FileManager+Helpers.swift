@@ -7,9 +7,8 @@
 
 import Foundation
 
-extension FileManager {
-//    static var appGroupId = "group.com.sail-tunnel.sail1"
-    static var appGroupId = "group.com.sail-tunnel.zeus"
+extension FileManager { 
+    static var appGroupId = "group.com.sail-tunnel.zeus1"
     
     private var sharedFolderURL: URL? {
         let appGroupId = FileManager.appGroupId

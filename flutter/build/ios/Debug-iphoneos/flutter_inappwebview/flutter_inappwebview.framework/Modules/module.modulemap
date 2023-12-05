@@ -1,0 +1,11 @@
+framework module flutter_inappwebview {
+  umbrella header "flutter_inappwebview-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module flutter_inappwebview.Swift {
+  header "flutter_inappwebview-Swift.h"
+  requires objc
+}
