@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Frameworks/libleaf.a</key>
+		<data>
+		F1ShttoOv/CJ/eer2xE4AYhIE7g=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		pEugHzA72YXqVw69al3Su5llsFs=
@@ -14,11 +18,18 @@
 		</data>
 		<key>template.conf</key>
 		<data>
-		LOeIFA2FHTHhGDBhsE9D8DEG3RM=
+		flePUpO6sJtbJmzKYBwl/U4fGj0=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Frameworks/libleaf.a</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rEU/O0bFg9K7FN3dBcm8v4tlX7Goh9/JMLrCpdWwEA4=
+			</data>
+		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
 			<key>hash2</key>
@@ -30,7 +41,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3m0q7TR1zEV0ZFcNdaxSjhLfQ4CkcAF7Mlb5E2IcoDQ=
+			iXkNNoAOuDJ1FRI1QsLeG9fUOYUVusMhCFdjxcLuUGQ=
 			</data>
 		</dict>
 	</dict>

@@ -1,5 +1,5 @@
 class AppUrls {
-  static const String baseUrl = "https://kuyun888.com";
+  static const String baseUrl = "https://uu.lanmao123.com";
   static const String baseApiUrl = '$baseUrl/api/v1'; // 基础接口地址
 
   static const String login = '$baseApiUrl/passport/auth/login';
