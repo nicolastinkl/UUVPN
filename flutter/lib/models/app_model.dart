@@ -30,6 +30,11 @@ class AppModel extends BaseModel {
         logoutput: '{{leafLogFile}}',
         dnsServer: ['223.5.5.5', '114.114.114.114'],
         tunFd: '{{tunFd}}',
+        apiInterface: '127.0.0.1',
+        apiPort: 1087,
+        socksInterface: '127.0.0.1',
+        socksPort: 1086,
+        alwaysRealIp: ['tracker', 'apple.com'],
         routingDomainResolve: true);
 
     List<Rule> rules = [];
@@ -160,26 +165,26 @@ class AppModel extends BaseModel {
     config.proxies = proxies;
     config.proxyGroups = proxyGroups;
 
-    //print("-----------------config-----------------");
-    //print(config);
-    //print("-----------------config-----------------");
+    print("-----------------config-----------------");
+    print(config);
+    print("-----------------config-----------------");
 
     vpnManager.setTunnelConfiguration(config.toString());
   }
 
   void setConfigRule(String tag) async {
-    // var proxy = config.proxies?.where((proxies) => proxies.tag == tag);
-    //
-    // if (proxy == null || proxy.isEmpty) {
-    //   return;
-    // }
-    //
-    // config.rules?.last.target = tag;
-    //
-    // //print("-----------------config-----------------");
-    // print(config);
-    // //print("-----------------config-----------------");
-    //
-    // vpnManager.setTunnelConfiguration(config.toString());
+    var proxy = config.proxies?.where((proxies) => proxies.tag == tag);
+    
+    if (proxy == null || proxy.isEmpty) {
+      return;
+    }
+    
+    config.rules?.last.target = tag;
+    
+    print("-----------------config-----------------");
+    print(config);
+    print("-----------------config-----------------");
+    
+    vpnManager.setTunnelConfiguration(config.toString());
   }
 }

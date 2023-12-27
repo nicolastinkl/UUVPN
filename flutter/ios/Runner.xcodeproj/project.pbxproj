@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1273FB482B1EBC5E005B78AF /* leaf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1273FB472B1EBC5E005B78AF /* leaf.xcframework */; };
+		1273FB492B1EBCA4005B78AF /* leaf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1273FB472B1EBC5E005B78AF /* leaf.xcframework */; };
+		1273FB4A2B1EBCA4005B78AF /* leaf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1273FB472B1EBC5E005B78AF /* leaf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		2FD21F1125A363E300F556E0 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD21F1025A363E300F556E0 /* PacketTunnelProvider.swift */; };
 		2FD21F1625A363E300F556E0 /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2FD21F0D25A363E300F556E0 /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -14,7 +17,6 @@
 		31DA31B2DE002F172285FB1C /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9C0075B77637136AF52D8B /* Pods_Runner.framework */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		3E06F985293FACBB00E04D92 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD21F1025A363E300F556E0 /* PacketTunnelProvider.swift */; };
-		3E06F986293FAD1C00E04D92 /* libleaf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA6B288293FA83000B2BABC /* libleaf.a */; };
 		3E06F989293FAFC600E04D92 /* LeafAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06F988293FAFC600E04D92 /* LeafAdapter.swift */; };
 		3E06F98A293FAFC600E04D92 /* LeafAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06F988293FAFC600E04D92 /* LeafAdapter.swift */; };
 		3E06F98C293FB8F600E04D92 /* TunnelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06F98B293FB8F600E04D92 /* TunnelConfiguration.swift */; };
@@ -29,7 +31,6 @@
 		3EA6B280293F6AB900B2BABC /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6B277293F1D1600B2BABC /* URL+Helpers.swift */; };
 		3EA6B281293F6AF800B2BABC /* template.conf in Resources */ = {isa = PBXBuildFile; fileRef = 3EA6B275293F1AC500B2BABC /* template.conf */; };
 		3EA6B282293F6BA500B2BABC /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6B279293F1FAD00B2BABC /* Logger.swift */; };
-		3EA6B289293FA83E00B2BABC /* libleaf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA6B288293FA83000B2BABC /* libleaf.a */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		7A31DD8228420C0B00E82EE1 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD21EF825A363AA00F556E0 /* NetworkExtension.framework */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
@@ -49,6 +50,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		1273FB4B2B1EBCA4005B78AF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1273FB4A2B1EBCA4005B78AF /* leaf.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2FD21F0625A363AA00F556E0 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1273FB472B1EBC5E005B78AF /* leaf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = leaf.xcframework; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		2F50954A25A36FD0001A32D5 /* VPNManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNManager.swift; sourceTree = "<group>"; };
@@ -90,7 +103,6 @@
 		3EA6B277293F1D1600B2BABC /* URL+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
 		3EA6B279293F1FAD00B2BABC /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3EA6B287293FA53500B2BABC /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		3EA6B288293FA83000B2BABC /* libleaf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libleaf.a; path = LeafFFI/libleaf.a; sourceTree = "<group>"; };
 		4A9C0075B77637136AF52D8B /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,7 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A31DD8228420C0B00E82EE1 /* NetworkExtension.framework in Frameworks */,
-				3EA6B289293FA83E00B2BABC /* libleaf.a in Frameworks */,
+				1273FB492B1EBCA4005B78AF /* leaf.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,10 +133,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E06F986293FAD1C00E04D92 /* libleaf.a in Frameworks */,
 				2FD21F2425A364B700F556E0 /* NetworkExtension.framework in Frameworks */,
 				DBC6F25A26C78B1D91884CE1 /* Pods_Runner.framework in Frameworks */,
 				31DA31B2DE002F172285FB1C /* Pods_Runner.framework in Frameworks */,
+				1273FB482B1EBC5E005B78AF /* leaf.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +246,7 @@
 		F6BCB37E43B89DAB5A76B9D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3EA6B288293FA83000B2BABC /* libleaf.a */,
+				1273FB472B1EBC5E005B78AF /* leaf.xcframework */,
 				2FD21EF825A363AA00F556E0 /* NetworkExtension.framework */,
 				4A9C0075B77637136AF52D8B /* Pods_Runner.framework */,
 			);
@@ -251,6 +263,7 @@
 				2FD21F0925A363E300F556E0 /* Sources */,
 				2FD21F0A25A363E300F556E0 /* Frameworks */,
 				2FD21F0B25A363E300F556E0 /* Resources */,
+				1273FB4B2B1EBCA4005B78AF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -543,7 +556,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N3U8PK8YPU;
+				DEVELOPMENT_TEAM = VD25ZC3M54;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -559,16 +572,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
-					"$(PROJECT_DIR)/LeafFFI",
 				);
 				MODULEMAP_FILE = "${PROJECT_DIR}/LeafFFI/module.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/LeafFFI";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -589,7 +601,7 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 200;
-				DEVELOPMENT_TEAM = N3U8PK8YPU;
+				DEVELOPMENT_TEAM = VD25ZC3M54;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "i386 arm64";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -604,18 +616,15 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/LeafFFI",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus.PacketTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus1.PacketTunnel1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/LeafFFI";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -635,7 +644,7 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 200;
-				DEVELOPMENT_TEAM = N3U8PK8YPU;
+				DEVELOPMENT_TEAM = VD25ZC3M54;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "i386 arm64";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -650,16 +659,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/LeafFFI",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0.6;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus.PacketTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus1.PacketTunnel1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/LeafFFI";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -678,7 +684,7 @@
 				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 200;
-				DEVELOPMENT_TEAM = N3U8PK8YPU;
+				DEVELOPMENT_TEAM = VD25ZC3M54;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "i386 arm64";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -693,16 +699,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/LeafFFI",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.0.6;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus.PacketTunnel";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus1.PacketTunnel1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/LeafFFI";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -831,7 +834,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N3U8PK8YPU;
+				DEVELOPMENT_TEAM = VD25ZC3M54;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -847,16 +850,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
-					"$(PROJECT_DIR)/LeafFFI",
 				);
 				MODULEMAP_FILE = "${PROJECT_DIR}/LeafFFI/module.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/LeafFFI";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -875,7 +877,7 @@
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N3U8PK8YPU;
+				DEVELOPMENT_TEAM = VD25ZC3M54;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -891,16 +893,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
-					"$(PROJECT_DIR)/LeafFFI",
 				);
 				MODULEMAP_FILE = "${PROJECT_DIR}/LeafFFI/module.modulemap";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sail-tunnel.zeus1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/LeafFFI";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

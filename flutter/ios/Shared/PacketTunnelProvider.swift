@@ -1,6 +1,6 @@
 import NetworkExtension
-import LeafFFI
-
+//import LeafFFI
+import leaf
 class PacketTunnelProvider: NEPacketTunnelProvider {
 
     private lazy var adapter: LeafAdapater = {

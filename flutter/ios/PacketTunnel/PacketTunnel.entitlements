@@ -8,7 +8,7 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.sail-tunnel.zeus</string>
+		<string>group.com.sail-tunnel.zeus1</string>
 	</array>
 </dict>
 </plist>

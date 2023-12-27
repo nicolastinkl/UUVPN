@@ -58,15 +58,15 @@ class ServerEntity {
         name: json["name"],
         rate: json["rate"],
         host: json["host"],
-        port: json["port"],
+        port: json["port"] ?? "",
         serverPort: json["server_port"],
-        cipher: json["cipher"],
+        cipher: json["cipher"] ?? "" ,
         show: json["show"],
         sort: json["sort"],
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
         type: json["type"],
-        lastCheckAt: json["last_check_at"] ?? "",
+        lastCheckAt: "",//json["last_check_at"] +
       );
 
   Map<String, dynamic> toMap() => {

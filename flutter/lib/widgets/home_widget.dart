@@ -100,7 +100,7 @@ class HomeWidgetState extends State<HomeWidget>
     final date2 = DateTime.now();
     //比较相差的天数
     final difference = date2.difference(birthday).inDays;
-    print("比较相差的天数DateTime(2023, 06, 12):${difference}");
+    // print("比较相差的天数DateTime(2023, 06, 12):${difference}");
     return SingleChildScrollView(
         controller: _controller,
         physics: const BouncingScrollPhysics(),
