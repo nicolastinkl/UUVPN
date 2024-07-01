@@ -77,7 +77,7 @@ class ProPage extends StatelessWidget {
                   ])),
           const SizedBox(height: 32),
 
-          /**childAspectRatio: 16 / 10,
+          /*childAspectRatio: 16 / 10,
                   crossAxisCount: 2,
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 14), */
@@ -159,7 +159,7 @@ class ProPage extends StatelessWidget {
           Text(
             'Please rest assured to use.',
             textAlign: TextAlign.center,
-            style: Theme.of(context).primaryTextTheme.caption,
+            style: Theme.of(context).primaryTextTheme.labelMedium,
           ),
         ],
       ),
@@ -186,7 +186,7 @@ class ProPage extends StatelessWidget {
                 lt,
                 style: Theme.of(context)
                     .primaryTextTheme
-                    .headline6!
+                    .labelMedium!
                     .copyWith(color: Colors.white),
               ),
               if (isDiscount)
@@ -209,14 +209,14 @@ class ProPage extends StatelessWidget {
                   text: rt_1,
                   style: Theme.of(context)
                       .primaryTextTheme
-                      .headline6!
+                      .labelMedium!
                       .copyWith(color: Colors.white),
                   children: [
                 TextSpan(
                   text: ' $rt_2',
                   style: Theme.of(context)
                       .primaryTextTheme
-                      .bodyText1!
+                      .labelMedium!
                       .copyWith(color: Colors.white),
                 )
               ])),

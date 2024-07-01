@@ -55,18 +55,19 @@ class ServerEntity {
         groupId: List<String>.from(json["group_id"]?.map((x) => x) ?? []),
         parentId: json["parent_id"],
         tags: List<String>.from(json["tags"]?.map((x) => x) ?? []),
-        name: json["name"],
+        name: "" + json["name"],
         rate: json["rate"],
-        host: json["host"],
-        port: json["port"] ?? "",
-        serverPort: json["server_port"],
-        cipher: json["cipher"] ?? "" ,
+        host: json["host"] + "",
+        port: int.parse(json["port"] ?? "0"),
+        serverPort:
+            int.parse(json["server_port"] ?? "0"), //json["server_port"],
+        cipher: json["cipher"] ?? "",
         show: json["show"],
         sort: json["sort"],
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
         type: json["type"],
-        lastCheckAt: "",//json["last_check_at"] +
+        lastCheckAt: "", //json["last_check_at"] +
       );
 
   Map<String, dynamic> toMap() => {

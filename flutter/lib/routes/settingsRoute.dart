@@ -37,12 +37,12 @@ class _SettingsRouteState extends State<SettingsRoute> {
           minLeadingWidth: 35,
           dense: true,
           contentPadding: EdgeInsets.only(left: 24),
-          title:
-              Text(title, style: Theme.of(context).primaryTextTheme.subtitle1),
+          title: Text(title,
+              style: Theme.of(context).primaryTextTheme.labelMedium),
           subtitle: subtitle != null
               ? Text(
                   subtitle,
-                  style: Theme.of(context).primaryTextTheme.caption,
+                  style: Theme.of(context).primaryTextTheme.labelMedium,
                 )
               : null,
           // leading: sysicon ??
@@ -70,7 +70,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
           'Upgrade',
           style: Theme.of(context)
               .primaryTextTheme
-              .bodyText1!
+              .labelMedium!
               .copyWith(color: Colors.white),
         ),
       ));
@@ -97,7 +97,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
           child: Text(title,
               style: Theme.of(context)
                   .primaryTextTheme
-                  .subtitle1!
+                  .labelMedium!
                   .copyWith(color: Colors.grey)),
         ),
         SwitchListTile(
@@ -109,7 +109,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
             contentPadding: EdgeInsets.only(left: 24),
             title: Text(
               description,
-              style: Theme.of(context).primaryTextTheme.subtitle1,
+              style: Theme.of(context).primaryTextTheme.labelMedium,
             ),
             value: value,
             onChanged: onChanged)
@@ -121,8 +121,10 @@ class _SettingsRouteState extends State<SettingsRoute> {
     bool isDarkTheme = Provider.of<ThemeCollection>(context).isDarkActive;
     var themeData = Provider.of<ThemeCollection>(context);
     return Scaffold(
+      backgroundColor: isDarkTheme ? Color(0xff0B0415) : Colors.white,
       appBar: AppBar(
-        shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        foregroundColor: isDarkTheme ? Colors.white : Color(0xff0B0415),
         title: const Text('Settings'),
       ),
       body: ListView(

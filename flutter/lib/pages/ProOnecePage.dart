@@ -78,7 +78,7 @@ For more information, please read our Privacy Policy
                   color: Color.fromARGB(255, 34, 128, 15).withOpacity(0.7)),
               child: Text(
                 'Accept and continue',
-                style: Theme.of(context).primaryTextTheme.headline6!.copyWith(
+                style: Theme.of(context).primaryTextTheme.labelMedium!.copyWith(
                       color: AppColors.whiteColor,
                     ),
               ),
@@ -87,7 +87,7 @@ For more information, please read our Privacy Policy
           Text(
             ' ',
             textAlign: TextAlign.center,
-            style: Theme.of(context).primaryTextTheme.caption,
+            style: Theme.of(context).primaryTextTheme.labelMedium,
           ),
         ],
       ),
@@ -114,7 +114,7 @@ For more information, please read our Privacy Policy
                 lt,
                 style: Theme.of(context)
                     .primaryTextTheme
-                    .headline6!
+                    .labelMedium!
                     .copyWith(color: Colors.white),
               ),
               if (isDiscount)
@@ -137,14 +137,14 @@ For more information, please read our Privacy Policy
                   text: rt_1,
                   style: Theme.of(context)
                       .primaryTextTheme
-                      .headline6!
+                      .labelMedium!
                       .copyWith(color: Colors.white),
                   children: [
                 TextSpan(
                   text: ' $rt_2',
                   style: Theme.of(context)
                       .primaryTextTheme
-                      .bodyText1!
+                      .labelMedium!
                       .copyWith(color: Colors.white),
                 )
               ])),

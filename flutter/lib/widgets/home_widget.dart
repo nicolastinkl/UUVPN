@@ -42,12 +42,12 @@ class HomeWidgetState extends State<HomeWidget>
           onTap: onTap ?? null,
           minLeadingWidth: 35,
           dense: true,
-          title:
-              Text(title, style: Theme.of(context).primaryTextTheme.subtitle1),
+          title: Text(title,
+              style: Theme.of(context).primaryTextTheme.labelMedium),
           subtitle: subtitle != null
               ? Text(
                   subtitle,
-                  style: Theme.of(context).primaryTextTheme.caption,
+                  style: Theme.of(context).primaryTextTheme.labelMedium,
                 )
               : null,
           leading: SvgPicture.asset(
@@ -95,18 +95,10 @@ class HomeWidgetState extends State<HomeWidget>
     super.build(context);
     bool isDarkTheme = Provider.of<ThemeCollection>(context).isDarkActive;
 
-    final birthday = DateTime(2023, 06, 12);
-    //当前日期
-    final date2 = DateTime.now();
-    //比较相差的天数
-    final difference = date2.difference(birthday).inDays;
-    // print("比较相差的天数DateTime(2023, 06, 12):${difference}");
     return SingleChildScrollView(
         controller: _controller,
         physics: const BouncingScrollPhysics(),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.start,
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // // Logo bar
             // Padding(
@@ -136,19 +128,6 @@ class HomeWidgetState extends State<HomeWidget>
             const SizedBox(
               height: 40,
             ),
-            // Padding(
-            //     padding: EdgeInsets.symmetric(horizontal: 75, vertical: 30),
-            //     child: Stack(alignment: Alignment.center, children: [
-            //       // Image.asset(
-            //       //   "assets/map.png",
-            //       //   scale: 4,
-            //       //   color: _appModel.isOn
-            //       //       ? const Color(0x15000000)
-            //       //       : AppColors.darkSurfaceColor,
-            //       // ),
-            //       const PowerButton(),
-            //     ])),
-
             _appModel.isOn
                 ? (_serverModel.selectServerEntity?.name != null
                     ? Center(
@@ -180,7 +159,6 @@ class HomeWidgetState extends State<HomeWidget>
                 : const SizedBox(
                     height: 1,
                   ),
-            // const SelectLocation(),
 
             const BottomBlock(),
           ],

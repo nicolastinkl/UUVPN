@@ -82,12 +82,12 @@ class AccountState extends State<AccountPage> {
           onTap: onTap ?? null,
           minLeadingWidth: 35,
           dense: true,
-          title:
-              Text(title, style: Theme.of(context).primaryTextTheme.subtitle1),
+          title: Text(title,
+              style: Theme.of(context).primaryTextTheme.labelMedium),
           subtitle: subtitle != null
               ? Text(
                   subtitle,
-                  style: Theme.of(context).primaryTextTheme.caption,
+                  style: Theme.of(context).primaryTextTheme.labelMedium,
                 )
               : null,
           // leading: sysicon ??
@@ -115,7 +115,7 @@ class AccountState extends State<AccountPage> {
           'Upgrade',
           style: Theme.of(context)
               .primaryTextTheme
-              .bodyText1!
+              .labelMedium!
               .copyWith(color: Colors.white),
         ),
       ));
@@ -136,9 +136,13 @@ class AccountState extends State<AccountPage> {
   Widget build(BuildContext context) {
     bool isDarkTheme = Provider.of<ThemeCollection>(context).isDarkActive;
     return Scaffold(
+      backgroundColor: isDarkTheme ? Color(0xff0B0415) : Colors.white,
       appBar: AppBar(
-        shadowColor: Colors.transparent,
-        title: const Text('Settings'),
+        foregroundColor: isDarkTheme ? Colors.white : Color(0xff0B0415),
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Settings',
+        ),
       ),
       body: build2(context),
     );
@@ -200,7 +204,7 @@ class AccountState extends State<AccountPage> {
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Text(
                     'Looks like You’re not signed in yet.',
-                    style: Theme.of(context).primaryTextTheme.bodyText1,
+                    style: Theme.of(context).primaryTextTheme.labelMedium,
                   ),
                 ),
 
@@ -251,7 +255,7 @@ class AccountState extends State<AccountPage> {
                   builder: (builder) => const SettingsRoute()))),
           divider,
           Text("App Version: 1.0.6",
-              style: Theme.of(context).primaryTextTheme.subtitle1),
+              style: Theme.of(context).primaryTextTheme.labelMedium),
           /*userModel.isLogin
               ? GestureDetector(
                   onTap: () => {

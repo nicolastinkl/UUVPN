@@ -30,7 +30,7 @@ class ChooseLocationRoute extends StatelessWidget {
             ),
             title: Text(
               Flags.list[index]['name'] as String,
-              style: Theme.of(context).primaryTextTheme.subtitle1,
+              style: Theme.of(context).primaryTextTheme.labelMedium,
             ),
             trailing: Icon(
               Icons.navigate_next_rounded,

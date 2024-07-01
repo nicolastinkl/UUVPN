@@ -65,11 +65,6 @@ class SailApp extends StatelessWidget {
       services.DeviceOrientation.portraitUp,
       services.DeviceOrientation.portraitDown
     ]);
-    // final size = MediaQuery.of(context).size;
-    // final width = size.width;
-    // final height = size.height;
-    // print('width is $width; height is $height');
-    // ScreenUtil.init(context);
 
     return MaterialApp(
       // <--- /!\ Add the builder
@@ -78,7 +73,6 @@ class SailApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Application.router?.generator,
       localizationsDelegates: const [
-        // 本地化的代理类
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

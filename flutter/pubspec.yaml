@@ -15,42 +15,37 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.8+80
+version: 2.0.0+280
 
 environment:
   sdk: ">=2.18.5 <4.0.1"
 
-
-  # sdk: ">=2.15.0 <3.0.0"
-  
+ 
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
+   
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  another_flushbar: ^1.12.30
   cupertino_icons: ^1.0.5
   dio: ^4.0.6
   fluro: ^2.0.3
   shared_preferences: ^2.0.15
   webview_flutter: ^3.0.4
   provider: ^6.0.3
-  flutter_svg: ^0.23.0+1
-  flutter_screenutil: ^5.8.2
-  # flutter_screenutil: ^5.5.3+2
-  # flutter_swiper: ^1.1.6
-  flutter_swiper_plus: ^2.0.4
-  # flutter_login: ^3.2.0
-  flutter_login: ^4.1.1
+  flutter_svg: ^0.23.0+1 
+  flutter_screenutil: ^5.9.3 
+  flutter_swiper_plus: ^2.0.4 
+  flutter_login: ^5.0.0
   flutter_easyrefresh: ^2.1.8
-  intl: ^0.18.0
+  intl: ^0.19.0
   path_provider: ^2.0.10 
   crisp: ^0.3.1
-  modal_bottom_sheet: ^3.0.0-pre
-  # modal_bottom_sheet: ^2.1.2
+  modal_bottom_sheet: ^3.0.0-pre 
   fluttertoast: ^8.0.9
   meta: ^1.7.0
   flutter_icmp_ping: ^3.1.0
@@ -61,7 +56,6 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^5.0.0
   sync_http: ^0.3.1
-  # motion_tab_bar: ^0.0.1
 
 dev_dependencies:
   flutter_lints: ^2.0.1

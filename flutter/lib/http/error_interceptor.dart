@@ -13,7 +13,8 @@ class ErrorInterceptor extends Interceptor {
     DioHttpException appException = DioHttpException.create(err);
     // 错误提示
     print('DioError===: ${appException.toString()}');
-    err.error = appException;
+    // err.error = appException;
+
     super.onError(err, handler);
   }
 }

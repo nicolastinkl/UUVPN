@@ -1,11 +1,12 @@
 class AppUrls {
-  static const String baseUrl = "https://uu.lanmao123.com";
+  static const String baseUrl = "https://api.0009.uk";
   static const String baseApiUrl = '$baseUrl/api/v1'; // 基础接口地址
 
   static const String login = '$baseApiUrl/passport/auth/login';
   static const String register = '$baseApiUrl/passport/auth/register';
 
-  static const String getQuickLoginUrl = '$baseApiUrl/passport/auth/getQuickLoginUrl';
+  static const String getQuickLoginUrl =
+      '$baseApiUrl/passport/auth/getQuickLoginUrl';
 
   static const String userSubscribe = '$baseApiUrl/user/getSubscribe';
   static const String plan = '$baseApiUrl/guest/plan/fetch';

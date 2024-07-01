@@ -25,9 +25,7 @@ class HomePagesss extends StatelessWidget {
             Builder(builder: (context) {
               return RichText(
                   text: TextSpan(
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: isDarkTheme ? Colors.white : Colors.black),
+                      style: Theme.of(context).primaryTextTheme.labelMedium,
                       text:
                           Provider.of<UserPreference>(context).isCountDownStart
                               ? Random().nextInt(500).toString() + ' '
@@ -82,10 +80,10 @@ class HomePagesss extends StatelessWidget {
                 Flags.list[currentLocIndex]['name'] as String,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
-                style: Theme.of(context).primaryTextTheme.headline6,
+                style: Theme.of(context).primaryTextTheme.labelMedium,
               ),
               subtitle: Text('IP: 79.110.53.95',
-                  style: Theme.of(context).primaryTextTheme.caption),
+                  style: Theme.of(context).primaryTextTheme.labelMedium),
             );
           }),
         ),
