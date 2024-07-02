@@ -1,8 +1,9 @@
 # UUVPN
 基于Flutter开发的VPN客户端(ios/android)，自主设计，精美UI,优化VPN速度，完全开源。~~[停止维护]~~
+
 UUVPN client (ios/android) developed based on Flutter, self-designed, exquisite UI, optimized VPN speed, completely open source. ~~[Stop maintenance]~~
 
-[ReadME.Old](https://github.com/v2board/v2board) 
+[ReadME.Old](https://github.com/nicolastinkl/UUVPN/blob/main/README.old.md) 
 
 ![](screenshots/Snipaste_2023-06-25_11-38-47.png)
  
