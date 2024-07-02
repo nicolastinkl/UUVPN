@@ -28,7 +28,7 @@ UUVPN client (ios/android) developed based on Flutter, self-designed, exquisite 
 <div align=center>
 
 <img width=30% alt="English Demo" src="https://github.com/nicolastinkl/UUVPN/raw/main/screenshots/singbox.png">
-<img width=30% alt="English Demo" src="https://github.com/nicolastinkl/UUVPN/raw/main/screenshots/hiddify-next.png">
 <img width=30% alt="English Demo" src="https://github.com/nicolastinkl/UUVPN/raw/main/screenshots/metaandroid.png">
+<img width=40% alt="English Demo" src="https://github.com/nicolastinkl/UUVPN/raw/main/screenshots/hiddify-next.png">
 
 </div>
