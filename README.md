@@ -1,10 +1,15 @@
 # UUVPN
 基于Flutter开发的VPN客户端(ios/android)，自主设计，精美UI,优化VPN速度，完全开源。~~[停止维护]~~
+UUVPN client (ios/android) developed based on Flutter, self-designed, exquisite UI, optimized VPN speed, completely open source. ~~[Stop maintenance]~~
 
 [ReadME.Old](https://github.com/v2board/v2board) 
 
 ![](screenshots/Snipaste_2023-06-25_11-38-47.png)
  
+
+# 推荐 3 个开源的替代品，很强很完美 
+# Recommend 3 open source alternatives, very powerful and perfect
+
 | Feature/Aspect                  | [ClashMetaForAndroid](https://github.com/MetaCubeX/ClashMetaForAndroid)  | [sing-box](https://github.com/SagerNet/sing-box)  | [hiddify-next](https://github.com/hiddify/hiddify-next?tab=readme-ov-file)      |
 |---------------------------------|------------------------------------------------------|------------------------------|-----------------------------------------|
 | **Platform**                    | Android                                              | Android, iOS, Windows, macOS and Linux          | Android, Windows, macOS and Linux platforms                      |
