@@ -26,8 +26,4 @@ UUVPN client (ios/android) developed based on Flutter, self-designed, exquisite 
 
  
  
-<div align=center>
  
-<img width=100% alt="English Demo" src="https://github.com/nicolastinkl/UUVPN/raw/main/screenshots/hiddify-next.png">
-
-</div>
