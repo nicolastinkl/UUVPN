@@ -55,17 +55,17 @@ class ServerEntity {
         groupId: List<String>.from(json["group_id"]?.map((x) => x) ?? []),
         parentId: json["parent_id"],
         tags: List<String>.from(json["tags"]?.map((x) => x) ?? []),
-        name: "" + json["name"],
+        name: json["name"] ?? "",
         rate: json["rate"],
-        host: json["host"] + "",
+        host: json["host"] ?? "",
         port: int.parse(json["port"] ?? "0"),
         serverPort:
             int.parse(json["server_port"] ?? "0"), //json["server_port"],
         cipher: json["cipher"] ?? "",
-        show: json["show"],
-        sort: json["sort"],
-        createdAt: json["created_at"],
-        updatedAt: json["updated_at"],
+        show: json["show"] ?? 0,
+        sort: json["sort"] ?? 0,
+        createdAt: json["created_at"] ?? 0,
+        updatedAt: json["updated_at"] ?? 0,
         type: json["type"],
         lastCheckAt: "", //json["last_check_at"] +
       );

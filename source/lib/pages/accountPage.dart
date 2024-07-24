@@ -254,7 +254,7 @@ class AccountState extends State<AccountPage> {
               onTap: () => Navigator.of(context).push(MaterialPageRoute(
                   builder: (builder) => const SettingsRoute()))),
           divider,
-          Text("App Version: 1.0.6",
+          Text("App Version: 2.0.0",
               style: Theme.of(context).primaryTextTheme.labelMedium),
           /*userModel.isLogin
               ? GestureDetector(
