@@ -6,11 +6,12 @@
 
 # UUVPN 
 
- 
-A flutter application for [V2Board](https://github.com/v2board/v2board) ~~and [SSPanel-Uim](https://github.com/Anankke/SSPanel-Uim)~~
 
-support iOS application and  Android now.
+A VPN application for [V2Board](https://github.com/v2board/v2board)  
 
+Support iOS and Android now.
+
+![](screenshots/Snipaste_2024-07-24_12-57-31.png)
  
 **IF THIS PROJECT HELPS YOU, PLEASE GIVE ME A LITTLE STAR⭐️.**
 
