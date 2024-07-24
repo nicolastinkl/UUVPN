@@ -35,7 +35,6 @@
 		C09C70752C3E5685000F6E01 /* leaf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB10F52C3275EE00A1F217 /* leaf.xcframework */; };
 		C09C70762C3E5685000F6E01 /* leaf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB10F52C3275EE00A1F217 /* leaf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C09CB0812C50A09A0028C461 /* TESWT.m in Sources */ = {isa = PBXBuildFile; fileRef = C09CB0802C50A09A0028C461 /* TESWT.m */; };
-		C09CB08E2C50AEB40028C461 /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C09CB08D2C50AEB40028C461 /* Flutter.framework */; };
 		C0CB10F62C3275EE00A1F217 /* leaf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB10F52C3275EE00A1F217 /* leaf.xcframework */; };
 		DBC6F25A26C78B1D91884CE1 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9C0075B77637136AF52D8B /* Pods_Runner.framework */; };
 		E2B5FEC68AAAE043A3080A59 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9C0075B77637136AF52D8B /* Pods_Runner.framework */; };
@@ -128,7 +127,6 @@
 		C09CB07F2C50A09A0028C461 /* TESWT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TESWT.h; sourceTree = "<group>"; };
 		C09CB0802C50A09A0028C461 /* TESWT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TESWT.m; sourceTree = "<group>"; };
 		C09CB0832C50A0DD0028C461 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
-		C09CB08D2C50AEB40028C461 /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Flutter.framework; sourceTree = "<group>"; };
 		C0CB10F52C3275EE00A1F217 /* leaf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = leaf.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,7 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CB10F62C3275EE00A1F217 /* leaf.xcframework in Frameworks */,
-				C09CB08E2C50AEB40028C461 /* Flutter.framework in Frameworks */,
 				2FD21F2425A364B700F556E0 /* NetworkExtension.framework in Frameworks */,
 				DBC6F25A26C78B1D91884CE1 /* Pods_Runner.framework in Frameworks */,
 				E2B5FEC68AAAE043A3080A59 /* Pods_Runner.framework in Frameworks */,
@@ -254,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				C0CB10F52C3275EE00A1F217 /* leaf.xcframework */,
-				C09CB08D2C50AEB40028C461 /* Flutter.framework */,
 				2FD21EF825A363AA00F556E0 /* NetworkExtension.framework */,
 				4A9C0075B77637136AF52D8B /* Pods_Runner.framework */,
 			);
