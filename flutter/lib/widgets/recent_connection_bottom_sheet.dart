@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sail/constant/app_colors.dart';
+import 'package:uuvpn/constant/app_colors.dart';
 
 double minHeight = ScreenUtil().setHeight(260);
 const double iconStartSize = 44;
@@ -17,15 +17,19 @@ class RecentConnectionBottomSheet extends StatefulWidget {
   const RecentConnectionBottomSheet({Key? key}) : super(key: key);
 
   @override
-  RecentConnectionBottomSheetState createState() => RecentConnectionBottomSheetState();
+  RecentConnectionBottomSheetState createState() =>
+      RecentConnectionBottomSheetState();
 }
 
-class RecentConnectionBottomSheetState extends State<RecentConnectionBottomSheet> with SingleTickerProviderStateMixin {
+class RecentConnectionBottomSheetState
+    extends State<RecentConnectionBottomSheet>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   double get maxHeight => MediaQuery.of(context).size.height;
 
-  double? get headerTopMargin => lerp(20, 20 + MediaQuery.of(context).padding.top);
+  double? get headerTopMargin =>
+      lerp(20, 20 + MediaQuery.of(context).padding.top);
 
   double? get headerFontSize => lerp(14, 24);
 
@@ -38,9 +42,12 @@ class RecentConnectionBottomSheetState extends State<RecentConnectionBottomSheet
   double? get iconSize => lerp(iconStartSize, iconEndSize);
 
   double? iconTopMargin(int index) =>
-      lerp(iconStartMarginTop, iconEndMarginTop + index * (iconsVerticalSpacing + iconEndSize))! + headerTopMargin!;
+      lerp(iconStartMarginTop,
+          iconEndMarginTop + index * (iconsVerticalSpacing + iconEndSize))! +
+      headerTopMargin!;
 
-  double? iconLeftMargin(int index) => lerp(index * (iconsHorizontalSpacing + iconStartSize), 0);
+  double? iconLeftMargin(int index) =>
+      lerp(index * (iconsHorizontalSpacing + iconStartSize), 0);
 
   @override
   void initState() {
@@ -57,7 +64,8 @@ class RecentConnectionBottomSheetState extends State<RecentConnectionBottomSheet
     super.dispose();
   }
 
-  double? lerp(double min, double max) => lerpDouble(min, max, _controller.value);
+  double? lerp(double min, double max) =>
+      lerpDouble(min, max, _controller.value);
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +85,9 @@ class RecentConnectionBottomSheetState extends State<RecentConnectionBottomSheet
               padding: const EdgeInsets.symmetric(horizontal: 32),
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                    colors: [AppColors.themeColor, Colors.pink], begin: Alignment.topLeft, end: Alignment.bottomRight),
+                    colors: [AppColors.themeColor, Colors.pink],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
               ),
               child: Stack(
@@ -142,9 +152,11 @@ class RecentConnectionBottomSheetState extends State<RecentConnectionBottomSheet
   }
 
   void _handleDragEnd(DragEndDetails details) {
-    if (_controller.isAnimating || _controller.status == AnimationStatus.completed) return;
+    if (_controller.isAnimating ||
+        _controller.status == AnimationStatus.completed) return;
 
-    final double flingVelocity = details.velocity.pixelsPerSecond.dy / maxHeight;
+    final double flingVelocity =
+        details.velocity.pixelsPerSecond.dy / maxHeight;
     if (flingVelocity < 0.0) {
       _controller.fling(velocity: math.max(2.0, -flingVelocity));
     } else if (flingVelocity > 0.0) {
@@ -256,7 +268,8 @@ class SheetHeader extends StatelessWidget {
   final double? fontSize;
   final double? topMargin;
 
-  const SheetHeader({Key? key, required this.fontSize, required this.topMargin}) : super(key: key);
+  const SheetHeader({Key? key, required this.fontSize, required this.topMargin})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

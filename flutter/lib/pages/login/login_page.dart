@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:sail/model/themeCollection.dart';
-import 'package:sail/models/login_model.dart';
-import 'package:sail/models/user_model.dart';
-import 'package:sail/router/application.dart';
-import 'package:sail/service/user_service.dart';
-import 'package:sail/utils/l10n.dart';
-import 'package:sail/utils/navigator_util.dart';
-import 'package:sail/constant/app_strings.dart';
+import 'package:uuvpn/model/themeCollection.dart';
+import 'package:uuvpn/models/login_model.dart';
+import 'package:uuvpn/models/user_model.dart';
+import 'package:uuvpn/router/application.dart';
+import 'package:uuvpn/service/user_service.dart';
+import 'package:uuvpn/utils/l10n.dart';
+import 'package:uuvpn/utils/navigator_util.dart';
+import 'package:uuvpn/constant/app_strings.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

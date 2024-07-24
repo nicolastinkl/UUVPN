@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
-import 'package:sail/common/public.dart';
+import 'package:uuvpn/common/public.dart';
 import 'error_interceptor.dart';
 
 class Http {
@@ -19,9 +19,9 @@ class Http {
     if (dio == null) {
       // BaseOptions、Options、RequestOptions 都可以配置参数，优先级别依次递增，且可以根据优先级别覆盖参数
       BaseOptions options = new BaseOptions(
-        connectTimeout: CONNECT_TIMEOUT,
+        connectTimeout: Duration(seconds: CONNECT_TIMEOUT),
         // 响应流上前后两次接受到数据的间隔，单位为毫秒。
-        receiveTimeout: RECEIVE_TIMEOUT,
+        receiveTimeout: Duration(seconds: RECEIVE_TIMEOUT),
         headers: {},
       );
       if (options.contentType != null &&
@@ -64,8 +64,8 @@ class Http {
       List<Interceptor>? interceptors}) {
     dio!.options = dio!.options.copyWith(
       baseUrl: baseUrl,
-      connectTimeout: connectTimeout,
-      receiveTimeout: receiveTimeout,
+      connectTimeout: Duration(seconds: connectTimeout ?? 0),
+      receiveTimeout: Duration(seconds: receiveTimeout ?? 0),
     );
     if (interceptors != null && interceptors.isNotEmpty) {
       dio!.interceptors.addAll(interceptors);

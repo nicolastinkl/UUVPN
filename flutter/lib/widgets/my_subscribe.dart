@@ -3,16 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/entity/user_subscribe_entity.dart';
-import 'package:sail/model/themeCollection.dart';
-import 'package:sail/models/app_model.dart';
-import 'package:sail/models/user_model.dart';
-import 'package:sail/router/application.dart';
-import 'package:sail/routes/OnceNotice.dart';
-import 'package:sail/utils/l10n.dart';
-import 'package:sail/utils/navigator_util.dart';
-import 'package:sail/utils/transfer_util.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/entity/user_subscribe_entity.dart';
+import 'package:uuvpn/model/themeCollection.dart';
+import 'package:uuvpn/models/app_model.dart';
+import 'package:uuvpn/models/user_model.dart';
+import 'package:uuvpn/router/application.dart';
+import 'package:uuvpn/routes/OnceNotice.dart';
+import 'package:uuvpn/utils/l10n.dart';
+import 'package:uuvpn/utils/navigator_util.dart';
+import 'package:uuvpn/utils/transfer_util.dart';
 
 class MySubscribe extends StatefulWidget {
   const MySubscribe(

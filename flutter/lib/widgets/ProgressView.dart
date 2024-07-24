@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sail/constant/app_colors.dart';
+import 'package:uuvpn/constant/app_colors.dart';
 
 class ProgressView extends StatelessWidget {
   const ProgressView({Key? key}) : super(key: key);

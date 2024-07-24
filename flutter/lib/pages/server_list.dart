@@ -2,13 +2,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/model/themeCollection.dart';
-import 'package:sail/models/app_model.dart';
-import 'package:sail/models/server_model.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/model/themeCollection.dart';
+import 'package:uuvpn/models/app_model.dart';
+import 'package:uuvpn/models/server_model.dart';
 import 'package:flutter/material.dart';
-import 'package:sail/utils/common_util.dart';
-import 'package:sail/utils/l10n.dart';
+import 'package:uuvpn/utils/common_util.dart';
+import 'package:uuvpn/utils/l10n.dart';
 
 class ServerListPage extends StatefulWidget {
   const ServerListPage({Key? key}) : super(key: key);

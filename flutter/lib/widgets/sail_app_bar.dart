@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/models/app_model.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/models/app_model.dart';
 
 class SailAppBar extends AppBar {
-  SailAppBar({Key? key, required this.appTitle})
-      : super(key: key);
+  SailAppBar({Key? key, required this.appTitle}) : super(key: key);
 
   final String appTitle;
 
@@ -27,10 +26,12 @@ class SailAppBarState extends State<SailAppBar> {
     return AppBar(
         title: Text(
           widget.appTitle,
-          style: TextStyle(color: _appModel.isOn ? Colors.black : Colors.white, fontWeight: FontWeight.w900),
+          style: TextStyle(
+              color: _appModel.isOn ? Colors.black : Colors.white,
+              fontWeight: FontWeight.w900),
         ),
         elevation: 0,
-        backgroundColor: _appModel.isOn ? AppColors.yellowColor : AppColors.grayColor
-);
+        backgroundColor:
+            _appModel.isOn ? AppColors.yellowColor : AppColors.grayColor);
   }
 }

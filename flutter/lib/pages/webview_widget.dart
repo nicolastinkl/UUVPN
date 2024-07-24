@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sail/constant/app_strings.dart';
+import 'package:uuvpn/constant/app_strings.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewWidget extends StatefulWidget {
@@ -37,7 +37,8 @@ class WebViewWidgetState extends State<WebViewWidget> {
         centerTitle: true,
       ),
       body: WebView(
-        initialUrl: widget.url?.isEmpty == true ? AppStrings.appName : widget.url,
+        initialUrl:
+            widget.url?.isEmpty == true ? AppStrings.appName : widget.url,
         javascriptMode: JavascriptMode.unrestricted,
         onWebViewCreated: (controller) => this.controller = controller,
         onPageFinished: (url) {

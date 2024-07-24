@@ -14,9 +14,9 @@ class DioHttpException implements Exception {
     return "$code$message";
   }
 
-  factory DioHttpException.create(DioError error) {
+  factory DioHttpException.create(DioException error) {
     switch (error.type) {
-      case DioErrorType.other:
+      case DioExceptionType.unknown:
         {
           // 网络异常
           return BadRequestException(-2, "无网络");
@@ -27,7 +27,7 @@ class DioHttpException implements Exception {
           return BadRequestException(-1, "请求取消");
         }
 
-      case DioErrorType.connectTimeout:
+      case DioErrorType.connectionTimeout:
         {
           return BadRequestException(-1, "连接超时");
         }
@@ -42,7 +42,7 @@ class DioHttpException implements Exception {
           return BadRequestException(-1, "响应超时");
         }
 
-      case DioErrorType.response:
+      case DioErrorType.badResponse:
         {
           try {
             int? errCode = error.response!.statusCode;

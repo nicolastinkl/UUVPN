@@ -1,9 +1,9 @@
-import 'package:sail/constant/app_strings.dart';
-import 'package:sail/entity/login_entity.dart';
-import 'package:sail/entity/user_entity.dart';
-import 'package:sail/models/base_model.dart';
-import 'package:sail/utils/navigator_util.dart';
-import 'package:sail/utils/shared_preferences_util.dart';
+import 'package:uuvpn/constant/app_strings.dart';
+import 'package:uuvpn/entity/login_entity.dart';
+import 'package:uuvpn/entity/user_entity.dart';
+import 'package:uuvpn/models/base_model.dart';
+import 'package:uuvpn/utils/navigator_util.dart';
+import 'package:uuvpn/utils/shared_preferences_util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserModel extends BaseModel {

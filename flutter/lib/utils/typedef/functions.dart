@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:sail/go_router.dart';
+// import 'package:uuvpn/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:sail/resources/app_colors.dart';
-import 'package:sail/resources/app_routes.dart';
-import 'package:sail/resources/app_values.dart';
+import 'package:uuvpn/resources/app_colors.dart';
+import 'package:uuvpn/resources/app_routes.dart';
+import 'package:uuvpn/resources/app_values.dart';
 
 String getDate(String? date) {
   if (date == null || date.isEmpty) {

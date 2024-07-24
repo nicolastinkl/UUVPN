@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:sail/channels/Platform.dart';
-import 'package:sail/utils/common_util.dart';
+import 'package:uuvpn/channels/Platform.dart';
+import 'package:uuvpn/utils/common_util.dart';
 
 enum VpnStatus {
   connected(code: 2),

@@ -1,8 +1,8 @@
 //ignore_for_file: file_names
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/router/application.dart';
-import 'package:sail/utils/l10n.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/router/application.dart';
+import 'package:uuvpn/utils/l10n.dart';
 
 import '/model/themeCollection.dart';
 import 'package:flutter/material.dart';

@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:sail/constant/app_strings.dart';
-import 'package:sail/router/application.dart';
-import 'package:sail/router/routers.dart';
-import 'package:sail/utils/common_util.dart';
-import 'package:sail/utils/shared_preferences_util.dart';
+import 'package:uuvpn/constant/app_strings.dart';
+import 'package:uuvpn/router/application.dart';
+import 'package:uuvpn/router/routers.dart';
+import 'package:uuvpn/utils/common_util.dart';
+import 'package:uuvpn/utils/shared_preferences_util.dart';
 
 class HttpUtil {
   static HttpUtil get instance => _httpUtil;
@@ -12,8 +12,8 @@ class HttpUtil {
 
   HttpUtil() {
     BaseOptions options = BaseOptions(
-      connectTimeout: 10000,
-      receiveTimeout: 10000,
+      connectTimeout: Duration(seconds: 10000),
+      receiveTimeout: Duration(seconds: 10000),
     );
     dio = Dio(options);
     dio.interceptors
@@ -53,10 +53,10 @@ class HttpUtil {
           Application.navigatorKey.currentState?.pushNamed(Routers.login);
         }
 
-        return handler.reject(DioError(
+        return handler.reject(DioException(
             requestOptions: response.requestOptions,
             response: response,
-            type: DioErrorType.response));
+            type: DioExceptionType.badResponse));
       }
 
       return handler.next(response);

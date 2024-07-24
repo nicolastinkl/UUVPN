@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sail/utils/l10n.dart';
+import 'package:uuvpn/utils/l10n.dart';
 
 class Application {
   static FluroRouter? router;

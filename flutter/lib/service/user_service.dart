@@ -1,8 +1,8 @@
-import 'package:sail/constant/app_urls.dart';
-import 'package:sail/entity/login_entity.dart';
-import 'package:sail/entity/user_entity.dart';
-import 'package:sail/entity/user_subscribe_entity.dart';
-import 'package:sail/utils/http_util.dart';
+import 'package:uuvpn/constant/app_urls.dart';
+import 'package:uuvpn/entity/login_entity.dart';
+import 'package:uuvpn/entity/user_entity.dart';
+import 'package:uuvpn/entity/user_subscribe_entity.dart';
+import 'package:uuvpn/utils/http_util.dart';
 
 class UserService {
   Future<LoginEntity>? login(Map<String, dynamic> parameters) {

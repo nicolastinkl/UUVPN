@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sail/constant/app_images.dart';
-import 'package:sail/constant/app_strings.dart';
-
+import 'package:uuvpn/constant/app_images.dart';
+import 'package:uuvpn/constant/app_strings.dart';
 
 class NotFindPage extends StatelessWidget {
   const NotFindPage({Key? key}) : super(key: key);

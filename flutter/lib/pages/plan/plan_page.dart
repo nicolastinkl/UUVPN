@@ -1,4 +1,4 @@
-import 'package:sail/widgets/sliding_cards.dart';
+import 'package:uuvpn/widgets/sliding_cards.dart';
 import 'package:flutter/material.dart';
 
 class PlanPage extends StatelessWidget {

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sail/adapters/leaf_ffi/config.dart';
-import 'package:sail/channels/Platform.dart';
-import 'package:sail/channels/vpn_manager.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/constant/app_strings.dart';
-import 'package:sail/models/base_model.dart';
-import 'package:sail/models/server_model.dart';
-import 'package:sail/models/user_model.dart';
-import 'package:sail/utils/common_util.dart';
+import 'package:uuvpn/adapters/leaf_ffi/config.dart';
+import 'package:uuvpn/channels/Platform.dart';
+import 'package:uuvpn/channels/vpn_manager.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/constant/app_strings.dart';
+import 'package:uuvpn/models/base_model.dart';
+import 'package:uuvpn/models/server_model.dart';
+import 'package:uuvpn/models/user_model.dart';
+import 'package:uuvpn/utils/common_util.dart';
 
 class AppModel extends BaseModel {
   VpnManager vpnManager = VpnManager();
@@ -174,17 +174,17 @@ class AppModel extends BaseModel {
 
   void setConfigRule(String tag) async {
     var proxy = config.proxies?.where((proxies) => proxies.tag == tag);
-    
+
     if (proxy == null || proxy.isEmpty) {
       return;
     }
-    
+
     config.rules?.last.target = tag;
-    
+
     print("-----------------config-----------------");
     print(config);
     print("-----------------config-----------------");
-    
+
     vpnManager.setTunnelConfiguration(config.toString());
   }
 }

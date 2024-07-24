@@ -1,6 +1,6 @@
-import 'package:sail/constant/app_urls.dart';
-import 'package:sail/entity/server_entity.dart';
-import 'package:sail/utils/http_util.dart';
+import 'package:uuvpn/constant/app_urls.dart';
+import 'package:uuvpn/entity/server_entity.dart';
+import 'package:uuvpn/utils/http_util.dart';
 
 class ServerService {
   Future<List<ServerEntity>> server() {

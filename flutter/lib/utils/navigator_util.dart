@@ -4,12 +4,12 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:sail/pages/accountPage.dart';
-import 'package:sail/pages/crisp_page.dart';
-import 'package:sail/pages/plan/plan_page.dart';
-import 'package:sail/pages/server_list.dart';
-import 'package:sail/router/application.dart';
-import 'package:sail/router/routers.dart';
+import 'package:uuvpn/pages/accountPage.dart';
+import 'package:uuvpn/pages/crisp_page.dart';
+import 'package:uuvpn/pages/plan/plan_page.dart';
+import 'package:uuvpn/pages/server_list.dart';
+import 'package:uuvpn/router/application.dart';
+import 'package:uuvpn/router/routers.dart';
 
 class NavigatorUtil {
   static goHomePage(BuildContext context) {

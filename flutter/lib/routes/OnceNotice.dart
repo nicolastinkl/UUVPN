@@ -1,6 +1,6 @@
 // OnceNotice.dart
 //ignore_for_file: file_names
-import 'package:sail/pages/ProOnecePage.dart';
+import 'package:uuvpn/pages/ProOnecePage.dart';
 
 import '/pages/proPage.dart';
 import 'package:flutter/material.dart';

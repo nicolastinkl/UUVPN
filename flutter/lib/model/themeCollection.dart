@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:sail/resources/app_theme.dart';
+import 'package:uuvpn/resources/app_theme.dart';
 
 class ThemeCollection extends ChangeNotifier {
   /// _colorSwatch method or function take RGB color as argument and after processing

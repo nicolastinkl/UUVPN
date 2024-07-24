@@ -1,12 +1,12 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:sail/pages/accountPage.dart';
-import 'package:sail/pages/home/home_page.dart';
-import 'package:sail/pages/404/not_find_page.dart';
-import 'package:sail/pages/login/login_page.dart';
-import 'package:sail/pages/plan/plan_page.dart';
-import 'package:sail/pages/server_list.dart';
-import 'package:sail/pages/webview_widget.dart';
+import 'package:uuvpn/pages/accountPage.dart';
+import 'package:uuvpn/pages/home/home_page.dart';
+import 'package:uuvpn/pages/404/not_find_page.dart';
+import 'package:uuvpn/pages/login/login_page.dart';
+import 'package:uuvpn/pages/plan/plan_page.dart';
+import 'package:uuvpn/pages/server_list.dart';
+import 'package:uuvpn/pages/webview_widget.dart';
 import 'dart:convert';
 
 /// 入口

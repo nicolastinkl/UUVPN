@@ -1,5 +1,5 @@
 /*后台接口api*/
-import 'package:sail/common/public.dart';
+import 'package:uuvpn/common/public.dart';
 
 class Apis {
   static String appid = "IPOSih2134KHJKLDIO";

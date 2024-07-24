@@ -1,6 +1,6 @@
-import 'package:sail/constant/app_urls.dart';
-import 'package:sail/entity/plan_entity.dart';
-import 'package:sail/utils/http_util.dart';
+import 'package:uuvpn/constant/app_urls.dart';
+import 'package:uuvpn/entity/plan_entity.dart';
+import 'package:uuvpn/utils/http_util.dart';
 
 class PlanService {
   Future<List<PlanEntity>>? plan() {
@@ -10,7 +10,8 @@ class PlanService {
   }
 
   Future<PlanEntity>? planDetail(int id) {
-    return HttpUtil.instance?.get(AppUrls.plan, parameters: {'id': id}).then((result) {
+    return HttpUtil.instance
+        ?.get(AppUrls.plan, parameters: {'id': id}).then((result) {
       return PlanEntity.fromMap(result['data']);
     });
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/entity/plan_entity.dart';
-import 'package:sail/entity/user_subscribe_entity.dart';
-import 'package:sail/models/user_model.dart';
-import 'package:sail/utils/l10n.dart';
-import 'package:sail/utils/navigator_util.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/entity/plan_entity.dart';
+import 'package:uuvpn/entity/user_subscribe_entity.dart';
+import 'package:uuvpn/models/user_model.dart';
+import 'package:uuvpn/utils/l10n.dart';
+import 'package:uuvpn/utils/navigator_util.dart';
 
 class PlanList extends StatefulWidget {
   const PlanList(

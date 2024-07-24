@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sail/resources/app_colors.dart';
-import 'package:sail/resources/app_typography.dart';
+import 'package:uuvpn/resources/app_colors.dart';
+import 'package:uuvpn/resources/app_typography.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData(

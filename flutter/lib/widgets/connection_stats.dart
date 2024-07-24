@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:sail/channels/Platform.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/model/themeCollection.dart';
-import 'package:sail/models/app_model.dart';
-import 'package:sail/models/server_model.dart';
-import 'package:sail/models/user_model.dart';
-import 'package:sail/utils/l10n.dart';
-import 'package:sail/utils/navigator_util.dart';
+import 'package:uuvpn/channels/Platform.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/model/themeCollection.dart';
+import 'package:uuvpn/models/app_model.dart';
+import 'package:uuvpn/models/server_model.dart';
+import 'package:uuvpn/models/user_model.dart';
+import 'package:uuvpn/utils/l10n.dart';
+import 'package:uuvpn/utils/navigator_util.dart';
 
 class ConnectionStats extends StatefulWidget {
   const ConnectionStats({Key? key}) : super(key: key);

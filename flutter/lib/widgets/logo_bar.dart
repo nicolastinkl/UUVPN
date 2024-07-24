@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:sail/constant/app_colors.dart';
-import 'package:sail/constant/app_strings.dart';
-import 'package:sail/models/app_model.dart';
-import 'package:sail/models/user_model.dart';
-import 'package:sail/models/user_subscribe_model.dart';
-import 'package:sail/utils/l10n.dart';
-import 'package:sail/utils/navigator_util.dart';
+import 'package:uuvpn/constant/app_colors.dart';
+import 'package:uuvpn/constant/app_strings.dart';
+import 'package:uuvpn/models/app_model.dart';
+import 'package:uuvpn/models/user_model.dart';
+import 'package:uuvpn/models/user_subscribe_model.dart';
+import 'package:uuvpn/utils/l10n.dart';
+import 'package:uuvpn/utils/navigator_util.dart';
 
 class LogoBar extends StatelessWidget {
   const LogoBar({
