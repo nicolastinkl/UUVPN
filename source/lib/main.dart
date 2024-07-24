@@ -17,6 +17,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'model/UserPreference.dart';
 import 'model/themeCollection.dart';
+import 'resources/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,24 +51,14 @@ class SailApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // // var userViewModel = Provider.of<UserModel>(context);
-    // // var onceuse = userViewModel.getOnceUse();
-    // // print("onceuse.toString(): ${onceuse.toString()}");
-    // String onceuse = "0";
-    // if (onceuse == "1") {
-    // } else {
-
-    // }
-
-    AppModel appModel = Provider.of<AppModel>(context);
-
+    //   AppModel appModel = Provider.of<AppModel>(context);
+    // appModel.themeData
     services.SystemChrome.setPreferredOrientations([
       services.DeviceOrientation.portraitUp,
       services.DeviceOrientation.portraitDown
     ]);
 
     return MaterialApp(
-      // <--- /!\ Add the builder
       title: AppStrings.appName,
       navigatorKey: Application.navigatorKey,
       debugShowCheckedModeBanner: false,
@@ -83,6 +74,8 @@ class SailApp extends StatelessWidget {
         Locale('zh', 'CN'), // 简体中文
         //其它Locales
       ],
+      darkTheme: getApplicationTheme(),
+      themeMode: ThemeMode.dark,
       // theme: appModel.themeData, //固定主题
       theme: Provider.of<ThemeCollection>(context).getActiveTheme,
     );
