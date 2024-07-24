@@ -9,7 +9,7 @@ import os
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-//    GeneratedPluginRegistrant.register(with: self)
+    GeneratedPluginRegistrant.register(with: self)
 
     let controller : FlutterViewController = window?.rootViewController as! FlutterViewController;
     let vpnManagerChannel = FlutterMethodChannel.init(name: "com.vpntunnel.vpnzeus/vpn_manager",
