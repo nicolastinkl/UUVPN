@@ -61,7 +61,7 @@ flutter build ios
 
 # How to use it?
 
-![](screenshots/Snipaste_2024-07-24_12-57-31.png)
+![](screenshots/Snipaste_2024-07-24_14-25-11.png)
 
 - 1:  Change Domain File Path : ~UUVPN/flutter/lib/constant/app_urls.dart
   ```
