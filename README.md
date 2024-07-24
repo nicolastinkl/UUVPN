@@ -11,7 +11,7 @@ A VPN application for [V2Board](https://github.com/v2board/v2board)
 
 Support iOS and Android now.
 
-![](screenshots/Snipaste_2024-07-24_12-57-31.png)
+
  
 **IF THIS PROJECT HELPS YOU, PLEASE GIVE ME A LITTLE STAR⭐️.**
 
@@ -61,6 +61,7 @@ flutter build ios
 
 # How to use it?
 
+![](screenshots/Snipaste_2024-07-24_12-57-31.png)
 
 - 1:  Change Domain File Path : ~UUVPN/flutter/lib/constant/app_urls.dart
   ```
