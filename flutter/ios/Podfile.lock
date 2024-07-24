@@ -26,7 +26,7 @@ PODS:
     - PhoneNumberKit/PhoneNumberKitCore
   - shared_preferences_ios (0.0.1):
     - Flutter
-  - Toast (4.0.0)
+  - Toast (4.1.1)
   - url_launcher_ios (0.0.1):
     - Flutter
   - webview_flutter_wkwebview (0.0.1):
@@ -79,10 +79,10 @@ SPEC CHECKSUMS:
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PhoneNumberKit: ced55861269312a5e3bc2ef82a58d6255b1c976a
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
-  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
   webview_flutter_wkwebview: b7e70ef1ddded7e69c796c7390ee74180182971f
 
-PODFILE CHECKSUM: 2cac2355308eef43139d5b34f7a00e0eaa241759
+PODFILE CHECKSUM: de47e8edb5f824045744e95e4ae955933333d4a0
 
 COCOAPODS: 1.15.2

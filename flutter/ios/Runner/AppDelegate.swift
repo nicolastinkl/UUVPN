@@ -12,7 +12,7 @@ import os
     GeneratedPluginRegistrant.register(with: self)
 
     let controller : FlutterViewController = window?.rootViewController as! FlutterViewController;
-    let vpnManagerChannel = FlutterMethodChannel.init(name: "com.sail_tunnel.sail/vpn_manager",
+    let vpnManagerChannel = FlutterMethodChannel.init(name: "com.vpntunnel.vpnzeus/vpn_manager",
                                                    binaryMessenger: controller.binaryMessenger);
     let manager = VPNManager.shared()
 

@@ -22,7 +22,7 @@ import io.flutter.plugins.GeneratedPluginRegistrant
 import java.io.File
 
 class MainActivity: FlutterActivity() {
-    private val channel = "com.sail_tunnel.sail/vpn_manager"
+    private val channel = "com.vpntunnel.vpnzeus/vpn_manager"
 
     private fun getServiceIntent(): Intent {
         return Intent(this, TunnelService::class.java)

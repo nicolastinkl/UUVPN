@@ -18,7 +18,7 @@ enum VpnStatus {
 class VpnManager {
   Future<VpnStatus> getStatus() async {
     // Native channel
-    const platform = MethodChannel("com.sail_tunnel.sail/vpn_manager");
+    const platform = MethodChannel("com.vpntunnel.vpnzeus/vpn_manager");
     if (Platform.isAndroid || Platform.isMacOS) {
       bool? result = await platform.invokeMethod("getStatus");
       // print("${result}");
@@ -40,7 +40,7 @@ class VpnManager {
 
   Future<DateTime> getConnectedDate() async {
     // Native channel
-    const platform = MethodChannel("com.sail_tunnel.sail/vpn_manager");
+    const platform = MethodChannel("com.vpntunnel.vpnzeus/vpn_manager");
     double result;
     try {
       if (Platform.isAndroid || Platform.isMacOS) {
@@ -58,7 +58,7 @@ class VpnManager {
 
   Future<bool> toggle() async {
     // Native channel
-    const platform = MethodChannel("com.sail_tunnel.sail/vpn_manager");
+    const platform = MethodChannel("com.vpntunnel.vpnzeus/vpn_manager");
     bool result = false;
     try {
       result = await platform.invokeMethod("toggle");
@@ -72,7 +72,7 @@ class VpnManager {
 
   Future<String> getTunnelLog() async {
     // Native channel
-    const platform = MethodChannel("com.sail_tunnel.sail/vpn_manager");
+    const platform = MethodChannel("com.vpntunnel.vpnzeus/vpn_manager");
     String result;
     try {
       result = await platform.invokeMethod("getTunnelLog");
@@ -86,7 +86,7 @@ class VpnManager {
 
   Future<String> getTunnelConfiguration() async {
     // Native channel
-    const platform = MethodChannel("com.sail_tunnel.sail/vpn_manager");
+    const platform = MethodChannel("com.vpntunnel.vpnzeus/vpn_manager");
     String result;
     try {
       result = await platform.invokeMethod("getTunnelConfiguration");
@@ -100,7 +100,7 @@ class VpnManager {
 
   Future<String> setTunnelConfiguration(String conf) async {
     // Native channel
-    const platform = MethodChannel("com.sail_tunnel.sail/vpn_manager");
+    const platform = MethodChannel("com.vpntunnel.vpnzeus/vpn_manager");
     String result;
     try {
       result = await platform.invokeMethod("setTunnelConfiguration", conf);
