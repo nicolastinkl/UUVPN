@@ -32,8 +32,8 @@ class MainActivity: FlutterActivity() {
         super.onCreate(savedInstanceState)
         Core.init(this, MainActivity::class)
 
-//        GeneratedPluginRegistrant.registerWith(FlutterEngine(this))
-//        GeneratedPluginRegister.registerGeneratedPlugins(FlutterEngine(this));
+        GeneratedPluginRegistrant.registerWith(FlutterEngine(this))
+        GeneratedPluginRegister.registerGeneratedPlugins(FlutterEngine(this));
 
 //        MethodChannel(FlutterView(this), channel).setMethodCallHandler { call, result ->
 //            if (call.method == "getBatteryLevel") {
