@@ -60,7 +60,7 @@ flutter build ios
 ---------------------- 
 
 # How to use it?
-![](screenshots/combined_image.png)
+![](screenshots/ios.png)
 ![](screenshots/Snipaste_2024-07-24_14-25-11.png)
 ![](screenshots/Snipaste_2024-07-24_14-58-41.png)
 
