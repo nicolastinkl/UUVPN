@@ -3,8 +3,8 @@
 
 ### UUVPN源代码基于Flutter开发，过于难维护，UI效果也很差，最主要是性能和稳定性都不行，所以就决定重新基于 （IOS MACOS）和 Android 分别 基于 SINGBOX 和 CLASH 的内核进行研发。成品已经开发好，视频和展示图如下：
 
-![](combined_image10-17_23-24.jpeg)
-![](RPReplay_Final1729180549.MP4)
+![](screenshots/combined_image10-18_00-06.png)
+![](screenshots/RPReplay_Final1729180549.MP4)
 
 
 
