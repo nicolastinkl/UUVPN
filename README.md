@@ -1,18 +1,18 @@
 # UUVPN
-基于Flutter开发的VPN客户端(ios/android)，自主设计，精美UI,优化VPN速度，完全开源。
+
 
 ### UUVPN源代码基于Flutter开发，过于难维护，UI效果也很差，最主要是性能和稳定性都不行，所以就决定重新基于 （IOS MACOS）和 Android 分别 基于 SINGBOX 和 CLASH 的内核进行研发。成品已经开发好，视频和展示图如下：
 
 ![](screenshots/combined_image10-18_00-08.jpeg)
-![](screenshots/RPReplay_Final1729180549.MP4)
+![](screenshots/4b35f3fd-17a1-40f5-9c73-4484437ca7e6.gif)
 
 
 
--------------------过去 UUVPN 的老代码 分界线-------------------------
+-------------------------------过去 UUVPN 的老代码 分界线-------------------------------------
 ![](screenshots/Snipaste_2023-06-25_11-38-47.png)
 
 # UUVPN 
-
+基于Flutter开发的VPN客户端(ios/android)，自主设计，精美UI,优化VPN速度，完全开源。
 
 A VPN application for [V2Board](https://github.com/v2board/v2board)  
 
@@ -79,8 +79,7 @@ flutter build ios
 - 2: Xcode Settings:
 ![](screenshots/Snipaste_2023-12-05_09-48-45.png)
 ![](screenshots/Snipaste_2023-12-05_09-49-14.png)
-![](screenshots/Snipaste_2023-12-05_09-49-23.png)
-![](screenshots/4db2f52524536ff706c99472a767f6b6.gif)
+![](screenshots/Snipaste_2023-12-05_09-49-23.png) 
 
 - 3: running screenshot:
 ![](screenshots/Snipaste_2023-12-05_15-43-54.png)
