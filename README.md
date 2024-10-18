@@ -27,6 +27,13 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
    <td><img src="screenshots/IMG_8548.PNG" width="300" /></td>
    <td><img src="screenshots/IMG_8549.PNG" width="300" /></td>
   </tr>  
+
+  <tr>
+    <td><img src="screenshots/Screenshot_2024_10_18_19_54_46_324_com_github_metacubex_clash_alpha.jpg" width="300" /></td>
+   <td><img src="screenshots/Screenshot_2024_10_18_19_55_14_247_com_github_metacubex_clash_alpha.jpg" width="300" /></td>
+   <td><img src="screenshots/Screenshot_2024_10_18_19_54_56_188_com_github_metacubex_clash_alpha.jpg" width="300" /></td>
+  </tr>  
+  
 </table>
 
 
