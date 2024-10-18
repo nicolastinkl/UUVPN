@@ -42,7 +42,12 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 
 
--------------------------------过去 UUVPN 的老代码 分界线-------------------------------------
+# Legacy Version (Original Flutter-based UUVPN)
+The following section contains information about the original Flutter-based UUVPN for historical reference.
+
+<details> <summary>Click to view the legacy version details</summary>
+# Old Description:
+  
 ![](screenshots/Snipaste_2023-06-25_11-38-47.png)
 
 # UUVPN 
