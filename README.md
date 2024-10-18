@@ -1,21 +1,20 @@
-# UUVPN
+## UUVPN - Redesigned for Performance, Stability, and V2Board Compatibility
 
+The original UUVPN was built using Flutter, which led to increasing challenges in maintaining the codebase due to performance issues, subpar UI quality, and a lack of stability. To address these concerns, UUVPN has been completely redeveloped for native performance on iOS/macOS and Android, utilizing the powerful SINGBOX and CLASH cores.
 
-UUVPN - Redesigned for Performance and Stability
-The original UUVPN was built using Flutter, but maintaining the codebase became increasingly difficult due to performance issues, poor UI quality, and lack of stability. As a result, we decided to completely redevelop UUVPN, focusing on native performance for iOS/macOS and Android by using the SINGBOX and CLASH cores respectively.
+### The new version features:
 
-The new version delivers a more responsive user interface, enhanced stability, and significant performance improvements.
+- A sleek, more responsive user interface
+- Enhanced app stability
+- Significant performance optimizations
+- Additionally, UUVPN now supports server backend protocols with full compatibility for V2Board, providing a more seamless and flexible user experience for VPN management.
 
-## Features:
-Seamless Connectivity: Built on the powerful SINGBOX and CLASH cores for efficient and secure connections.
-Improved UI: Redesigned with a sleek, modern interface optimized for user experience.
-Cross-Platform: Available for iOS, macOS, and Android.
-Stability: Improved app architecture ensures a more reliable performance.
+### Key Features:
+- Native Performance: Utilizing SINGBOX for iOS/macOS and CLASH for Android, UUVPN is optimized for stability and speed.
+- V2Board Compatibility: Fully supports V2Board protocols, offering smooth integration for backend management.
+- Refined UI: A completely redesigned interface with a modern look and feel, providing a user-friendly experience.
 
-## Preview
-Check out the demo video and screenshots below:
-
-
+## Screenshots and Demo Video:
 <table>
   <tr>
     <td><img src="screenshots/IMG_8545.PNG" width="300" /></td>
