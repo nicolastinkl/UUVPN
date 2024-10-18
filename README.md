@@ -15,7 +15,20 @@ Stability: Improved app architecture ensures a more reliable performance.
 ## Preview
 Check out the demo video and screenshots below:
 
-![](screenshots/combined_image10-18_00-08.jpeg)
+
+<table>
+  <tr>
+    <td><img src="screenshots/IMG_8545.PNG" width="300" /></td>
+   <td><img src="screenshots/IMG_8546.PNG" width="300" /></td>
+   <td><img src="screenshots/IMG_8544.PNG" width="300" /></td>
+  </tr>  
+
+  <tr>
+    <td><img src="screenshots/IMG_8547.PNG" width="300" /></td>
+   <td><img src="screenshots/IMG_8548.PNG" width="300" /></td>
+   <td><img src="screenshots/IMG_8549.PNG" width="300" /></td>
+  </tr>  
+</table>
 
 
 ## Screenshots:
@@ -24,9 +37,7 @@ Check out the demo video and screenshots below:
     <td><img src="screenshots/13264cf9-99e7-4ff8-8e32-2564eea05670.gif" width="300" /></td>
    <td><img src="screenshots/8a51ed33-248b-45eb-b5ba-b92821256632.gif" width="300" /></td>
    <td><img src="screenshots/8a51ed33-248b-45eb-b5ba-b928212566321.gif" width="300" /></td>
-  </tr>
- 
-  
+  </tr>  
 </table>
 
 
