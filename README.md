@@ -17,16 +17,12 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 ## Screenshots and Demo Video:
 <table>
   <tr>
-    <td><img src="screenshots/IMG_8545.PNG" width="300" /></td>
+    
    <td><img src="screenshots/IMG_8546.PNG" width="300" /></td>
    <td><img src="screenshots/IMG_8544.PNG" width="300" /></td>
+   <td><img src="screenshots/IMG_8547.PNG" width="300" /></td>
   </tr>  
-
-  <tr>
-    <td><img src="screenshots/IMG_8547.PNG" width="300" /></td>
-   <td><img src="screenshots/IMG_8548.PNG" width="300" /></td>
-   <td><img src="screenshots/IMG_8549.PNG" width="300" /></td>
-  </tr>    
+ 
 </table>
 
 ![](screenshots/combined_image10-22_09-53.jpeg)
