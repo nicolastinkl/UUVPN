@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/.cxx/RelWithDebInfo/3n172x2f/arm64-v8a'
+ninja: no work to do.

@@ -1,0 +1,38 @@
+{
+  "buildFiles": [
+    "/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Applications/Unity/Hub/Editor/2022.3.32f1/PlaybackEngines/AndroidPlayer/SDK/cmake/3.18.1/bin/ninja",
+      "-C",
+      "/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/.cxx/RelWithDebInfo/i674g392/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Applications/Unity/Hub/Editor/2022.3.32f1/PlaybackEngines/AndroidPlayer/SDK/cmake/3.18.1/bin/ninja",
+    "-C",
+    "/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/.cxx/RelWithDebInfo/i674g392/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "bridge::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "bridge",
+      "output": "/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/build/intermediates/cxx/RelWithDebInfo/i674g392/obj/armeabi-v7a/libbridge.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Applications/Unity/Hub/Editor/2022.3.32f1/PlaybackEngines/AndroidPlayer/SDK/ndk/23.0.7599858/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Applications/Unity/Hub/Editor/2022.3.32f1/PlaybackEngines/AndroidPlayer/SDK/ndk/23.0.7599858/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}
