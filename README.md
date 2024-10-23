@@ -14,7 +14,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 - V2Board Compatibility: Fully supports V2Board protocols, offering smooth integration for backend management.
 - Refined UI: A completely redesigned interface with a modern look and feel, providing a user-friendly experience.
 
-## Screenshots and Demo Video:
+## Screenshots and iOS  Demo Video:
 <table>
   <tr>
     
@@ -38,6 +38,16 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 
 
+# Android Screenshots
+<table>
+   <tr>
+    
+   <td><img src="screenshots/android1.jpg" width="300" /></td>
+   <td><img src="screenshots/android2.jpg" width="300" /></td>
+   <td><img src="screenshots/android3.jpg" width="300" /></td>
+  </tr>  
+
+</table>
 
 # Legacy Version (Original Flutter-based UUVPN)
 The following section contains information about the original Flutter-based UUVPN for historical reference. If you need the source code, you can check out the **flutter** branch
