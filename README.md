@@ -49,6 +49,18 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 </table>
 
+# Android App Project
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- **Operating System**: Any system that supports Android development (Windows, macOS, Linux).
+- **Java Development Kit (JDK)**: JDK 11 or higher.
+- **Android Studio**: The official IDE for Android development, version 4.1 or higher.
+- **Android SDK**: The latest version of the Android SDK tools.
+- **Go**: go version go1.23.2 darwin/amd64
+
 # Legacy Version (Original Flutter-based UUVPN)
 The following section contains information about the original Flutter-based UUVPN for historical reference. If you need the source code, you can check out the **flutter** branch
 
