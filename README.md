@@ -14,6 +14,11 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 - V2Board Compatibility: Fully supports V2Board protocols, offering smooth integration for backend management.
 - Refined UI: A completely redesigned interface with a modern look and feel, providing a user-friendly experience.
 
+
+### Download iOS and android 
+- [TestFlight (Beta) Telegram me]()
+- [Android Apk](https://github.com/nicolastinkl/UUVPN/releases) 
+
 ## Screenshots and iOS  Demo Video:
 <table>
   <tr>
