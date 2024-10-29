@@ -41,7 +41,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
   <tr>
     
-   <td><img src="screenshots/21-31-06.PNG" width="300" /></td>
+   <td><img src="screenshots/21-31-06.png" width="300" /></td>
    <td><img src="screenshots/IMG_8728.PNG" width="300" /></td>
    <td><img src="screenshots/IMG_8725.PNG" width="300" /></td>
   </tr>  
