@@ -16,7 +16,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 
 ### Download iOS and android 
-- [TestFlight (Beta) Telegram me]()
+- [TestFlight (Beta) Telegram me](https:/t.me/dcgzeus)
 - [Android Apk](https://github.com/nicolastinkl/UUVPN/releases) 
 
 ## Screenshots and iOS  Demo Video:
