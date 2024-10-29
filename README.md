@@ -20,6 +20,8 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 - [Android Apk](https://github.com/nicolastinkl/UUVPN/releases) 
 
 ## Screenshots and iOS  Demo Video:
+
+### SKIN 1:
 <table>
   <tr>
     
@@ -27,17 +29,36 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
    <td><img src="screenshots/IMG_8544.PNG" width="300" /></td>
    <td><img src="screenshots/IMG_8547.PNG" width="300" /></td>
   </tr>  
+
+ </table>
  
+
+
+### SKIN 2:
+
+
+<table>
+
+  <tr>
+    
+   <td><img src="screenshots/21-31-06.PNG" width="300" /></td>
+   <td><img src="screenshots/IMG_8728.PNG" width="300" /></td>
+   <td><img src="screenshots/IMG_8725.PNG" width="300" /></td>
+  </tr>  
+
 </table>
+
+### LOGIC VIEWS:
 
 ![](screenshots/combined_image10-22_09-53.jpeg)
 
 ## Screenshots:
 <table>
   <tr>
-    <td><img src="screenshots/13264cf9-99e7-4ff8-8e32-2564eea05670.gif" width="300" /></td>
-   <td><img src="screenshots/8a51ed33-248b-45eb-b5ba-b92821256632.gif" width="300" /></td>
-   <td><img src="screenshots/8a51ed33-248b-45eb-b5ba-b928212566321.gif" width="300" /></td>
+  <td><img src="screenshots/13264cf9-99e7-4ff8-8e32-2564eea05670.gif" width="200" /></td>
+   <td><img src="screenshots/8a51ed33-248b-45eb-b5ba-b92821256632.gif" width="200" /></td>
+   <td><img src="screenshots/8a51ed33-248b-45eb-b5ba-b928212566321.gif" width="200" /></td>
+   <td><img src="screenshots/56f3e47e-bef0-424a-9b68-76c3fe3f4546.gif" width="200" /></td>
   </tr>  
 </table>
 
