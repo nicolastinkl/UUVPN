@@ -50,6 +50,19 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 ### LOGIC VIEWS:
 
+
+<table>
+
+  <tr>
+    
+   <td><img src="screenshots/mmexport1730598307009.png" width="300" /></td>
+   <td><img src="screenshots/mmexport1730598308041.PNG" width="300" /></td>
+   <td><img src="screenshots/mmexport1730598311150.PNG" width="300" /></td>
+  </tr>  
+
+</table>
+
+
 ![](screenshots/combined_image10-22_09-53.jpeg)
 
 ## Vidos:
