@@ -93,7 +93,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
    <tr>
     
    <td><img src="screenshots/android/2024-11-09 08.41.41.jpg" width="300" /></td>
-   <td><img src="screenshots/android/2024-11-09 08.44.20.jpg" width="300" /></td>
+   <td><img src="screenshots/android/IMAGE 2024-11-104.jpg" width="300" /></td>
    <td><img src="screenshots/android/2024-11-09 08.44.17.jpg" width="300" /></td>
   </tr>  
 
@@ -102,6 +102,14 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
    <td><img src="screenshots/android/2024-11-09 08.39.51.jpg" width="300" /></td>
    <td><img src="screenshots/android/2024-11-09 08.40.03.jpg" width="300" /></td>
    <td><img src="screenshots/android/2024-11-09 08.40.06.jpg" width="300" /></td>
+  </tr>  
+
+
+  <tr>
+    
+   <td><img src="screenshots/android/IMAGE 2024-11-101.jpg" width="300" /></td>
+   <td><img src="screenshots/android/IMAGE 2024-11-102.jpg" width="300" /></td>
+   <td><img src="screenshots/android/IMAGE 2024-11-103.jpg" width="300" /></td>
   </tr>  
 
 </table>
