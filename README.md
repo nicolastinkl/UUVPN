@@ -112,6 +112,14 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
    <td><img src="screenshots/android/IMAGE 2024-11-103.jpg" width="300" /></td>
   </tr>  
 
+  <tr>
+    
+   <td><img src="screenshots/android/1.png" width="300" /></td>
+   <td><img src="screenshots/android/2.png" width="300" /></td>
+   <td><img src="screenshots/android/3.jpg" width="300" /></td>
+  </tr>  
+
+
 </table>
 
 # Android App Project
