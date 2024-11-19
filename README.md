@@ -3,7 +3,7 @@
 The original UUVPN was built using Flutter, which led to increasing challenges in maintaining the codebase due to performance issues, subpar UI quality, and a lack of stability. To address these concerns, UUVPN has been completely redeveloped for native performance on iOS/macOS and Android, utilizing the powerful SINGBOX and CLASH cores.
 
 
-![](screenshots/android/combined_image11-19_12-04.jpeg)
+![](screenshots/android/combined_image11-19_12-04-1.jpeg)
 
 
 ### The new version features:
