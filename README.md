@@ -88,7 +88,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 </table>
 
 
-[![视频预览地址](https://img.youtube.com/vi/tnr38-IM-Xo/0.jpg)](https://youtube.com/shorts/tnr38-IM-Xo)
+## [iOS Youtu视频预览地址](https://img.youtube.com/vi/tnr38-IM-Xo/0.jpg)
  
 
 # Android App Project
