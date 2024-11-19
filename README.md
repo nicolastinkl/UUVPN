@@ -89,42 +89,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 
 [![视频预览地址](https://img.youtube.com/vi/tnr38-IM-Xo/0.jpg)](https://youtube.com/shorts/tnr38-IM-Xo)
-
-
-
-# Android Screenshots
-<table>
-   <tr>
-    
-   <td><img src="screenshots/android/Screenshot_20241114_170527.png" width="300" /></td>
-   <td><img src="screenshots/android/Screenshot_20241114_170541.png" width="300" /></td>
-   <td><img src="screenshots/android/Screenshot_20241114_170516.png" width="300" /></td>
-  </tr>  
-
-  <tr>
-    
-   <td><img src="screenshots/android/2024-11-09 08.39.51.jpg" width="300" /></td>
-   <td><img src="screenshots/android/2024-11-09 08.44.172.jpg" width="300" /></td>
-   <td><img src="screenshots/android/Screenshot_20241114_170605.png" width="300" /></td>
-  </tr>  
-
-
-  <tr>
-    
-   <td><img src="screenshots/android/IMAGE 2024-11-101.jpg" width="300" /></td>
-   <td><img src="screenshots/android/IMAGE 2024-11-102.jpg" width="300" /></td>
-   <td><img src="screenshots/android/IMAGE 2024-11-103.jpg" width="300" /></td>
-  </tr>  
-
-  <tr>
-    
-   <td><img src="screenshots/android/1.png" width="300" /></td>
-   <td><img src="screenshots/android/2.png" width="300" /></td>
-   <td><img src="screenshots/android/3.jpg" width="300" /></td>
-  </tr>  
-
-
-</table>
+ 
 
 # Android App Project
 
