@@ -1,4 +1,4 @@
-## UUVPN - Redesigned for Performance, Stability, and V2Board Compatibility
+## UUVPN - Redesigned for Performance, Stability, and [V2Board](https://github.com/v2board/v2board) Compatibility
 
 The original UUVPN was built using Flutter, which led to increasing challenges in maintaining the codebase due to performance issues, subpar UI quality, and a lack of stability. To address these concerns, UUVPN has been completely redeveloped for native performance on iOS/macOS and Android, utilizing the powerful SINGBOX and CLASH cores.
 
@@ -20,7 +20,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 
 ### Download iOS and android 
-- [TestFlight (Beta) Telegram me](https:/t.me/dcgzeus)
+- [TestFlight (Beta) Telegram Me Get](https:/t.me/dcgzeus)
 - [Android Apk](https://github.com/nicolastinkl/UUVPN/releases) 
 
 ## Screenshots and iOS  Demo Video:
