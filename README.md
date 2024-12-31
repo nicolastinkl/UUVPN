@@ -93,6 +93,7 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 
 # Android App Project
 
+![](screenshots/combined_image12-31_10-39.jpeg)
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
