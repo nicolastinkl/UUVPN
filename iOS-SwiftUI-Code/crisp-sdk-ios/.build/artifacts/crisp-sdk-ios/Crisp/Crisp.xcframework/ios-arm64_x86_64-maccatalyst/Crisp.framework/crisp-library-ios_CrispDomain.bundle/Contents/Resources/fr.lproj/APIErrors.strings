@@ -1,0 +1,15 @@
+"authenticated_route" = "This resource is available for authenticated users only.";
+"conversation_not_found" = "The conversation could not be found.";
+"invalid_data" = "The data you sent is invalid. Please correct it and try again.";
+"invalid_session" = "Your session is invalid. You cannot access this resource.";
+"not_allowed" = "You are not allowed to access this resource.";
+"people_email_exists" = "Another profile with that email exists. Change the email.";
+"rate_limited" = "Oops. Looks like you are rate limited for this resource. Try again later.";
+"rejected" = "Your credentials are invalid. Please retry.";
+"service_degraded" = "This action is temporarily unavailable, as Crisp is currently unable to honor your request. Try again in a few seconds.";
+"session_not_found" = "The conversation session could not be found.";
+"subscription_upgrade_required" = "This feature is not available in your current subscription. Please upgrade your plan.";
+"timed_out" = "Access to the resource timed out. Try again later.";
+"token_forced_member_websites" = "Two Factor Authentication cannot be disabled, as at least one of your websites has forced it in its options.";
+"token_scope_forbidden" = "Your authentication token lacks the required scope to perform this action.";
+"website_member_token_missing" = "At least a member of the website does not have Two Factor Authentication enabled. All operators should configure it before enabling the force option.";

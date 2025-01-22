@@ -1,0 +1,189 @@
+# https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md
+
+name: "GRDB CI"
+
+on:
+  push:
+    branches: 
+      - master
+      - development
+    paths:
+      - 'GRDB/**'
+      - 'Tests/**'
+      - '.github/workflows/**'
+      - 'Makefile'
+      - 'Package.swift'
+      - 'SQLiteCustom/src'
+  pull_request:
+    paths:
+      - 'GRDB/**'
+      - 'Tests/**'
+      - '.github/workflows/**'
+      - 'Makefile'
+      - 'Package.swift'
+      - 'SQLiteCustom/src'
+
+concurrency: 
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+
+jobs:
+  Framework:
+    name: Framework
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}/Contents/Developer"
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            destination: "platform=macOS"
+            name: "macOS"
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            destination: "OS=16.4,name=iPhone 14 Pro"
+            name: "iOS"
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            destination: "OS=16.4,name=Apple TV"
+            name: "tvOS"
+          - xcode: "Xcode_14.2.app"
+            runsOn: macOS-13
+            destination: "platform=macOS"
+            name: "macOS"
+          - xcode: "Xcode_14.2.app"
+            runsOn: macOS-13
+            destination: "OS=16.2,name=iPhone 14"
+            name: "iOS"
+          - xcode: "Xcode_14.1.app"
+            runsOn: macOS-13
+            destination: "platform=macOS"
+            name: "macOS"
+          - xcode: "Xcode_14.1.app"
+            runsOn: macOS-13
+            destination: "OS=16.1,name=iPhone 14"
+            name: "iOS"
+          - xcode: "Xcode_14.0.1.app"
+            runsOn: macOS-12
+            destination: "platform=macOS"
+            name: "macOS"
+          - xcode: "Xcode_14.0.1.app"
+            runsOn: macOS-12
+            destination: "OS=16.0,name=iPhone 14"
+            name: "iOS"
+    steps:
+      - uses: actions/checkout@v4
+      - name: ${{ matrix.name }}
+        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project GRDB.xcodeproj -scheme GRDB -destination "${{ matrix.destination }}" OTHER_SWIFT_FLAGS='$(inherited) -D SQLITE_ENABLE_FTS5 -D SQLITE_ENABLE_PREUPDATE_HOOK' GCC_PREPROCESSOR_DEFINITIONS='$(inherited) GRDB_SQLITE_ENABLE_PREUPDATE_HOOK=1' clean test
+  SPM:
+    name: SPM
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}/Contents/Developer"
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            name: "Xcode 14.3.1"
+          - xcode: "Xcode_14.2.app"
+            runsOn: macOS-13
+            name: "Xcode 14.2"
+          - xcode: "Xcode_14.1.app"
+            runsOn: macOS-13
+            name: "Xcode 14.1"
+          - xcode: "Xcode_14.0.1.app"
+            runsOn: macOS-12
+            name: "Xcode 14.0.1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: ${{ matrix.name }}
+        run: make test_SPM test_install_SPM
+  SQLCipher3:
+    name: SQLCipher3
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}/Contents/Developer"
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            name: "Xcode 14.3.1"
+          - xcode: "Xcode_14.0.1.app"
+            runsOn: macOS-12
+            name: "Xcode 14.0.1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: ${{ matrix.name }}
+        run: make test_framework_SQLCipher3Encrypted
+  SQLCipher4:
+    name: SQLCipher4
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}/Contents/Developer"
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            name: "Xcode 14.3.1"
+          - xcode: "Xcode_14.0.1.app"
+            runsOn: macOS-12
+            name: "Xcode 14.0.1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: ${{ matrix.name }}
+        run: make test_framework_SQLCipher4Encrypted
+  CustomSQLite:
+    name: CustomSQLite
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}/Contents/Developer"
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            name: "Xcode 14.3.1"
+          - xcode: "Xcode_14.0.1.app"
+            runsOn: macOS-12
+            name: "Xcode 14.0.1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: ${{ matrix.name }}
+        run: make test_framework_GRDBCustomSQLiteOSX
+  XCFramework:
+    name: XCFramework
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}/Contents/Developer"
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_14.3.1.app"
+            runsOn: macOS-13
+            name: "Xcode 14.3.1"
+          - xcode: "Xcode_14.0.1.app"
+            runsOn: macOS-12
+            name: "Xcode 14.0.1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: ${{ matrix.name }}
+        run: make test_universal_xcframework
+    

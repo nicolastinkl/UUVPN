@@ -1,0 +1,15 @@
+"authenticated_route" = "Tämä resurssi on vain todennettujen käyttäjien käytettävissä.";
+"conversation_not_found" = "Keskustelua ei löytynyt.";
+"invalid_data" = "Lähettämäsi tiedot ovat virheellisiä. Korjaa se ja yritä uudelleen.";
+"invalid_session" = "Istuntosi ei ole voimassa. Et voi käyttää tätä resurssia.";
+"not_allowed" = "Et saa käyttää tätä resurssia.";
+"people_email_exists" = "Toinen profiili, jossa on tämä sähköpostiosoite, on olemassa. Vaihda sähköpostiosoite.";
+"rate_limited" = "Hups. Näyttää siltä, että tämän resurssin hinta on rajoitettu. Yritä myöhemmin uudelleen.";
+"rejected" = "Valtakirjasi ovat virheelliset. Yritä uudelleen.";
+"service_degraded" = "Tämä toiminto ei ole tilapäisesti käytettävissä, sillä Crisp ei voi tällä hetkellä täyttää pyyntöäsi. Yritä uudelleen muutaman sekunnin kuluttua.";
+"session_not_found" = "Keskusteluistuntoa ei löytynyt.";
+"subscription_upgrade_required" = "Tämä ominaisuus ei ole käytettävissä nykyisessä tilauksessasi. Päivitä liittymääsi.";
+"timed_out" = "Resurssin käyttö on päättynyt. Yritä myöhemmin uudelleen.";
+"token_forced_member_websites" = "Kaksitekijätodennusta ei voi poistaa käytöstä, koska ainakin yksi verkkosivusto on pakottanut sen asetuksissaan.";
+"token_scope_forbidden" = "Todennuskuvakkeellasi ei ole tämän toiminnon suorittamiseen tarvittavaa laajuutta.";
+"website_member_token_missing" = "Ainakin yhdellä verkkosivuston jäsenellä ei ole kaksitekijätodennusta käytössä. Kaikkien operaattoreiden tulisi määrittää se ennen force-vaihtoehdon käyttöönottoa.";

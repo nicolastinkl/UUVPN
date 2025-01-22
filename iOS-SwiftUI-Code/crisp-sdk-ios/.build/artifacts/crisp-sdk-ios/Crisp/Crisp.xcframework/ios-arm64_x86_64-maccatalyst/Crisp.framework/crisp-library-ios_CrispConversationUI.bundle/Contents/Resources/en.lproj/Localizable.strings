@@ -1,0 +1,28 @@
+"chat.chat_message_file_button" = "Download file";
+"chat.chat_message_error_retry" = "Failed to send. Retry?";
+"chat.chat_message_info_read" = "Read";
+"chat.chat_message_info_read_in" = "Read in %@";
+"chat.chat_message_info_delivered" = "Delivered";
+"chat.chat_message_info_delivered_to" = "Delivered to %@";
+
+"ios.chat_fieldmessage_submit" = "Ok";
+
+"ios.chat_message_detail_cancel" = "Cancel";
+"ios.chat_message_detail_copy" = "Copy";
+"ios.chat_message_detail_sent_at" = "Sent at";
+"ios.chat_message_detail_sent_from" = "Sent from";
+
+"chat.chat_message_event.state_resolved" = "Resolved conversation";
+"chat.chat_message_event.user_blocked" = "Blocked user";
+"chat.chat_message_event.reminder_scheduled" = "Left a reminder";
+"chat.chat_message_event.thread_started" = "Started thread";
+"chat.chat_message_event.thread_ended" = "Ended thread";
+"chat.chat_message_event.participant_added" = "Added participant";
+"chat.chat_message_event.participant_removed" = "Removed participant";
+"chat.chat_message_event.call_started" = "Started a call";
+"chat.chat_message_event.call_ended" = "Ended the call";
+"chat.chat_message_event.unknown" = "An unknown event occurred";
+
+"chat.chat_message_note.title" = "%@ left this private note";
+
+"chat.chat_message_email.see_more" = "See more";

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:Documentation/Playgrounds"
+      name = "Playgrounds">
+      <FileRef
+         location = "group:Tour.playground">
+      </FileRef>
+      <FileRef
+         location = "group:TransactionObserver.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Associations.playground">
+      </FileRef>
+      <FileRef
+         location = "group:MyPlayground.playground">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:BRAG.md">
+   </FileRef>
+   <FileRef
+      location = "group:CHANGELOG.md">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:TODO.md">
+   </FileRef>
+   <FileRef
+      location = "group:Documentation/ReleaseProcess.md">
+   </FileRef>
+   <FileRef
+      location = "group:Makefile">
+   </FileRef>
+   <FileRef
+      location = "group:GRDB.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:GRDBCustom.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tests/Performance/GRDBProfiling/GRDBProfiling.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Documentation/DemoApps/GRDBDemoiOS/GRDBDemoiOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Documentation/DemoApps/GRDBCombineDemo/GRDBCombineDemo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Documentation/DemoApps/GRDBAsyncDemo/GRDBAsyncDemo.xcodeproj">
+   </FileRef>
+</Workspace>

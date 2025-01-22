@@ -1,0 +1,15 @@
+"authenticated_route" = "Denne ressource er kun tilgængelig for autentificerede brugere.";
+"conversation_not_found" = "Samtalen kunne ikke findes.";
+"invalid_data" = "De data, du har sendt, er ugyldige. Ret dem venligst og prøv igen.";
+"invalid_session" = "Din session er ugyldig. Du kan ikke få adgang til denne ressource.";
+"not_allowed" = "Du har ikke tilladelse til at få adgang til denne ressource.";
+"people_email_exists" = "Der findes en anden profil med denne e-mail. Ændre e-mailen.";
+"rate_limited" = "Ups. Det ser ud til, at du har begrænset hastighed for denne ressource. Prøv igen senere.";
+"rejected" = "Dine legitimationsoplysninger er ugyldige. Prøv venligst igen.";
+"service_degraded" = "Denne handling er midlertidigt ikke tilgængelig, da Crisp i øjeblikket ikke kan imødekomme din anmodning. Prøv igen om et par sekunder.";
+"session_not_found" = "Samtalesessionen kunne ikke findes.";
+"subscription_upgrade_required" = "Denne funktion er ikke tilgængelig i dit nuværende abonnement. Du bedes opgradere dit abonnement.";
+"timed_out" = "Adgangen til ressourcen er udløbet. Prøv igen senere.";
+"token_forced_member_websites" = "To-faktor-autentifikation kan ikke deaktiveres, da mindst et af dine websteder har tvunget det i sine indstillinger.";
+"token_scope_forbidden" = "Dit godkendelsestoken har ikke det nødvendige omfang til at udføre denne handling.";
+"website_member_token_missing" = "Mindst et medlem af webstedet har ikke aktiveret to-faktor-autentifikation. Alle operatører bør konfigurere den, før de aktiverer indstillingen Force.";
