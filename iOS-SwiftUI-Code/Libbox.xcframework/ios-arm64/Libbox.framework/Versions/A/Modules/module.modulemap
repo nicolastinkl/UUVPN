@@ -1,0 +1,8 @@
+framework module "Libbox" {
+	header "ref.h"
+    header "Libbox.objc.h"
+    header "Universe.objc.h"
+    header "Libbox.h"
+
+    export *
+}

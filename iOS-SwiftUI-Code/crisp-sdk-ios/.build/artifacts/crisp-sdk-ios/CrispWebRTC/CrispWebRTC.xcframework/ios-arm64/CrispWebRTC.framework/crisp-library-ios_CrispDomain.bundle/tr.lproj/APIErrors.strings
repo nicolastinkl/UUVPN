@@ -1,0 +1,15 @@
+"authenticated_route" = "Bu kaynak yalnızca kimliği doğrulanmış kullanıcılar tarafından kullanılabilir.";
+"conversation_not_found" = "Konuşma bulunamadı.";
+"invalid_data" = "Gönderdiğiniz veriler geçersiz. Lütfen düzeltin ve tekrar deneyin.";
+"invalid_session" = "Oturumunuz geçersiz. Bu kaynağa erişemezsiniz.";
+"not_allowed" = "Bu kaynağa erişim izniniz yok.";
+"people_email_exists" = "Bu e-postaya sahip başka bir profil var. E-postayı değiştirin.";
+"rate_limited" = "Oops. Bu kaynak için oran sınırlamanız var gibi görünüyor. Daha sonra tekrar deneyin.";
+"rejected" = "Kimlik bilgileriniz geçersiz. Lütfen tekrar deneyin.";
+"service_degraded" = "Crisp şu anda isteğinizi yerine getiremediği için bu eylem geçici olarak kullanılamıyor. Birkaç saniye içinde tekrar deneyin.";
+"session_not_found" = "Görüşme oturumu bulunamadı.";
+"subscription_upgrade_required" = "Bu özellik mevcut aboneliğinizde mevcut değildir. Lütfen planınızı yükseltin.";
+"timed_out" = "Kaynağa erişim zaman aşımına uğradı. Daha sonra tekrar deneyin.";
+"token_forced_member_websites" = "İki Faktörlü Kimlik Doğrulama devre dışı bırakılamaz, çünkü web sitelerinizden en az biri seçeneklerinde bunu zorunlu kılmıştır.";
+"token_scope_forbidden" = "Kimlik doğrulama belirteciniz bu eylemi gerçekleştirmek için gerekli kapsamdan yoksundur.";
+"website_member_token_missing" = "Web sitesinin en az bir üyesinde İki Faktörlü Kimlik Doğrulama etkin değil. Zorla seçeneğini etkinleştirmeden önce tüm operatörler bunu yapılandırmalıdır.";

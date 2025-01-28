@@ -1,0 +1,15 @@
+"authenticated_route" = "Este recurso está disponível apenas para usuários autenticados.";
+"conversation_not_found" = "A conversa não foi encontrada.";
+"invalid_data" = "Os dados que você enviou são inválidos. Corrija-o e tente novamente.";
+"invalid_session" = "Sua sessão é inválida. Você não pode acessar este recurso.";
+"not_allowed" = "Você não tem permissão para acessar este recurso.";
+"people_email_exists" = "Existe outro perfil com esse e-mail. Altere o e-mail.";
+"rate_limited" = "Ops. Parece que você tem uma taxa limitada para este recurso. Tente mais tarde.";
+"rejected" = "Suas credenciais são inválidas. Por favor tente novamente.";
+"service_degraded" = "Esta ação está temporariamente indisponível, pois o Crisp não pode atender sua solicitação no momento. Tente novamente em alguns segundos.";
+"session_not_found" = "A sessão de conversação não foi encontrada.";
+"subscription_upgrade_required" = "Este recurso não está disponível em sua assinatura atual. Por favor, atualize seu plano.";
+"timed_out" = "O acesso ao recurso expirou. Tente mais tarde.";
+"token_forced_member_websites" = "A autenticação de dois fatores não pode ser desativada, pois pelo menos um de seus sites a forçou em suas opções.";
+"token_scope_forbidden" = "Seu token de autenticação não possui o escopo necessário para executar esta ação.";
+"website_member_token_missing" = "Pelo menos um membro do site não tem a autenticação de dois fatores habilitada. Todos os operadores devem configurá-lo antes de habilitar a opção force.";
