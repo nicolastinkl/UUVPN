@@ -1,0 +1,3 @@
+ninja: Entering directory `/Users/mac/Documents/GitHub/LiteVPN-Android/core/.cxx/RelWithDebInfo/2c3t534j/arm64-v8a'
+[1/2] Building C object CMakeFiles/bridge.dir/main.c.o
+[2/2] Linking C shared library /Users/mac/Documents/GitHub/LiteVPN-Android/core/build/intermediates/cxx/RelWithDebInfo/2c3t534j/obj/arm64-v8a/libbridge.so

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="surface"
+            type="com.github.kr328.clash.design.ui.Surface" />
+
+        <variable
+            name="self"
+            type="com.github.kr328.clash.design.H5WebViewDesign" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
+        android:paddingStart="@{surface.insets.start}"
+        android:paddingEnd="@{surface.insets.end}">
+
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:layout_marginTop="90dp"
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:progressDrawable="@drawable/progress_bar_drawable"
+            android:layout_gravity="top"
+            />
+        <LinearLayout
+            android:layout_marginTop="92dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="match_parent">
+
+
+            <WebView
+                android:background="@color/white"
+                android:id="@+id/webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+
+
+
+        <com.github.kr328.clash.design.view.ActivityBarLayout
+            android:id="@+id/activity_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@{surface.insets.top}"
+            android:paddingEnd="@dimen/item_tailing_margin">
+
+            <!-- 使用 ConstraintLayout 包裹 FrameLayout -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/common_activity_bar"  />
+                <FrameLayout
+                    android:id="@+id/url_test_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:id="@+id/url_test_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="@dimen/toolbar_image_action_padding"
+                        android:onClick="@{() -> self.requestRefereshTesting()}"
+                        app:tint="@color/white"
+                        android:src="@drawable/ic_baseline_replay" />
+
+                </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.github.kr328.clash.design.view.ActivityBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

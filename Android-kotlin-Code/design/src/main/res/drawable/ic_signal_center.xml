@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/ic_signal_full.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 背景矩形 -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M2,20h4v-6h-4v6zM8,20h4v-10h-4v10zM14,20h4v-14h-4v14zM20,20h4v-18h-4v18z"/>
+</vector>

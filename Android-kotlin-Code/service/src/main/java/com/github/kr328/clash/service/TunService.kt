@@ -13,6 +13,7 @@ import com.github.kr328.clash.service.clash.clashRuntime
 import com.github.kr328.clash.service.clash.module.*
 import com.github.kr328.clash.service.model.AccessControlMode
 import com.github.kr328.clash.service.store.ServiceStore
+import com.github.kr328.clash.service.util.PreferenceManagerServer
 import com.github.kr328.clash.service.util.cancelAndJoinBlocking
 import com.github.kr328.clash.service.util.parseCIDR
 import com.github.kr328.clash.service.util.sendClashStarted
@@ -82,7 +83,7 @@ class TunService : VpnService(), CoroutineScope by CoroutineScope(Dispatchers.De
 
     override fun onCreate() {
         super.onCreate()
-
+        //PreferenceManagerServer.init(this)
         if (StatusProvider.serviceRunning)
             return stopSelf()
 

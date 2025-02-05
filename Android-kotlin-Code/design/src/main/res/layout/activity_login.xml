@@ -1,0 +1,183 @@
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/login_logoImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/appstore"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Welcome Text -->
+    <TextView
+        android:id="@+id/login_welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="欢迎使用 UUVPN"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Subtext -->
+    <TextView
+        android:id="@+id/login_subText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="全球网络加速服务，注册即享免费试用"
+        android:textSize="14sp"
+        android:textColor="@color/gray"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/login_emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入邮箱地址"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/mail_24px"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/rounded_edittext"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:drawableTint="@color/gray"
+        android:drawablePadding="10dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Password Input -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/login_passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入密码"
+        android:textSize="14sp"
+        android:drawablePadding="10dp"
+        android:textColorHint="@color/gray"
+        android:drawableTint="@color/gray"
+
+        android:drawableStart="@drawable/lock_24px"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+
+        android:textColor="@color/black"
+        android:background="@drawable/rounded_edittext"
+         />
+
+        <ImageView
+            android:id="@+id/togglePasswordVisibility"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_gravity="right"
+            android:clickable="true"
+
+            android:focusable="true"
+            android:padding="12dp"
+            android:src="@drawable/ic_visibility_off_24px"/>
+    </FrameLayout>
+
+    <!-- Forgot Password Text -->
+    <Button
+        android:id="@+id/login_forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="忘记密码？"
+        android:textSize="14sp"
+        android:textColor="@color/blue"
+android:visibility="gone"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_gravity="end"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Agreement Checkbox -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/login_agreementCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同意"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/login_privacy"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:padding="0dp"
+            android:layout_height="wrap_content"
+            android:text="《隐私政策》及《用户协议》"
+            android:background="?android:attr/selectableItemBackground" />
+    </LinearLayout>
+
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/login_loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登 录"
+        android:backgroundTint="@color/blue_gradient"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Register Text -->
+    <Button
+        android:id="@+id/login_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="没有账户？注册"
+        android:background="?android:attr/selectableItemBackground"
+        android:textSize="14sp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="8dp" />
+
+    <!-- Footer -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 你的其他布局组件 -->
+
+        <!-- Footer -->
+        <TextView
+            android:id="@+id/login_footerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="© 2024 · UUVPN"
+            android:textSize="12sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+</layout>

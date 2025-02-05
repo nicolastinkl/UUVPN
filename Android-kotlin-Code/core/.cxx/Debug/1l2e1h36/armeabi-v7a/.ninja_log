@@ -1,0 +1,11 @@
+# ninja log v5
+0	31	1733736661	CMakeFiles/bridge.dir/bridge_helper.c.o	7822cbbfddb87a5c
+0	44	1733736661	CMakeFiles/bridge.dir/jni_helper.c.o	30e41a3849b62ce0
+0	51	1733736661	CMakeFiles/bridge.dir/main.c.o	121135c3241716f0
+51	87	1733736661	/Users/mac/Documents/GitHub/LiteVPN-Android/core/build/intermediates/cxx/Debug/1l2e1h36/obj/armeabi-v7a/libbridge.so	27c4849e000ffc33
+0	5	0	clean	3aac71530c245c7c
+1	30	1733737408	CMakeFiles/bridge.dir/bridge_helper.c.o	7822cbbfddb87a5c
+1	42	1733737408	CMakeFiles/bridge.dir/jni_helper.c.o	30e41a3849b62ce0
+1	54	1733737408	CMakeFiles/bridge.dir/main.c.o	121135c3241716f0
+54	101	1733737408	/Users/mac/Documents/GitHub/LiteVPN-Android/core/build/intermediates/cxx/Debug/1l2e1h36/obj/armeabi-v7a/libbridge.so	27c4849e000ffc33
+0	6	0	clean	3aac71530c245c7c

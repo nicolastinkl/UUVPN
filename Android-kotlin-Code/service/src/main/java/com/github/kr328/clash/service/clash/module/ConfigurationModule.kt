@@ -1,6 +1,7 @@
 package com.github.kr328.clash.service.clash.module
 
 import android.app.Service
+import android.content.Context
 import com.github.kr328.clash.common.constants.Intents
 import com.github.kr328.clash.common.log.Log
 import com.github.kr328.clash.core.Clash
@@ -8,6 +9,7 @@ import com.github.kr328.clash.service.StatusProvider
 import com.github.kr328.clash.service.data.ImportedDao
 import com.github.kr328.clash.service.data.SelectionDao
 import com.github.kr328.clash.service.store.ServiceStore
+import com.github.kr328.clash.service.util.PreferenceManagerServer
 import com.github.kr328.clash.service.util.importedDir
 import com.github.kr328.clash.service.util.sendProfileLoaded
 import kotlinx.coroutines.channels.Channel
@@ -45,7 +47,7 @@ class ConfigurationModule(service: Service) : Module<ConfigurationModule.LoadExc
 
             try {
                 val current = store.activeProfile
-                    ?: throw NullPointerException("No profile selected")
+                    ?: throw NullPointerException("刷新节点数据成功，请重新点击连接VPN")
 
                 if (current == loaded && changed != null && changed != loaded)
                     continue
@@ -53,7 +55,7 @@ class ConfigurationModule(service: Service) : Module<ConfigurationModule.LoadExc
                 loaded = current
 
                 val active = ImportedDao().queryByUUID(current)
-                    ?: throw NullPointerException("No profile selected")
+                    ?: throw NullPointerException("刷新节点数据成功，请重新点击连接VPN")
 
                 Clash.load(service.importedDir.resolve(active.uuid.toString())).await()
 
@@ -63,7 +65,11 @@ class ConfigurationModule(service: Service) : Module<ConfigurationModule.LoadExc
 
                 SelectionDao().removeSelections(active.uuid, remove)
 
-                StatusProvider.currentProfile = active.name
+                StatusProvider.currentProfile = active.name  //之前的是按照 Profile 文件名展示通知栏
+                //StatusProvider.currentProfile = PreferenceManagerServer.selectnodeName
+
+                //val nodeName = PreferenceManagerServer.selectnodeName
+                //println("Selected node name>>>>>>>>>:${PreferenceManagerServer.modeName} $nodeName")
 
                 service.sendProfileLoaded(current)
 

@@ -1,0 +1,59 @@
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp" ></TextView>
+        <!-- Logo Image -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/appstore"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Welcome Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UUVPN"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Footer -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 你的其他布局组件 -->
+
+            <!-- Footer -->
+            <TextView
+                android:id="@+id/login_footerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="© 2024 · UUVPN"
+                android:textSize="12sp"
+                android:textColor="@color/gray"
+                android:layout_marginTop="32dp"
+                android:gravity="center"
+                android:layout_alignParentBottom="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

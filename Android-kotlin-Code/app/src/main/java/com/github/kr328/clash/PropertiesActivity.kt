@@ -95,6 +95,9 @@ class PropertiesActivity : BaseActivity<PropertiesDesign>() {
                             coroutineScope {
                                 commit(profile.uuid) {
                                     launch {
+                                        withProfile {
+                                            setActive(queryAll().first())
+                                        }
                                         updateStatus(it)
                                     }
                                 }

@@ -1,5 +1,0 @@
-# ninja log v5
-1	53	1728989695	CMakeFiles/bridge.dir/bridge_helper.c.o	65817b91f547f410
-1	66	1728989695	CMakeFiles/bridge.dir/jni_helper.c.o	2507970b9008bdc3
-0	105	1728989695	CMakeFiles/bridge.dir/main.c.o	71422f04ccc8b8e4
-105	147	1728989695	/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/build/intermediates/cxx/RelWithDebInfo/3q493u12/obj/armeabi-v7a/libbridge.so	bfdc77b96091e189

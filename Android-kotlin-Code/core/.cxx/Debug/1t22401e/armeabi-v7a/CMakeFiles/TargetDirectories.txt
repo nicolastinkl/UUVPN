@@ -1,3 +1,0 @@
-/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/1t22401e/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/1t22401e/armeabi-v7a/CMakeFiles/edit_cache.dir
-/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/1t22401e/armeabi-v7a/CMakeFiles/bridge.dir

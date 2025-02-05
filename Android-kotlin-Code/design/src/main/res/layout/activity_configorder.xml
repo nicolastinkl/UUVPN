@@ -1,0 +1,313 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="self"
+            type="com.github.kr328.clash.design.ConfigOrderDesign" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="configorder_planname"
+            type="String" />
+
+        <variable
+            name="configorder_planname2"
+            type="String" />
+        <variable
+            name="configorder_plantype"
+            type="String" />
+        <variable
+            name="configorder_plantype2"
+            type="String" />
+
+        <variable
+            name="configorder_plantransfer"
+            type="String" />
+
+        <variable
+            name="configorder_planamount"
+            type="String" />
+
+        <import type="com.github.kr328.clash.design.ConfigOrderDesign.Request" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@{self.surface.insets.start}"
+        android:paddingEnd="@{self.surface.insets.end}">
+
+        <ScrollView
+            android:id="@+id/scroll_root"
+            android:scrollbars="none"
+
+            android:background="@drawable/gradient_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header with gradient background -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Account Information Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_margin="4dp"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="6dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Order Info Section -->
+                        <TextView
+                            android:id="@+id/order_info_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="订阅详情"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="10dp"/>
+
+                        <!-- Divider between TextViews -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray"
+
+
+                            android:layout_marginBottom="5dp"
+
+                            />
+                        <!-- Product Information -->
+                        <TextView
+                            android:id="@+id/product_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="@{configorder_planname}"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/product_type"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/black"
+                            android:layout_height="wrap_content"
+                            android:text="@{configorder_plantype}"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/product_quantity"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/black"
+                            android:layout_height="wrap_content"
+                            android:text="@{configorder_plantransfer}"
+                            android:layout_marginBottom="8dp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            <!-- Subscription Information Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardElevation="4dp"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="6dp" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@android:color/white"
+                android:padding="16dp">
+
+
+                <!-- Payment Method Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="付款周期"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"/>
+                <!-- Divider between TextViews -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"
+
+                    android:layout_marginBottom="5dp"
+                    />
+
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="false"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" >
+
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
+
+            </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+                <!-- Subscription Information Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_margin="4dp"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="6dp" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@android:color/white"
+                    android:padding="16dp">
+
+
+
+
+                    <!-- Order Total Section -->
+                    <TextView
+                        android:id="@+id/order_total_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单总额"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <!-- Divider between TextViews -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@android:color/darker_gray"
+
+                        android:layout_marginBottom="5dp"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="@{configorder_planname2}"/>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/order_total1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:text="@{configorder_planamount}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:text="总计："/>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/order_total2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:text="@{configorder_planamount}"/>
+                    </LinearLayout>
+
+                    <!-- Confirm Button -->
+                    <Button
+                        android:id="@+id/confirm_payment_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="下单"
+                        android:textSize="16sp"
+                        android:onClick="@{() -> self.request(Request.SubmitOrder)}"
+                        android:backgroundTint="@color/blue_gradient"
+                        android:textColor="@android:color/white"
+                        android:layout_marginTop="20dp"/>
+                </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <com.github.kr328.clash.design.view.ActivityBarLayout
+            android:id="@+id/activity_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@{self.surface.insets.top}"
+            android:paddingEnd="@dimen/item_tailing_margin">
+
+            <include layout="@layout/common_activity_bar" />
+        </com.github.kr328.clash.design.view.ActivityBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

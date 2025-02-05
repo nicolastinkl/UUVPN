@@ -1,0 +1,395 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="invite_zhucenum"
+            type="String" />
+
+        <variable
+            name="invite_bili"
+            type="String" />
+
+        <variable
+            name="invite_querenzhong"
+            type="String" />
+
+        <variable
+            name="invite_zhucenumleiji"
+            type="String" />
+
+        <variable
+            name="self"
+            type="com.github.kr328.clash.design.InvitationDesign" />
+
+        <import type="android.view.View" />
+
+
+        <import type="com.github.kr328.clash.design.InvitationDesign.Request" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@{self.surface.insets.start}"
+        android:paddingEnd="@{self.surface.insets.end}">
+
+        <ScrollView
+            android:id="@+id/scroll_root"
+            android:scrollbars="none"
+
+            android:background="@drawable/gradient_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Header with gradient background -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+
+                <!-- Subscription Information Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_margin="4dp"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="6dp" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@android:color/white"
+                        android:padding="16dp">
+
+
+
+
+                        <!-- Order Total Section -->
+                        <TextView
+                            android:id="@+id/order_total_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="推荐有奖"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp"/>
+
+                        <!-- Divider between TextViews -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray"
+
+                            android:layout_marginBottom="5dp"
+
+                            />
+
+                        <!-- Gift Icon 3c972c0e.json -->
+
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/gift_icon"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            app:lottie_autoPlay="true"
+                            app:lottie_fileName="3c972c0e.json"
+                            android:layout_gravity="center"
+                            app:lottie_imageAssetsFolder="assets/"
+                            app:lottie_loop="true" />
+
+                        <!-- Subtitle -->
+                        <TextView
+                            android:id="@+id/subtitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+                            app:layout_constraintTop_toBottomOf="@id/gift_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="16dp" />
+
+                        <!-- Description -->
+                        <TextView
+                            android:id="@+id/description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="好友安装App后，填写您的邀请码，即算推荐成功；当其每次推荐成功，您均可获得 20% 的佣金！永久有效！"
+                            android:textSize="14sp"
+
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:gravity="center_horizontal"
+                            app:layout_constraintTop_toBottomOf="@id/subtitle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="8dp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp" />
+
+                        <!-- Share Buttons -->
+                        <Button
+                            android:id="@+id/share_link_button"
+                            style="@style/AppButtonStyle"
+                            android:text="通过链接分享"
+                            android:layout_width="match_parent"
+                            android:drawableLeft="@drawable/link_24px"
+                            app:layout_constraintTop_toBottomOf="@id/description"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="20dp" />
+
+
+                        <!-- Statistics Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:background="@drawable/statistics_background"
+                            android:padding="12dp"
+                            app:layout_constraintTop_toBottomOf="@id/share_link_button"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            android:layout_marginTop="20dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/success_count_label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="成功推荐"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:id="@+id/recommend_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{invite_zhucenum}"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/time_gained_label"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="累计获得"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black" />
+
+                                <TextView
+                                    android:id="@+id/time_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{invite_zhucenumleiji}"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <!-- Statistics Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+
+                            android:background="@drawable/statistics_background"
+                            android:padding="12dp"
+                            app:layout_constraintTop_toBottomOf="@id/share_link_button"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="20dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/success_count_label2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="佣金比例"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black"/>
+
+                                <TextView
+                                    android:id="@+id/recommend_count2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{invite_bili}"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/time_gained_label2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="确认中的佣金"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/black" />
+
+                                <TextView
+                                    android:id="@+id/time_count2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{invite_querenzhong}"
+                                    android:textSize="20sp"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- 已注册用户数量、佣金比例等 -->
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Subscription Information Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_margin="4dp"
+                    app:cardCornerRadius="6dp" >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@android:color/white"
+                        android:padding="16dp">
+
+                        <!-- Payment Method Section -->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="邀请码管理"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"/>
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/CreatenewInvitecodeButton"
+                                android:text="生成邀请码"
+                                android:textColor="@color/blue_gradient"
+                                android:background="?attr/selectableItemBackground"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+
+
+                        <!-- Divider between TextViews -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="@android:color/darker_gray"
+
+                            android:layout_marginBottom="5dp"
+                            />
+
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fillViewport="false"
+                            android:scrollbars="none">
+
+                            <LinearLayout
+                                android:id="@+id/container"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+
+
+                            </LinearLayout>
+                        </ScrollView>
+
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <com.github.kr328.clash.design.view.ActivityBarLayout
+            android:id="@+id/activity_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@{self.surface.insets.top}"
+            android:paddingEnd="@dimen/item_tailing_margin">
+
+            <include layout="@layout/common_activity_bar" />
+        </com.github.kr328.clash.design.view.ActivityBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,7 @@
+Executable : /Users/mac/Library/Android/sdk/cmake/3.18.1/bin/ninja
+arguments : 
+-C
+/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/261y124q/x86
+bridge
+jvmArgs : 
+

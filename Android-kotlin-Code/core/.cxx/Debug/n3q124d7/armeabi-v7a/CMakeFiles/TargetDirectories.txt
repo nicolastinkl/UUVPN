@@ -1,0 +1,3 @@
+/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a/CMakeFiles/bridge.dir

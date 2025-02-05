@@ -1,0 +1,2 @@
+ninja: Entering directory `/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a'
+ninja: no work to do.

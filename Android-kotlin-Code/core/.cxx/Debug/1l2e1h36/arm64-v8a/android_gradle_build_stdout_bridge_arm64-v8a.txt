@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/mac/Documents/GitHub/LiteVPN-Android/core/.cxx/Debug/1l2e1h36/arm64-v8a'
+ninja: no work to do.

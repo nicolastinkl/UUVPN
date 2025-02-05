@@ -1,5 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#383838" /> <!-- 浅灰色背景 -->
+    <solid android:color="#10FFFFFF" /> <!-- 浅灰色背景 -->
     <corners android:radius="12dp" /> <!-- 圆角半径为 12dp -->
     <padding
         android:left="8dp"

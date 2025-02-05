@@ -1,0 +1,72 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.litevpn.fast",
+  "variantName": "metaRelease",
+  "elements": [
+    {
+      "type": "UNIVERSAL",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 321001,
+      "versionName": "3.0.2",
+      "outputFile": "UUVPN-3.0.2-meta-universal-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86_64"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 321001,
+      "versionName": "3.0.2",
+      "outputFile": "UUVPN-3.0.2-meta-x86_64-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 321001,
+      "versionName": "3.0.2",
+      "outputFile": "UUVPN-3.0.2-meta-x86-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "armeabi-v7a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 321001,
+      "versionName": "3.0.2",
+      "outputFile": "UUVPN-3.0.2-meta-armeabi-v7a-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 321001,
+      "versionName": "3.0.2",
+      "outputFile": "UUVPN-3.0.2-meta-arm64-v8a-release.apk"
+    }
+  ],
+  "elementType": "File"
+}

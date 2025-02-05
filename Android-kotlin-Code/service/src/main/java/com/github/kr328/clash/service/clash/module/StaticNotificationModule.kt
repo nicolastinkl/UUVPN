@@ -18,7 +18,7 @@ class StaticNotificationModule(service: Service) : Module<Unit>(service) {
     private val builder = NotificationCompat.Builder(service, CHANNEL_ID)
         .setSmallIcon(R.drawable.ic_logo_service)
         .setOngoing(true)
-        .setColor(service.getColorCompat(R.color.color_clash))
+        //.setColor(service.getColorCompat(R.color.color_clash))
         .setOnlyAlertOnce(true)
         .setShowWhen(false)
         .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
@@ -40,10 +40,10 @@ class StaticNotificationModule(service: Service) : Module<Unit>(service) {
         while (true) {
             loaded.receive()
 
-            val profileName = StatusProvider.currentProfile ?: "Not selected"
+            val profileName = StatusProvider.currentProfile+ " 2"  ?: "Not selected 2"
 
             val notification = builder
-                .setContentTitle(profileName)
+              .setContentTitle(profileName)
                 .setContentText(service.getText(R.string.running))
                 .build()
 

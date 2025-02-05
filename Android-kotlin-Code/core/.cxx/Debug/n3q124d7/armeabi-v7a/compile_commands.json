@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a",
+  "command": "/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --sysroot=/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dbridge_EXPORTS -I/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/build/outputs/golang/metaDebug/armeabi-v7a -I/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/golang/native -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles/bridge.dir/main.c.o -c /Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/cpp/main.c",
+  "file": "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/cpp/main.c"
+},
+{
+  "directory": "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a",
+  "command": "/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --sysroot=/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dbridge_EXPORTS -I/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/build/outputs/golang/metaDebug/armeabi-v7a -I/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/golang/native -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles/bridge.dir/jni_helper.c.o -c /Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/cpp/jni_helper.c",
+  "file": "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/cpp/jni_helper.c"
+},
+{
+  "directory": "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a",
+  "command": "/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=armv7-none-linux-androideabi24 --sysroot=/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dbridge_EXPORTS -I/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/build/outputs/golang/metaDebug/armeabi-v7a -I/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/golang/native -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles/bridge.dir/bridge_helper.c.o -c /Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/cpp/bridge_helper.c",
+  "file": "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/cpp/bridge_helper.c"
+}
+]

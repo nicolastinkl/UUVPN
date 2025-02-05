@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:padding="20dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="27.5dp"
+        />
+        <TextView
+            android:id="@+id/mode_rule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:clickable="true"
+            android:text="智能模式(推荐)"
+            android:textSize="16sp"
+            android:textColor="#4CAF50"
+            android:gravity="center_horizontal"
+            android:paddingBottom="16dp"
+            android:paddingVertical="12dp"
+            android:background="@drawable/background_selector_trans"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#40e0e0e0"/>
+
+        <TextView
+            android:id="@+id/mode_global"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_selector_trans"
+            android:paddingBottom="16dp"
+            android:paddingVertical="12dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:text="全局模式 (代理所有流量)"
+            android:gravity="center"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#40e0e0e0"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

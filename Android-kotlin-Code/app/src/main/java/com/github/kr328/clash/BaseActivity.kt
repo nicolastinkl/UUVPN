@@ -189,11 +189,14 @@ abstract class BaseActivity<D : Design<*>> : AppCompatActivity(),
     }
 
     private fun applyDayNight(config: Configuration = resources.configuration) {
-        val dayNight = queryDayNight(config)
+        // val dayNight =  theme.applyStyle(R.style.AppThemeLight, true) //默认白天模式
+
+        /*
+        val dayNight =   queryDayNight(config)
         when (dayNight) {
             DayNight.Night -> theme.applyStyle(R.style.AppThemeDark, true)
             DayNight.Day -> theme.applyStyle(R.style.AppThemeLight, true)
-        }
+        }*/
 
         window.isAllowForceDarkCompat = false
         window.isSystemBarsTranslucentCompat = true
@@ -209,7 +212,7 @@ abstract class BaseActivity<D : Design<*>> : AppCompatActivity(),
             window.isLightNavigationBarCompat = resolveThemedBoolean(android.R.attr.windowLightNavigationBar)
         }
 
-        this.dayNight = dayNight
+        this.dayNight =  DayNight.Night //dayNight
     }
 
     enum class Event {

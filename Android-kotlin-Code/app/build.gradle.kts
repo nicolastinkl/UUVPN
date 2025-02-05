@@ -6,11 +6,13 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("com.android.application")
+
+//    kotlin("jvm") version "1.8.10" // 使用兼容的 Kotlin 版本
+
 }
 
 dependencies {
     compileOnly(project(":hideapi"))
-
     implementation(project(":core"))
     implementation(project(":service"))
     implementation(project(":design"))
@@ -24,6 +26,25 @@ dependencies {
     implementation(libs.androidx.coordinator)
     implementation(libs.androidx.recyclerview)
     implementation(libs.google.material)
+
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
+
+//    implementation(files("libs/appcompat-1.7.0.aar"))
+
+//    implementation("im.crisp:crisp-sdk:2.0.5")
+
+    //    implementation("im.crisp:crisp-sdk:2.0.5")
+    // If you're using AndroidX
+    //implementation("androidx.multidex:multidex:2.0.1")
+    // If you're not using AndroidX
+    //implementation ("com.android.support:multidex:1.0.3")
+
+//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
 }
 
 tasks.getByName("clean", type = Delete::class) {
@@ -78,4 +99,14 @@ afterEvaluate {
 
 tasks.getByName("clean", type = Delete::class) {
     delete(file(geoFilesDownloadDir))
+}
+android {
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("debug")
+        }
+        getByName("debug") {
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
 }

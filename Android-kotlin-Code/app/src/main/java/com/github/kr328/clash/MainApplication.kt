@@ -5,7 +5,9 @@ import android.content.Context
 import com.github.kr328.clash.common.Global
 import com.github.kr328.clash.common.compat.currentProcessName
 import com.github.kr328.clash.common.log.Log
+import com.github.kr328.clash.design.PreferenceManager
 import com.github.kr328.clash.remote.Remote
+import com.github.kr328.clash.service.util.PreferenceManagerServer
 import com.github.kr328.clash.service.util.sendServiceRecreated
 import com.github.kr328.clash.util.clashDir
 import java.io.File
@@ -20,7 +22,11 @@ class MainApplication : Application() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
 
+        PreferenceManagerServer.init(this)
+        PreferenceManager.init(this)
+
         Global.init(this)
+
     }
 
     override fun onCreate() {

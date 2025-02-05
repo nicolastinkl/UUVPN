@@ -1,0 +1,5 @@
+# ninja log v5
+0	1130	1734601808	CMakeFiles/bridge.dir/bridge_helper.c.o	d3900738445f1a5a
+1	1635	1734601808	CMakeFiles/bridge.dir/jni_helper.c.o	7f142a40c163e237
+0	1782	1734601808	CMakeFiles/bridge.dir/main.c.o	6735dc0010b35ed4
+1782	1975	1734601809	/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/build/intermediates/cxx/Debug/n3q124d7/obj/arm64-v8a/libbridge.so	6c61937bd7976d1d

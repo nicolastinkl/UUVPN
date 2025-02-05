@@ -1,0 +1,10 @@
+# ninja log v5
+1	40	1730357526	CMakeFiles/bridge.dir/bridge_helper.c.o	77d8f128430cc822
+1	48	1730357526	CMakeFiles/bridge.dir/jni_helper.c.o	34ecd301309c180e
+0	64	1730357526	CMakeFiles/bridge.dir/main.c.o	96da935afbc9258f
+64	119	1730357526	/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/build/intermediates/cxx/Debug/261y124q/obj/x86/libbridge.so	b8e40339dd659356
+0	6	0	clean	3aac71530c245c7c
+1	26	1730357645	CMakeFiles/bridge.dir/bridge_helper.c.o	77d8f128430cc822
+1	35	1730357645	CMakeFiles/bridge.dir/jni_helper.c.o	34ecd301309c180e
+1	42	1730357645	CMakeFiles/bridge.dir/main.c.o	96da935afbc9258f
+42	79	1730357645	/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/build/intermediates/cxx/Debug/261y124q/obj/x86/libbridge.so	b8e40339dd659356

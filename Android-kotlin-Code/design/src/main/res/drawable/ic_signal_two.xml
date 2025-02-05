@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/ic_signal_full.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 背景矩形 -->
+    <!-- <path
+        android:fillColor="#f2ae1e"
+        android:pathData="M2,20h4v-6h-4v6zM8,20h4v-10h-4v10zM14,20h4v-0h-4v14zM20,20h4v-0h-4v18z"/> -->
+    <!-- 第1格（低强度） -->
+    <path
+        android:fillColor="#f2ae1e"
+        android:pathData="M2,20h4v-6h-4v6z"/>
+
+    <!-- 第2格（中强度） -->
+    <path
+        android:fillColor="#f2ae1e"
+        android:pathData="M8,20h4v-10h-4v10z"/>
+
+
+    <!-- 第3格（中强度） -->
+    <path
+        android:fillColor="#307f7f7f"
+        android:pathData="M14,20h4v-14h-4v10z"/>
+
+    <!-- 第4格（中强度） -->
+    <path
+        android:fillColor="#307f7f7f"
+        android:pathData="M20,20h4v-18h-4v10z"/>
+
+</vector>

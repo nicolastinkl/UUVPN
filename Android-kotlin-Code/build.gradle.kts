@@ -12,6 +12,7 @@ buildscript {
         maven("https://raw.githubusercontent.com/MetaCubeX/maven-backup/main/releases")
     }
     dependencies {
+
         classpath(libs.build.android)
         classpath(libs.build.kotlin.common)
         classpath(libs.build.kotlin.serialization)
@@ -34,33 +35,40 @@ subprojects {
     extensions.configure<BaseExtension> {
         defaultConfig {
             if (isApp) {
-                applicationId = "com.github.metacubex.clash"
+                applicationId = "com.litevpn.fast"
             }
 
+            multiDexEnabled = true
             minSdk = 24
 
-            compileSdkVersion(33)
-//            targetSdkVersion(33)
-            versionName = "2.11.1"
-            versionCode = 211001
+            compileSdkVersion(34)
+//            targetSdkVersion(34)
+            versionName = "3.0.2"
+            versionCode = 321001
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")
 
             externalNativeBuild {
                 cmake {
+
                     abiFilters("arm64-v8a", "armeabi-v7a",)
                 }
             }
 
+//            compileOptions{
+//                isCoreLibraryDesugaringEnabled = false
+//            }
+
             if (!isApp) {
                 consumerProguardFiles("consumer-rules.pro")
             } else {
-                setProperty("archivesBaseName", "LiteVPN-$versionName")
+                setProperty("archivesBaseName", "UUVPN-$versionName")
             }
         }
 
-        ndkVersion = "23.0.7599858"
+//        ndkVersion = "23.0.7599858"
+        ndkVersion = "27.0.12077973"
 //        compileSdkVersion(defaultConfig.targetSdk!!)
 
         if (isApp) {
@@ -81,8 +89,8 @@ subprojects {
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
-                resValue("string", "launch_name", "LiteVPN")
-                resValue("string", "application_name", "LiteVPN")
+                resValue("string", "launch_name", "UUVPN")
+                resValue("string", "application_name", "UUVPN")
 
                 if (isApp) {
                     applicationIdSuffix = ".alpha"
@@ -92,15 +100,15 @@ subprojects {
             create("meta") {
 
                 dimension = flavorDimensionList[0]
-                versionNameSuffix = ".Meta"
+               // versionNameSuffix = ".Meta"
 
                 buildConfigField("boolean", "PREMIUM", "Boolean.parseBoolean(\"false\")")
 
-                resValue("string", "launch_name", "LiteVPN")//@string/launch_name_meta
-                resValue("string", "application_name", "LiteVPN")//@string/application_name_meta
+                resValue("string", "launch_name", "UUVPN")//@string/launch_name_meta
+                resValue("string", "application_name", "UUVPN")//@string/application_name_meta
 
                 if (isApp) {
-                    applicationIdSuffix = ".meta"
+                   // applicationIdSuffix = ".meta"
                 }
             }
         }
@@ -141,7 +149,7 @@ subprojects {
                 )
             }
             named("debug") {
-                versionNameSuffix = ".debug"
+               // versionNameSuffix = ".debug"
             }
         }
 

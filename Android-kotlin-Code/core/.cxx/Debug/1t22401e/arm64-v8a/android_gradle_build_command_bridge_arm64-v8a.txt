@@ -1,7 +1,0 @@
-Executable : /Applications/Unity/Hub/Editor/2022.3.32f1/PlaybackEngines/AndroidPlayer/SDK/cmake/3.18.1/bin/ninja
-arguments : 
--C
-/Users/zeus/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/1t22401e/arm64-v8a
-bridge
-jvmArgs : 
-

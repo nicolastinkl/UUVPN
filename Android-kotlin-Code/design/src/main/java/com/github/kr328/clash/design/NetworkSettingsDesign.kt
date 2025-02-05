@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.view.View
+import android.widget.LinearLayout
 import com.github.kr328.clash.common.util.componentName
 import com.github.kr328.clash.design.databinding.DesignSettingsCommonBinding
 import com.github.kr328.clash.design.model.Behavior
@@ -14,6 +15,7 @@ import com.github.kr328.clash.design.util.applyFrom
 import com.github.kr328.clash.design.util.bindAppBarElevation
 import com.github.kr328.clash.design.util.layoutInflater
 import com.github.kr328.clash.design.util.root
+import com.github.kr328.clash.design.view.drividerline
 import com.github.kr328.clash.service.model.AccessControlMode
 import com.github.kr328.clash.service.store.ServiceStore
 import kotlinx.coroutines.launch
@@ -21,6 +23,7 @@ import kotlinx.coroutines.launch
 class NetworkSettingsDesign(
     context: Context,
     uiStore: UiStore,
+    behavior: Behavior,
     srvStore: ServiceStore,
     running: Boolean,
 ) : Design<NetworkSettingsDesign.Request>(context) {
@@ -34,6 +37,8 @@ class NetworkSettingsDesign(
     override val root: View
         get() = binding.root
 
+
+
     init {
         binding.surface = surface
 
@@ -42,7 +47,63 @@ class NetworkSettingsDesign(
         binding.scrollRoot.bindAppBarElevation(binding.activityBarLayout)
 
         val screen = preferenceScreen(context) {
+
+
             val vpnDependencies: MutableList<Preference> = mutableListOf()
+
+
+            category(R.string.default_)
+
+
+//            switch(
+//                value = behavior::autoRestart,
+//                icon = R.drawable.ic_baseline_restore,
+//                title = R.string.auto_restart,
+//                summary = R.string.allow_clash_auto_restart,
+//            )
+//
+//
+//            drividerline()
+//
+            switch(
+                value = srvStore::dynamicNotification,
+                icon = R.drawable.ic_baseline_domain,
+                title = R.string.show_traffic,
+                summary = R.string.show_traffic_summary
+            ) {
+               //  enabled = !running
+            }
+
+
+            drividerline()
+            selectableList(
+                value = srvStore::accessControlMode,
+                values = AccessControlMode.values(),
+                valuesText = arrayOf(
+                    R.string.allow_all_apps,
+                    R.string.allow_selected_apps,
+                    R.string.deny_selected_apps
+                ),
+                title = R.string.access_control_mode,
+                configure = vpnDependencies::add,
+            )
+
+            drividerline()
+            clickable(
+                title = R.string.access_control_packages,
+                summary = R.string.access_control_packages_summary,
+            ) {
+                clicked {
+                    requests.trySend(Request.StartAccessControlList)
+                }
+
+                vpnDependencies.add(this)
+            }
+
+            drividerline()
+
+
+            category(R.string.vpn_service_options)
 
             val vpn = switch(
                 value = uiStore::enableVpn,
@@ -57,10 +118,8 @@ class NetworkSettingsDesign(
                 }
             }
 
-            category(R.string.behavior)
+            drividerline()
 
-
-            category(R.string.vpn_service_options)
 
             switch(
                 value = srvStore::bypassPrivateNetwork,
@@ -69,12 +128,16 @@ class NetworkSettingsDesign(
                 configure = vpnDependencies::add,
             )
 
+            drividerline()
+
             switch(
                 value = srvStore::dnsHijacking,
                 title = R.string.dns_hijacking,
                 summary = R.string.dns_hijacking_summary,
                 configure = vpnDependencies::add,
             )
+
+            drividerline()
 
             switch(
                 value = srvStore::allowBypass,
@@ -83,12 +146,16 @@ class NetworkSettingsDesign(
                 configure = vpnDependencies::add,
             )
 
+            drividerline()
+
             switch(
                 value = srvStore::allowIpv6,
                 title = R.string.allow_ipv6,
                 summary = R.string.allow_ipv6_summary,
                 configure = vpnDependencies::add,
             )
+
+            drividerline()
 
             if (Build.VERSION.SDK_INT >= 29) {
                 switch(
@@ -98,6 +165,8 @@ class NetworkSettingsDesign(
                     configure = vpnDependencies::add,
                 )
             }
+
+            drividerline()
 
             selectableList(
                 value = srvStore::tunStackMode,
@@ -115,29 +184,11 @@ class NetworkSettingsDesign(
                 configure = vpnDependencies::add,
             )
 
-            selectableList(
-                value = srvStore::accessControlMode,
-                values = AccessControlMode.values(),
-                valuesText = arrayOf(
-                    R.string.allow_all_apps,
-                    R.string.allow_selected_apps,
-                    R.string.deny_selected_apps
-                ),
-                title = R.string.access_control_mode,
-                configure = vpnDependencies::add,
-            )
+            drividerline()
 
-            clickable(
-                title = R.string.access_control_packages,
-                summary = R.string.access_control_packages_summary,
-            ) {
-                clicked {
-                    requests.trySend(Request.StartAccessControlList)
-                }
 
-                vpnDependencies.add(this)
-            }
 
+            /*
             if (running) {
                 vpn.enabled = false
 
@@ -146,16 +197,17 @@ class NetworkSettingsDesign(
                 }
             } else {
                 vpn.listener?.onChanged()
-            }
+            }*/
+
         }
 
         binding.content.addView(screen.root)
 
-        if (running) {
-            launch {
-                showToast(R.string.options_unavailable, ToastDuration.Indefinite)
-            }
-        }
+//        if (running) {
+//            launch {
+//                showToast(R.string.options_unavailable, ToastDuration.Indefinite)
+//            }
+//        }
     }
 
 }

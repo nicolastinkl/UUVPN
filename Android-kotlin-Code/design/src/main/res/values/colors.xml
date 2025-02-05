@@ -10,4 +10,26 @@
     <color name="color_light_control_disabled">#FFD3D3D3</color>
     <color name="color_dark_control_disabled">#FF808080</color>
     <color name="color_error">#FFB00020</color>
+    <color name="blue">#4A90E2</color>
+    <color name="gray">#424242</color>
+    <color name="gray_light">#E0E0E0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue_gradient">#6495ED</color>
+    <color name="black">#000000</color>
+    <color name="red">#FFB00020</color>
+    <color name="transparent">#20FFFFFF</color>
+
+    <color name="color_navi">#2f2152</color>
+    <color name="color_main_bg">#2a2a2a</color>
+
+    <!-- 定义点击时的颜色 -->
+    <color name="colorPressed">#FFCCCCCC</color> <!-- 灰色点击效果 -->
+
+    <!-- 定义获得焦点时的颜色 -->
+    <color name="colorFocused">#FFAAAAAA</color> <!-- 较浅的灰色焦点效果 -->
+
+    <!-- 定义默认背景颜色 -->
+    <color name="colorNormal">#FFFFFFFF</color>
+    <color name="green">#65b266</color> <!-- 白色背景 -->
+
 </resources>

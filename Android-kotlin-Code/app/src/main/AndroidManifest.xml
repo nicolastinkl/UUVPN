@@ -9,11 +9,14 @@
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
-
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
@@ -21,6 +24,7 @@
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:banner="@mipmap/ic_launcher"
         android:fullBackupContent="@xml/full_backup_content"
         android:icon="@mipmap/ic_launcher"
@@ -38,12 +42,14 @@
             android:name="releaseCode"
             android:value="@integer/release_code" />
 
+
+
         <activity
             android:name=".MainActivity"
             android:configChanges="uiMode"
             android:exported="true"
             android:label="@string/launch_name"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,9 +72,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="clash"/>
-                <data android:scheme="clashmeta"/>
-                <data android:host="install-config"/>
+                <data android:scheme="clash-----------"/>
+                <data android:scheme="clashmeta-----------"/>
+                <data android:host="install-config-----------"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="com.github.metacubex.clash.meta.action.START_CLASH" />
@@ -83,6 +89,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+
+
         <activity
             android:name=".ApkBrokenActivity"
             android:configChanges="uiMode"
@@ -170,14 +179,109 @@
             android:exported="false"
             android:label="@string/files" />
 
+        <activity
+            android:name=".ProfileActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="设置中心"
+            />
+
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+             />
+
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="uiMode"
+            android:exported="true" />
+
+        <activity
+            android:name=".PlansActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="购买订阅"
+            />
+
+
+        <activity
+            android:name=".MyOrdersActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="我的订单"
+            />
+
+        <activity
+            android:name=".ConfigOrderActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="配置订阅"
+            />
+
+        <activity
+            android:name=".SubmitOrderActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="订单详情"
+            />
+
+        <activity
+            android:name=".GongdanActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="我的工单"
+            />
+
+        <activity
+            android:name=".NewGongdanActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="新建工单"
+            />
+
+
+
+
+        <activity
+            android:name=".H5WebActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            />
+        <activity
+            android:name=".TicketDetailActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label=""
+            />
+
+
+
+        <activity
+            android:name=".RegisterActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="注册"
+            />
+
+
+        <activity
+            android:name=".InvitationActivity"
+            android:configChanges="uiMode"
+            android:exported="false"
+            android:label="我的邀请"
+            />
+
         <service
             android:name=".LogcatService"
             android:exported="false"
             android:label="@string/clash_logcat" />
+
         <service
             android:name=".TileService"
             android:exported="true"
             android:icon="@drawable/ic_logo_service"
+            android:foregroundServiceType="connectedDevice"
             android:label="@string/launch_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>

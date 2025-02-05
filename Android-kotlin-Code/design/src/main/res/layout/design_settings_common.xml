@@ -9,22 +9,101 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/gradient_background"
         android:paddingStart="@{surface.insets.start}"
         android:paddingEnd="@{surface.insets.end}">
 
-        <com.github.kr328.clash.design.view.ObservableScrollView
-            android:id="@+id/scroll_root"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
 
-            <FrameLayout
-                android:id="@+id/content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp" >
+
+
+
+            <!-- Subtext -->
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:text=" "
+                android:textSize="14sp"
+                android:textColor="@color/gray"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Email Input -->
+            <EditText
+                android:id="@+id/gondan_subText"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="请输入工单标题"
+                android:padding="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_edittext"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:drawableTint="@color/gray"
+                android:drawablePadding="10dp"
+                android:maxLines="6"
+                android:inputType="textMultiLine"
+                android:textSize="14sp"
+                android:gravity="top|start"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Password Input -->
+            <EditText
+                android:id="@+id/gondan_subContent"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:hint="请输入工单内容"
+                android:textSize="14sp"
+                android:drawablePadding="10dp"
+                android:textColorHint="@color/gray"
+                android:drawableTint="@color/gray"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:maxLines="16"
+                android:gravity="top|start"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/gongdan_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="@{(float) surface.insets.top + @dimen/toolbar_height}"
-                android:paddingBottom="@{surface.insets.bottom}" />
-        </com.github.kr328.clash.design.view.ObservableScrollView>
+                android:text="提  交"
+                android:backgroundTint="@color/blue_gradient"
+                android:textColor="@color/white"
+                android:layout_marginBottom="16dp" />
+
+
+
+
+            <com.github.kr328.clash.design.view.ObservableScrollView
+                android:id="@+id/scroll_root"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/gradient_background"
+                android:scrollbars="none">
+
+                <FrameLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:paddingTop="@{(float) surface.insets.top + @dimen/toolbar_height}"
+                    android:paddingBottom="@{surface.insets.bottom}" />
+            </com.github.kr328.clash.design.view.ObservableScrollView>
+
+
+        </LinearLayout>
 
         <com.github.kr328.clash.design.view.ActivityBarLayout
             android:id="@+id/activity_bar_layout"
@@ -33,7 +112,7 @@
             android:paddingTop="@{surface.insets.top}"
             android:paddingEnd="@dimen/item_tailing_margin">
 
-            <include layout="@layout/common_activity_bar" />
+            <include layout="@layout/common_activity_bar"  />
         </com.github.kr328.clash.design.view.ActivityBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

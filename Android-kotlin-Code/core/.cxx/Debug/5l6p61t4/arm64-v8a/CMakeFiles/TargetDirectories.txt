@@ -1,0 +1,3 @@
+/Users/mac/Documents/GitHub/LiteVPN-Android/core/.cxx/Debug/5l6p61t4/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/mac/Documents/GitHub/LiteVPN-Android/core/.cxx/Debug/5l6p61t4/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/mac/Documents/GitHub/LiteVPN-Android/core/.cxx/Debug/5l6p61t4/arm64-v8a/CMakeFiles/bridge.dir

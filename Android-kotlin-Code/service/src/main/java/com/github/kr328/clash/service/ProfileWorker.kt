@@ -163,7 +163,7 @@ class ProfileWorker : BaseService() {
             .setColor(getColorCompat(R.color.color_clash))
             .setSmallIcon(R.drawable.ic_logo_service)
             .setOnlyAlertOnce(true)
-            .setContentIntent(intent)
+//            .setContentIntent(intent) //点击更新通知后跳转进入订阅地址编辑中心处理
             .setAutoCancel(true)
             .setGroup(RESULT_CHANNEL)
     }
@@ -183,6 +183,7 @@ class ProfileWorker : BaseService() {
     }
 
     private fun failed(uuid: UUID, name: String, reason: String) {
+        /* 更新失败不提醒
         val id = UndefinedIds.next()
 
         val content = getString(R.string.format_update_failure, name, reason)
@@ -197,6 +198,8 @@ class ProfileWorker : BaseService() {
             .notify(id, notification)
 
         sendProfileUpdateFailed(uuid, reason)
+
+         */
     }
 
     companion object {

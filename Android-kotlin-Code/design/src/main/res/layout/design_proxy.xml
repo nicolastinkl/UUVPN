@@ -7,10 +7,11 @@
             type="com.github.kr328.clash.design.ProxyDesign" />
     </data>
 
+<!--    -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/mainbg"
+        android:background="@drawable/gradient_background"
         android:paddingStart="@{self.surface.insets.start}"
         android:paddingEnd="@{self.surface.insets.end}">
 
@@ -23,11 +24,32 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             android:visibility="gone" />
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pages_view"
+<!--        <androidx.viewpager2.widget.ViewPager2-->
+<!--            android:id="@+id/pages_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal" />-->
+
+
+        <!-- 列表 RecyclerView -->
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/base_swipeRefreshLayout"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" />
+            android:layout_height="match_parent" android:layout_marginTop="90dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layout_marginTop="10dp"
+                android:scrollIndicators="right"
+                android:scrollbars="vertical" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,18 +60,16 @@
                 android:id="@+id/activity_bar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/mainbg"
                 android:paddingTop="@{self.surface.insets.top}">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/mainbg"
                     android:paddingEnd="@dimen/item_tailing_margin">
 
                     <include
                         layout="@layout/common_activity_bar"
-                        android:background="@drawable/mainbg"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -61,56 +81,70 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/item_tailing_margin"
 
-                        android:layout_toStartOf="@id/menu_view">
+                        android:layout_toStartOf="@id/menu_view" >
 
                         <ImageView
                             android:id="@+id/url_test_view"
                             android:layout_width="@dimen/item_tailing_component_size"
                             android:layout_height="@dimen/item_tailing_component_size"
-                            android:layout_gravity="center"
+                            android:layout_gravity="right"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
                             android:contentDescription="@string/delay_test"
                             android:focusable="true"
-                            android:onClick="@{() -> self.requestUrlTesting()}"
                             android:padding="@dimen/toolbar_image_action_padding"
+                            app:tint="@color/white"
+                            android:onClick="@{() -> self.requestUrlTesting()}"
                             android:src="@drawable/ic_baseline_flash_on" />
 
                         <ProgressBar
                             android:id="@+id/url_test_progress_view"
                             android:layout_width="@dimen/item_tailing_component_size"
                             android:layout_height="@dimen/item_tailing_component_size"
+                            app:tint="@color/white"
+                            android:indeterminateTint="@color/white"
                             android:visibility="gone" />
                     </FrameLayout>
 
-                        <!---->
+                        <!--
+                         <ImageView
+                        android:id="@+id/menu_view"
+                        android:layout_width="@dimen/item_tailing_component_size"
+                        android:layout_height="@dimen/item_tailing_component_size"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/item_tailing_margin"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="@string/more"
+                        android:focusable="true"
+                        android:padding="@dimen/toolbar_image_action_padding"
+                        android:src="@drawable/ic_baseline_more_vert" />
+                        -->
+
+
                     <ImageView
                         android:id="@+id/menu_view"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/item_tailing_margin"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="false"
-                        android:contentDescription="@string/more"
-                        android:focusable="true"
-                        android:padding="@dimen/toolbar_image_action_padding"
- />
+                        />
 
                 </RelativeLayout>
             </com.github.kr328.clash.design.view.ActivityBarLayout>
 
-            <com.google.android.material.tabs.TabLayout
+
+            <!--  <com.google.android.material.tabs.TabLayout
 
                 android:id="@+id/tab_layout_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/tab_layout_height"
                 android:alpha="0.96"
-                android:background="@drawable/mainbg"
                 app:tabBackground="@android:color/transparent"
+                android:background="@android:color/transparent"
                 app:tabMode="scrollable" />
 
             <View
@@ -118,8 +152,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_size"
                 android:alpha="0.96"
-                android:background="@drawable/mainbg"
-                android:elevation="@dimen/tab_layout_elevation" />
+
+                android:elevation="@dimen/tab_layout_elevation" /> -->
         </LinearLayout>
 
         <FrameLayout

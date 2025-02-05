@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按下时的背景 -->
+    <item android:state_pressed="true" android:drawable="@color/blue_gradient"/>
+    <!-- 默认背景透明 -->
+    <item android:drawable="@android:color/transparent"/>
+</selector>

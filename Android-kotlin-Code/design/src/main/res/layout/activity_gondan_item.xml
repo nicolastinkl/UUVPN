@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <!-- Title Section -->
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#11 - 速速与"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <!-- Created Time and Status Section -->
+        <TextView
+            android:id="@+id/creationTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="创建时间：2024-11-07 21:18"
+            android:textSize="14sp"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="当前状态：待回复"
+            android:textSize="14sp"
+            android:textColor="@color/gray" />
+
+        <!-- Action Buttons Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="6dp">
+
+            <Button
+                android:id="@+id/closeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关闭"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/viewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查看"
+                android:textSize="14sp"
+                android:backgroundTint="@color/blue_gradient"
+                android:background="@drawable/rounded_button_background"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:paddingVertical="2dp"
+                android:paddingHorizontal="16dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

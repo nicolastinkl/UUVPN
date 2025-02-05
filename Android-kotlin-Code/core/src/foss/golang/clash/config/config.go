@@ -576,6 +576,10 @@ func UnmarshalRawConfig(buf []byte) (*RawConfig, error) {
 }
 
 func ParseRawConfig(rawCfg *RawConfig) (*Config, error) {
+
+
+    log.Infoln("Start Init From Nicolas Zeus....")
+
 	config := &Config{}
 	log.Infoln("Start initial configuration in progress") //Segment finished in xxm
 	startTime := time.Now()
@@ -702,6 +706,7 @@ func ParseRawConfig(rawCfg *RawConfig) (*Config, error) {
 
 	elapsedTime := time.Since(startTime) / time.Millisecond                     // duration in ms
 	log.Infoln("Initial configuration complete, total time: %dms", elapsedTime) //Segment finished in xxm
+    log.Infoln("Start Init From Nicolas Zeus....")
 
 	return config, nil
 }

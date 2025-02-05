@@ -1,6 +1,8 @@
 module foss
 
-go 1.20
+go 1.23
+
+toolchain go1.23.2
 
 require cfa v0.0.0
 
@@ -47,7 +49,7 @@ require (
 	github.com/metacubex/chacha v0.1.0 // indirect
 	github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 // indirect
 	github.com/metacubex/gvisor v0.0.0-20240320004321-933faba989ec // indirect
-	github.com/metacubex/mihomo v1.7.0 // indirect
+	github.com/metacubex/mihomo v1.18.10 // indirect
 	github.com/metacubex/quic-go v0.47.1-0.20240909010619-6b38f24bfcc4 // indirect
 	github.com/metacubex/randv2 v0.2.0 // indirect
 	github.com/metacubex/sing-quic v0.0.0-20240827003841-cd97758ed8b4 // indirect

@@ -17,6 +17,7 @@ import com.github.kr328.clash.core.util.trafficDownload
 import com.github.kr328.clash.core.util.trafficUpload
 import com.github.kr328.clash.service.R
 import com.github.kr328.clash.service.StatusProvider
+import com.github.kr328.clash.service.util.PreferenceManagerServer
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.selects.select
@@ -29,7 +30,7 @@ class DynamicNotificationModule(service: Service) : Module<Unit>(service) {
         .setColor(service.getColorCompat(R.color.color_clash))
         .setOnlyAlertOnce(true)
         .setShowWhen(false)
-        .setContentTitle("Not Selected")
+        .setContentTitle("")//Not Selected
         .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
         .setContentIntent(
             PendingIntent.getActivity(
@@ -67,6 +68,11 @@ class DynamicNotificationModule(service: Service) : Module<Unit>(service) {
             )
             .build()
 
+        PreferenceManagerServer.init(service.application)
+        val nodeName = PreferenceManagerServer.selectnodeName
+        val modeNamech = if (PreferenceManagerServer.modeName == "Rule") "智能模式" else "全局模式"
+        var  contentitle = "${modeNamech}(${nodeName})"
+        builder.setContentTitle(contentitle)
         notificationManager.notify(R.id.nf_clash_status, notification)
     }
 
@@ -82,7 +88,7 @@ class DynamicNotificationModule(service: Service) : Module<Unit>(service) {
             addAction(Intents.ACTION_PROFILE_LOADED)
         }
 
-        val ticker = ticker(TimeUnit.SECONDS.toMillis(1))
+        val ticker = ticker(TimeUnit.SECONDS.toMillis(2))
 
         while (true) {
             select<Unit> {
@@ -95,7 +101,8 @@ class DynamicNotificationModule(service: Service) : Module<Unit>(service) {
                     }
                 }
                 profileLoaded.onReceive {
-                    builder.setContentTitle(StatusProvider.currentProfile ?: "Not selected")
+                  //builder.setContentTitle(StatusProvider.currentProfile ?: "Not selected 1")
+                    //builder.setContentTitle(PreferenceManagerServer.selectnodeName)
                 }
                 if (shouldUpdate) {
                     ticker.onReceive {

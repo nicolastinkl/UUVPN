@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/261y124q/arm64-v8a",
+  "command": "/Users/mac/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=aarch64-none-linux-android21 --sysroot=/Users/mac/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dbridge_EXPORTS -I/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/build/outputs/golang/alphaDebug/arm64-v8a -I/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/golang/native -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles/bridge.dir/main.c.o -c /Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/cpp/main.c",
+  "file": "/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/cpp/main.c"
+},
+{
+  "directory": "/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/261y124q/arm64-v8a",
+  "command": "/Users/mac/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=aarch64-none-linux-android21 --sysroot=/Users/mac/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dbridge_EXPORTS -I/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/build/outputs/golang/alphaDebug/arm64-v8a -I/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/golang/native -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles/bridge.dir/jni_helper.c.o -c /Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/cpp/jni_helper.c",
+  "file": "/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/cpp/jni_helper.c"
+},
+{
+  "directory": "/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/.cxx/Debug/261y124q/arm64-v8a",
+  "command": "/Users/mac/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang --target=aarch64-none-linux-android21 --sysroot=/Users/mac/Library/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dbridge_EXPORTS -I/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/build/outputs/golang/alphaDebug/arm64-v8a -I/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/golang/native -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles/bridge.dir/bridge_helper.c.o -c /Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/cpp/bridge_helper.c",
+  "file": "/Users/mac/Documents/GitHub/ClashMetaForAndroid/core/src/main/cpp/bridge_helper.c"
+}
+]

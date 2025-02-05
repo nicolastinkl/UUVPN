@@ -13,4 +13,12 @@
             <item name="cornerFamily">rounded</item>
             <item name="cornerSize">20dp</item>
         </style>
+
+    <style name="AppButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">#2196F3</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
 </resources>

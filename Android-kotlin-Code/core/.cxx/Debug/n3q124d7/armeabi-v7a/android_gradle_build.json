@@ -1,0 +1,38 @@
+{
+  "buildFiles": [
+    "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Volumes/TOSHIBA/androidstudio/sdk/cmake/3.18.1/bin/ninja",
+      "-C",
+      "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Volumes/TOSHIBA/androidstudio/sdk/cmake/3.18.1/bin/ninja",
+    "-C",
+    "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/n3q124d7/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "bridge::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "bridge",
+      "output": "/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/build/intermediates/cxx/Debug/n3q124d7/obj/armeabi-v7a/libbridge.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Volumes/TOSHIBA/androidstudio/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

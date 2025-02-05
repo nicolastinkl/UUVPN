@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/vpnnodemainid"
+        android:background="@drawable/background_selector"
+   >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            >
+
+
+    <!-- 国家国旗 -->
+    <ImageView
+        android:id="@+id/country_flag"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_ai" />
+
+    <!-- 线路信息 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/server_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="德国 - 法兰克福 - 免费"
+            android:textColor="#888888"
+
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/server_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="禁止 BitTorrent"
+            android:textColor="#888888"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 网络信号 -->
+    <ImageView
+        android:id="@+id/signal_strength"
+        android:layout_width="24dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_signal_three"
+      />
+
+    <!-- 延迟 -->
+    <TextView
+        android:id="@+id/latency"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:text=" 1000ms"
+        android:gravity="right"
+        android:textColor="#4CAF50"
+        android:textSize="13sp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

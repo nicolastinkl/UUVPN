@@ -1,0 +1,7 @@
+Executable : /Volumes/TOSHIBA/androidstudio/sdk/cmake/3.18.1/bin/ninja
+arguments : 
+-C
+/Volumes/TOSHIBA/GitHub/LiteVPN-Android/core/.cxx/Debug/2w46u244/armeabi-v7a
+bridge
+jvmArgs : 
+

@@ -2,6 +2,7 @@ package com.github.kr328.clash.design.adapter
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.util.Log
 import com.github.kr328.clash.design.component.ProxyView
 import com.github.kr328.clash.design.component.ProxyViewConfig
@@ -49,6 +50,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.github.kr328.clash.design.R
 import com.github.kr328.clash.design.component.ProxyViewState
@@ -66,41 +69,85 @@ class ProxyAdapter(
         val proxyLatency: TextView = view.findViewById(R.id.proxy_latency)
         val proxySubName:TextView = view.findViewById(R.id.proxy_subtitle)
         val selectnodeselectImage:ImageView = view.findViewById(R.id.nodeselectImage)
+        val viewsss:View = view.findViewById(R.id.view_iteminfo)
 
-
+        var drawableStartGreen: Drawable? = null // 用于存储 drawableStart 图标
+        var drawableStartGray: Drawable? = null // 用于存储 drawableStart 图标
     }
 
     var selectable: Boolean = false
     var states: List<ProxyViewState> = emptyList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProxyAdapter.Holder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.proxy_view_item, parent, false)
 
-        return Holder(view)
+        val drawableStartGreen = ContextCompat.getDrawable(parent.context, R.drawable.check_24px)?.let {
+            // 包装 drawable 以支持 Tint
+            val wrappedDrawable = DrawableCompat.wrap(it)
+            // 设置 Tint 颜色
+            DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#2a9843"))
+            wrappedDrawable
+        }
+
+        val drawableStartGray = ContextCompat.getDrawable(parent.context, R.drawable.ic_baseline_info)?.let {
+            // 包装 drawable 以支持 Tint
+            val wrappedDrawable = DrawableCompat.wrap(it)
+            // 设置 Tint 颜色
+            DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#6b6d6a"))
+            wrappedDrawable
+        }
+
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.proxy_view_item, parent, false)
+        return Holder(view).apply {
+            // 设置 drawable 到 ViewHolder 的属性，供后续使用
+            this.drawableStartGreen = drawableStartGreen
+            this.drawableStartGray = drawableStartGray
+        }
     }
 
     var selectableView: Holder? = null
     var selectableData: ProxyViewState? = null
+
+    var state: ProxyViewState? = null
+
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val current = states[position]
-        holder.apply {
 
+
+        holder.apply {
+            state = current
+
+            viewsss.setBackgroundColor(Color.parseColor("#10FFFFFF")) // Semi-transparent white color
             proxyName.text = current.proxy.name
-            proxySubName.text = current.proxy.subtitle
+            //proxySubName.setColorFilter(ContextCompat.getColor(context, R.color.yourColor), PorterDuff.Mode.SRC_IN)
 
             if (current.proxy.delay > 10000){
-                proxyLatency.text = "超时"
-                proxyLatency.setTextColor(Color.parseColor("#e73f31"))
+                proxySubName.text = "超时" //current.proxy.subtitle
+                proxySubName.setTextColor(Color.parseColor("#6b6d6a"))
+                proxySubName.setCompoundDrawablesWithIntrinsicBounds(drawableStartGray, null, null, null)
+                proxyLatency.setTextColor(Color.parseColor("#6b6d6a"))
+                proxyLatency.text = "..."
             }else if (current.proxy.delay > 500 && current.proxy.delay < 10000){
                 proxyLatency.text = "${current.proxy.delay}ms"
                 proxyLatency.setTextColor(Color.YELLOW)
+                proxySubName.text = "在线可用" //current.proxy.subtitle
+                proxySubName.setTextColor(Color.parseColor("#2a9843"))
+                proxySubName.setCompoundDrawablesWithIntrinsicBounds(drawableStartGreen, null, null, null)
             }else if (current.proxy.delay < 500 && current.proxy.delay > 300){
                 proxyLatency.text = "${current.proxy.delay}ms"
                 proxyLatency.setTextColor(Color.parseColor("#fab610"))
+                proxySubName.text = "在线可用" //current.proxy.subtitle
+                proxySubName.setTextColor(Color.parseColor("#2a9843"))
+                proxySubName.setCompoundDrawablesWithIntrinsicBounds(drawableStartGreen, null, null, null)
             }else{
                 proxyLatency.text = "${current.proxy.delay}ms"
                 proxyLatency.setTextColor(Color.parseColor("#2a9843"))
+                proxySubName.text = "在线可用" //current.proxy.subtitle
+                proxySubName.setTextColor(Color.parseColor("#2a9843"))
+                proxySubName.setCompoundDrawablesWithIntrinsicBounds(drawableStartGreen, null, null, null)
             }
             // 示例：延迟时间
+
+
+           // current.update(true)
 
             vpnnodemainid.setOnClickListener {
 
