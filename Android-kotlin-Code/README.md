@@ -41,6 +41,9 @@
 
 
 6. 教程:修改 API 后台地址，api请求内容如下 , 可选增加订阅地址转换地址，方便调用。
+
+Please read 服务器配置+Kotlin-Android 文档教程.docx
+
 ![](images_05_20_11.png)
 
 ```
