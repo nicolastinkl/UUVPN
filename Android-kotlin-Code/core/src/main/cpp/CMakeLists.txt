@@ -52,7 +52,7 @@ endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version.h.in ${CMAKE_CURRENT_SOURCE_DIR}/version.h @ONLY)
 
 #设置项目名称与语言类别(必)
-project(MY_UUVPN C)
+project(clash-bridge C)
 
 
 set(CMAKE_POSITION_INDEPENDENT_CODE on)
