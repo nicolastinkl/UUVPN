@@ -51,7 +51,7 @@ dependencyResolutionManagement {
             library("androidx-activity", "androidx.activity:activity:$activity")
             library("androidx-fragment", "androidx.fragment:fragment:$fragment")
             library("androidx-appcompat", "androidx.appcompat:appcompat:$appcompat")
-            library("androidx-appcompat-resources", "androidx.appcompat:appcompat-resources:$appcompatres")
+            library("androidx-appcompat", "androidx.appcompat:appcompat-resources:$appcompatres")
             library("androidx-coordinator", "androidx.coordinatorlayout:coordinatorlayout:$coordinator")
             library("androidx-recyclerview", "androidx.recyclerview:recyclerview:$recyclerview")
             library("androidx-viewpager", "androidx.viewpager2:viewpager2:$viewpager")
