@@ -5,7 +5,7 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
+// import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,16 +20,16 @@ import com.github.kr328.clash.design.adapter.PlanDataAdapter
 import com.github.kr328.clash.design.adapter.TicketDetailAdapter
 import com.github.kr328.clash.design.adapter.TicketsDataAdapter
 import com.github.kr328.clash.design.databinding.ActivityBaseListBinding
-import com.github.kr328.clash.design.databinding.DesignSettingsCommonBinding
+// import com.github.kr328.clash.design.databinding.DesignSettingsCommonBinding
 import com.github.kr328.clash.design.ui.DayNight
 import com.github.kr328.clash.design.ui.Surface
 import com.github.kr328.clash.design.util.applyFrom
-import com.github.kr328.clash.design.util.layoutInflater
+// import com.github.kr328.clash.design.util.layoutInflater
 import com.github.kr328.clash.design.util.resolveThemedBoolean
 import com.github.kr328.clash.design.util.resolveThemedColor
 import com.github.kr328.clash.design.util.root
 import com.github.kr328.clash.design.util.setOnInsertsChangedListener
-import com.github.kr328.clash.design.view.ActivityBarLayout
+// import com.github.kr328.clash.design.view.ActivityBarLayout
 import com.github.kr328.clash.network.OrderData
 import com.github.kr328.clash.network.PlanData
 import com.github.kr328.clash.network.TicketMessage
@@ -190,65 +190,61 @@ abstract class BaseListActivity<T> : AppCompatActivity() {
         this.dayNight =  DayNight.Night //dayNight
     }
 
+   
+    /**
+     * 初始化列表数据。
+     * 如果数据为空，显示提示信息；否则，在UI线程上更新适配器数据。
+     *
+     * @param data 要显示的数据列表，可能为null
+     */
     @SuppressLint("NotifyDataSetChanged")
     private fun initList(data: List<T>?) {
-
         if (data.isNullOrEmpty()) {
-            runOnUiThread {
-                Toast.makeText(this, "没有更多数据", Toast.LENGTH_SHORT).show()
-            }
+            showEmptyDataToast()
         } else {
-            // 更新列表
-            runOnUiThread {
-                // 更新适配器的数据
-
-                when (adapter) {
-                    is PlanDataAdapter -> {
-                        // 使用 PlanDataAdapter 类型进行操作
-                        val planDataAdapter = adapter as  PlanDataAdapter
-                        // 执行 PlanDataAdapter 的操作
-                        planDataAdapter.setData(data as List<PlanData>)
-                    }
-
-
-                    is OrdersDataAdapter -> {
-                        // 使用 PlanDataAdapter 类型进行操作
-                        val ordersDataAdapter = adapter as  OrdersDataAdapter
-                        // 执行 PlanDataAdapter 的操作
-                        ordersDataAdapter.setData(data as List<OrderData>)
-
-                    }
-
-                    is TicketsDataAdapter->{
-                        val ordersDataAdapter = adapter as  TicketsDataAdapter
-                        ordersDataAdapter.setData(data as List<TicketsData>)
-                    }
-
-                    is TicketDetailAdapter ->{
-
-                        val ordersDataAdapter = adapter as  TicketDetailAdapter
-                        ordersDataAdapter.setData(data as List<TicketMessage>)
-
-                    }
-                    else -> {
-                        // 处理不匹配的适配器类型
-                        println( "Unknown adapter type.")
-                    }
-                }
-
-
-                val subscriptionAdapter = adapter as? PlanDataAdapter
-
-                if ( subscriptionAdapter != null ){
-                    subscriptionAdapter.setData(data as List<PlanData>)  // 假设你实现了一个 setData 方法来更新适配器的数据
-                }
-
-                adapter.notifyDataSetChanged()
-            }
+            updateAdapterDataOnUiThread(data)
         }
-
     }
 
+    /**
+     * 在UI线程上显示"没有更多数据"的Toast提示。
+     */
+    private fun showEmptyDataToast() {
+        runOnUiThread {
+            Toast.makeText(this, "没有更多数据", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * 在UI线程上更新适配器数据。
+     * 这个方法作为一个中间层，避免在runOnUiThread的lambda中直接捕获外部变量。
+     *
+     * @param data 要更新到适配器的数据列表
+     */
+    private fun updateAdapterDataOnUiThread(data: List<T>) {
+        runOnUiThread {
+            doUpdateAdapterData(data)
+        }
+    }
+
+    /**
+     * 执行实际的适配器数据更新操作。
+     * 根据适配器类型，将数据设置到相应的适配器中，并通知数据集变化。
+     *
+     * @param data 要更新到适配器的数据列表
+     */
+    @SuppressLint("NotifyDataSetChanged")
+    @Suppress("UNCHECKED_CAST")
+    private fun doUpdateAdapterData(data: List<T>) {
+        when (adapter) {
+            is PlanDataAdapter -> (adapter as PlanDataAdapter).setData(data as List<PlanData>)
+            is OrdersDataAdapter -> (adapter as OrdersDataAdapter).setData(data as List<OrderData>)
+            is TicketsDataAdapter -> (adapter as TicketsDataAdapter).setData(data as List<TicketsData>)
+            is TicketDetailAdapter -> (adapter as TicketDetailAdapter).setData(data as List<TicketMessage>)
+            else -> println("Unknown adapter type.")
+        }
+        adapter.notifyDataSetChanged()
+    }
     @SuppressLint("NotifyDataSetChanged")
     private fun updateList(data: List<T>?) {
 
