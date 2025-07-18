@@ -8,6 +8,8 @@
 - Android 7.0+ (recommend)
 - `armeabi-v7a` , `arm64-v8a`, `x86` or `x86_64` Architecture
 
+
+
 ### Build
 
 1. Update submodules
@@ -65,6 +67,15 @@ Please read 服务器配置+Kotlin-Android 文档教程.docx
   "message": "OK",
   "code": 1
 }
+```
+
+![alt text](telegram-cloud-photo-size-5-6327623898581027724-y.jpg)
+
+```
+测试的 URL 配置地址： https://vungles.com/api/test/config 
+测试账号：
+binance3980@gmail.com
+Tinkl123
 ```
 
 上面字段的意思：
