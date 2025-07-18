@@ -46,8 +46,9 @@ android {
     externalNativeBuild {
         cmake {
             // 设置cmake版本
-            version = "3.31.6"
+//            version = "3.31.6"  //macos下不需要指定 cmake 的版本信息
             path = file("src/main/cpp/CMakeLists.txt")
+
         }
     }
 }
