@@ -19,8 +19,31 @@ The original UUVPN was built using Flutter, which led to increasing challenges i
 - V2Board Compatibility: Fully supports V2Board protocols, offering smooth integration for backend management.
 - Refined UI: A completely redesigned interface with a modern look and feel, providing a user-friendly experience.
 
-### Server :
+### Server : 
 - https://github.com/cedar2025/Xboard
+This interface address is used to handle the core functions of UUVPN, including user authentication, configuration acquisition, and connection management.
+
+  #### Protocol compatibility
+  The iOS and Android versions of UUVPN are highly compatible with servers based on the https://github.com/cedar2025/Xboard series, and support the following common protocols:
+  
+  - Shadowsocks: Provides a secure SOCKS5 proxy that supports encrypted transmission.
+  
+  - VMess: Supports multiple transmission methods (such as TCP, WebSocket, QUIC, etc.), suitable for high-performance scenarios.
+  
+  - VLESS: A lightweight protocol with strong compatibility, supporting transmissions such as TCP, WebSocket, and gRPC.
+  
+  - Trojan: Simulates HTTPS traffic, supports TLS encryption, and provides high concealment.
+  
+  - SOCKS5: A standard proxy protocol that supports TCP and UDP traffic.
+  HTTP/HTTPS: Supports HTTP proxy and HTTPS encrypted connection.
+ 
+  * The iOS and Android versions of UUVPN are consistent with the server implementation of the Xboard series, and theoretically support all Xboard-compatible protocol configurations.
+  Specific protocol support may depend on the configuration of the server side, please ensure that the relevant protocols are correctly enabled on the server side.
+  For special protocols (such as TUIC or Hysteria), you need to confirm whether the server side has deployed support.
+  - Compatibility Notes
+  Cross-platform consistency: iOS and Android versions use the same server interface address to ensure that users get a consistent experience on different devices.
+  Version compatibility: UUVPN's client is backward compatible with the Xboard-based server version and is suitable for most Xboard series deployments.
+  Extensibility: If you need to support other protocols (such as WireGuard or Hysteria2), please refer to the Xboard documentation for server-side configuration adjustments. *
 
 
 ### Download iOS and android 
