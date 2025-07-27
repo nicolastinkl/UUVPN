@@ -125,3 +125,29 @@ HTTP/HTTPS：支持 HTTP 代理和 HTTPS 加密连接。
 
 
 ![](屏幕nshots/combined_image12-31_10-39.jpeg) 
+
+## License
+
+UUVPN is licensed under the **AGPLv3 License**. This means you can:
+
+✅ Use the software for free.  
+✅ Modify and distribute the code.  
+✅ Use it privately without restrictions.
+
+See the [LICENSE](LICENSE) file for more details.
+
+---
+ 
+
+<!-- UUVPN Other link-->
+[license-link]: https://www.gnu.org/licenses/agpl-3.0.html 
+
+<!-- Shield link-->
+[license-shield]: https://img.shields.io/badge/License-MIT-blue.svg
+[license-link]: https://github.com/nicolastinkl/UUVPN/blob/main/LICENSE
+[docs-shield]: https://img.shields.io/badge/Docs-Latest-green.svg
+[docs-link]: https://github.com/cedar2025/Xboard/blob/master/docs
+[github-release-shield]: https://img.shields.io/github/v/release/nicolastinkl/UUVPN
+[github-release-link]: https://github.com/nicolastinkl/UUVPN/releases
+[github-stars-shield]: https://img.shields.io/github/stars/nicolastinkl/UUVPN
+[github-stars-link]: https://github.com/nicolastinkl/UUVPN/stargazers
