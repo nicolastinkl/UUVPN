@@ -1,12 +1,25 @@
-## UUVPN - Redesigned for Performance, Stability, and [V2Board](https://github.com/cedar2025/Xboard) Compatibility
-
-The original UUVPN was built using Flutter, which led to increasing challenges in maintaining the codebase due to performance issues, subpar UI quality, and a lack of stability. To address these concerns, UUVPN has been completely redeveloped for native performance on iOS/macOS and Android, utilizing the powerful SINGBOX and CLASH cores.
 
 
+<div align="center">
+  <a name="readme-top"></a>
+  <h1><a href="https://www.uuvpn.com/" target="_blank">UUVPN🪜</a></h1>
+
+
+## An VPN app for iOS and Android that supports all [V2Board](https://github.com/cedar2025/Xboard)  servers
+
+[![][license-shield]][license-link] [![][docs-shield]][docs-link] [![][github-release-shield]][github-release-link] [![][github-stars-shield]][github-stars-link]
+
+English | [简体中文](README-zh_CN.md)
+</div>
+<br/>
+ 
+
+## What is UUVPN?
+UUVPN  is a **native performance** on iOS/macOS and Android, utilizing the powerful SINGBOX and CLASH(mihomo) cores.
 
 ![](screenshots/android/combined_image11-19_12-04-1.jpeg)
 
-
+ 
 ### The new version features:
 
 - A sleek, more responsive user interface
