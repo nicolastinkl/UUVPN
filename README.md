@@ -128,13 +128,13 @@ This interface address is used to handle the core functions of UUVPN, including 
 </table>
 
 
-## [iOS Youtu视频预览地址](https://www.youtube.com/shorts/tnr38-IM-Xo)
+## [iOS Youtube](https://www.youtube.com/shorts/tnr38-IM-Xo)
  
 
 # Android App Project
 
 
-## [Android Youtu视频预览地址](https://youtube.com/shorts/zI1hrpFJbtg?feature=share)
+## [Android Youtube](https://youtube.com/shorts/zI1hrpFJbtg?feature=share)
  
  
 ![](screenshots/combined_image12-31_10-39.jpeg)
@@ -147,114 +147,3 @@ Before you begin, ensure you have met the following requirements:
 - **Android Studio**: The official IDE for Android development, version 4.1 or higher.
 - **Android SDK**: The latest version of the Android SDK tools.
 - **Go**: go version go1.23.2 darwin/amd64
-
-# Legacy Version (Original Flutter-based UUVPN)
-The following section contains information about the original Flutter-based UUVPN for historical reference. If you need the source code, you can check out the **flutter** branch
-
-<details> <summary>Click to view the legacy version details</summary>
-# Old Description:
-  
-![](screenshots/Snipaste_2023-06-25_11-38-47.png)
-
-# UUVPN 
-基于Flutter开发的VPN客户端(ios/android)，自主设计，精美UI,优化VPN速度，完全开源。
-
-A VPN application for [V2Board](https://github.com/v2board/v2board)  
-
-Support iOS and Android now.
-
-
- 
-**IF THIS PROJECT HELPS YOU, PLEASE GIVE ME A LITTLE STAR⭐️.**
-
-## Screenshots
-![](screenshots/page_7.png)
-
-## App Store 
-![](screenshots/Snipaste_2023-06-10_14-21-20.png)
- 
-
-## Environment
-
-- Flutter Flutter 3.10.1 • channel stable • https://github.com/flutter/flutter.git
-    Framework • revision d3d8effc68 (6 weeks ago) • 2023-05-16 17:59:05 -0700
-    Engine • revision b4fb11214d
-    Tools • Dart 3.0.1 • DevTools 2.23.1
-    - Download this version url: https://drive.google.com/file/d/1ksM4_PK9Ibk7ycyrfF7XffM_99_4JYV3/view?usp=sharing
-    - leaf sdk downlaod url: https://github.com/eycorsican/leaf/releases/tag/v0.10.7
-
-- macOS 13.3.1 +
-- Xcode 14 +
-- iOS 15.0 +
-
-## Installation
-
-```shell
-flutter pub get
-```
-
-## Develop
-```shell
-flutter run
-```
-
-## Build
-build android apk
-```shell
-flutter build apk
-```
-
-build ios
-```shell
-flutter build ios
-```
-
----------------------- 
-
-# How to use it?
-![](screenshots/ios.png)
-![](screenshots/Snipaste_2024-07-24_14-25-11.png)
-![](screenshots/Snipaste_2024-07-24_14-58-41.png)
-
-- 1:  Change Domain File Path : ~UUVPN/flutter/lib/constant/app_urls.dart
-  ```
-    static const String baseUrl = "https://xxxx.com";
-  ```
-
-- 2: Xcode Settings:
-![](screenshots/Snipaste_2023-12-05_09-48-45.png)
-![](screenshots/Snipaste_2023-12-05_09-49-14.png)
-![](screenshots/Snipaste_2023-12-05_09-49-23.png) 
-
-- 3: running screenshot:
-![](screenshots/Snipaste_2023-12-05_15-43-54.png)
-
-
-
-
-
-## License
-
-UUVPN is licensed under the **AGPLv3 License**. This means you can:
-
-✅ Use the software for free.  
-✅ Modify and distribute the code.  
-✅ Use it privately without restrictions.
-
-See the [LICENSE](LICENSE) file for more details.
-
----
- 
-
-<!-- UUVPN Other link-->
-[license-link]: https://www.gnu.org/licenses/agpl-3.0.html 
-
-<!-- Shield link-->
-[license-shield]: https://img.shields.io/badge/License-MIT-blue.svg
-[license-link]: https://github.com/nicolastinkl/UUVPN/blob/main/LICENSE
-[docs-shield]: https://img.shields.io/badge/Docs-Latest-green.svg
-[docs-link]: https://github.com/cedar2025/Xboard/blob/master/docs
-[github-release-shield]: https://img.shields.io/github/v/release/nicolastinkl/UUVPN
-[github-release-link]: https://github.com/nicolastinkl/UUVPN/releases
-[github-stars-shield]: https://img.shields.io/github/stars/nicolastinkl/UUVPN
-[github-stars-link]: https://github.com/nicolastinkl/UUVPN/stargazers
