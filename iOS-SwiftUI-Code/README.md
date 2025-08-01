@@ -1,5 +1,7 @@
 # UUVPN iOS SwiftUI Application
 
+**Language**: [English](README.md) | [中文](README_CN.md)
+
 A professional iOS VPN application built with SwiftUI, designed to integrate seamlessly with V2Board panel APIs. This application provides a modern, intuitive interface for VPN management with comprehensive configuration options.
 
 ## 🚀 Features
@@ -73,6 +75,8 @@ Select your target device or simulator and click the **Run** button.
 
 The application integrates with V2Board panels through a comprehensive API configuration system managed by [`StoreManager.swift`](ApplicationLibrary/Service/StoreManager.swift:17).
 
+![V2Board API Configuration](image.png)
+
 #### Configuration URL
 ```swift
 public let configURL = "https://api.gooapis.com/api/vpnconfig.php"
@@ -144,6 +148,8 @@ com.uuvpn.appleaman
 ### Modifying Bundle Identifier
 
 To change the Bundle Identifier for your deployment:
+
+![Bundle Identifier Configuration](image-2.png)
 
 #### 1. Update Xcode Project Settings
 1. Open `uuvpn.xcodeproj` in Xcode
@@ -233,6 +239,8 @@ Configure your initialization endpoint to return:
 ### Endpoint Setup
 
 The application fetches configuration from a remote endpoint on startup. This allows dynamic configuration without app updates.
+
+![Initialization Configuration](image-1.png)
 
 #### Recommended Hosting
 - **Alibaba Cloud OSS**: Faster response times in China
