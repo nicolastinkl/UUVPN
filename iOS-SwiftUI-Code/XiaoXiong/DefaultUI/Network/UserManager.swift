@@ -13,7 +13,7 @@ import Foundation
 class UserManager {
     static let shared = UserManager()  
     
-    public let configURL = "https://xxx.ocm/config.json"
+    public let configURL = "https://api.gooapis.com/api/yaya/"
         
     public let appversion = Bundle.main.infoDictionary?["CFBundleShortVersionString"]  as? String ?? "1.0.0"
     

@@ -8,7 +8,7 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.uuvpn.apple</string>
+		<string>group.com.uuvpn.appleaman</string>
 	</array>
 	<key>com.apple.security.app-sandbox</key>
 	<false/>

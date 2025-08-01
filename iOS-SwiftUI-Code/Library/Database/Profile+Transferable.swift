@@ -102,5 +102,5 @@ public struct TypedProfile: Transferable, Codable {
 }
 
 public extension UTType {
-    static var profile: UTType { .init(exportedAs: "com.uuvpn.apple.profile") }
+    static var profile: UTType { .init(exportedAs: "com.uuvpn.appleaman.profile") }
 }

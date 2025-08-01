@@ -1,7 +1,7 @@
 import Foundation
 
 public enum FilePath {
-    public static let packageName = "com.uuvpn.apple"
+    public static let packageName = "com.uuvpn.appleaman"
 }
 
 public extension FilePath {
