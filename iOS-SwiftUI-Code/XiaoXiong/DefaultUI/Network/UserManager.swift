@@ -9,7 +9,6 @@ import Foundation
 import Foundation
 
 
-// 创建一个全局的 UserManager 类，负责从 UserDefaults 中读取和存储用户信息及登录状态
 class UserManager {
     static let shared = UserManager()  
     
@@ -26,7 +25,7 @@ class UserManager {
     private let baseURLKey = "baseURLKey"
     private let crisptoken = "crisptoken"
      
-    // UserDefaults 引用
+    /// UserDefaults实例
     private let defaults = UserDefaults.standard
 
     
@@ -65,7 +64,7 @@ class UserManager {
         defaults.synchronize()
     }
     
-    //存储 URL 相关信息
+    /// 存储基础URL
     func storebaseURLData(data: String) {
         defaults.set(data, forKey: "baseURLKey")
         defaults.synchronize()
@@ -102,7 +101,7 @@ class UserManager {
     
     
     
-    // 更新登录状态
+    /// 更新登录状态
     func updateLoginStatus(_ loggedIn: Bool) {
         defaults.set(loggedIn, forKey: loginStatusKey)
         defaults.synchronize()
@@ -118,48 +117,48 @@ class UserManager {
         }
     }
     
-    // 检查是否已登录
+    /// 检查登录状态
     func isUserLoggedIn() -> Bool {
         return defaults.bool(forKey: loginStatusKey)
     }
 
-    // 存储用户信息
+    /// 存储用户信息
     func storeUserInfo(email: String, avator: String) {
         defaults.set(email, forKey: userEmailKey)
-        defaults.set(avator, forKey: avatarurlKey) // 假设 info 是 JSON 字符串
+        defaults.set(avator, forKey: avatarurlKey)
         defaults.synchronize()
     }
 
-    // 读取用户信息
+    /// 获取用户信息
     func getUserInfo() -> (email: String, avator: String) {
         let email = defaults.string(forKey: userEmailKey) ?? ""
         let avator = defaults.string(forKey: avatarurlKey) ?? ""
         return (email, avator)
     }
     
-    // 存储 autodata
+    /// 存储认证数据
     func storeAutoData(data: String) {
         defaults.set(data, forKey: autodataKey)
         defaults.synchronize()
     }
 
-    // 读取 autodata
+    /// 获取订阅URL数据
     func getSuburlData() -> String {
           return defaults.string(forKey: subURLDataKey) ?? ""
     }    
     
-    // 存储 autodata
+    /// 存储订阅URL数据
     func storeSuburlData(data: String) {
         defaults.set(data, forKey: subURLDataKey)
         defaults.synchronize()
     }
 
-    // 读取 autodata
+    /// 获取认证数据
     func getAutoData() -> String {
         return defaults.string(forKey: autodataKey) ?? ""
     }
       
-    // 清除所有数据（例如在登出时）
+    /// 清除用户数据
     func clearUserData() {
         defaults.removeObject(forKey: loginStatusKey)
         defaults.removeObject(forKey: userEmailKey)

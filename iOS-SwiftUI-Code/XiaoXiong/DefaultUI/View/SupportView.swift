@@ -11,7 +11,7 @@ import Crisp
 
 struct SupportView: View {
     
-    @Environment(\.presentationMode) var presentationMode // 环境变量用于控制视图的呈现
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView(content: {
@@ -21,7 +21,7 @@ struct SupportView: View {
                     HStack{
                         Button(action: {
                             
-                            presentationMode.wrappedValue.dismiss() // 手动触发返回
+                            presentationMode.wrappedValue.dismiss()
                         }, label: {
                             
                             Image(systemName: "chevron.left")
@@ -29,7 +29,7 @@ struct SupportView: View {
                                  
                             Text("返回")
                                 .foregroundColor(.white)
-                        }).padding(10) // 增加可点击区域
+                        }).padding(10)
                         
                         Spacer(minLength: 0)
                         
@@ -59,7 +59,7 @@ struct SupportView: View {
         })
          
         .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true) // 隐藏返回按钮
+        .navigationBarBackButtonHidden(true)
         
     }
     
