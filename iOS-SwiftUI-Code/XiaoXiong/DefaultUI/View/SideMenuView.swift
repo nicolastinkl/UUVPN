@@ -48,7 +48,7 @@ struct SideMenuView: View {
                     
                     HStack{
                         Button(action: {
-                            isPresented = false // Close the side menu
+                            isPresented = false
                         }, label: {
                             
                             Image(systemName: "chevron.left")
@@ -56,7 +56,7 @@ struct SideMenuView: View {
                                  
                             Text("返回")
                                 .foregroundColor(.white)
-                        }).padding(10) // 增加可点击区域
+                        }).padding(10)
                         Spacer(minLength: 0)
                     }
                     
@@ -129,7 +129,7 @@ struct SideMenuView: View {
                                     Text(errorMessage)
                                         .bold()
                                         .foregroundColor(.red)
-                                        .multilineTextAlignment(.center) // 确保多行文本居中
+                                        .multilineTextAlignment(.center)
                                         .padding()
                                 }else{
                                     
@@ -162,9 +162,9 @@ struct SideMenuView: View {
                                                                 Color.red
                                                             )
                                                     )
-                                                    Spacer() // Fill the remaining space to push the white rectangle to the left
+                                                    Spacer()
                                                 }
-                                                .frame(height: 20) // Set the total width and height for the bar
+                                                .frame(height: 20)
                                                 .background(
                                                     RoundedRectangle(cornerRadius: 10)
                                                         .fill(
@@ -214,23 +214,23 @@ struct SideMenuView: View {
                         NavigationLink(destination: SupportTicketView()) {
                             MenuItem(icon: "listclipboard", title: "我的工单", color: .white, isNew: false)
                         }
-                        Divider() // 分隔线
+                        Divider()
                         
                         if (paymentURLKey.count > 3){
                             
                             NavigationLink(destination: UpgradeView()) {
                                 MenuItem(icon: "crown.fill", title: "升级套餐", color: .yellow, isNew: true)
                             }
-                            Divider() // 分隔线
+                            Divider()
                             NavigationLink(destination: OrderListView()) {
                                 MenuItem(icon: "checkout", title: "我的订单", color: .white, isNew: false)
                             }
                             
-                            Divider() // 分隔线
+                            Divider()
                             NavigationLink(destination: InviteListView(isPresented: $isInviteActive)) {
                                 MenuItem(icon: "star.fill", title: "邀请中心", color: .white, isNew: false)
                             }
-                            Divider() // 分隔线
+                            Divider()
                             
                             
                         }else{
@@ -238,7 +238,7 @@ struct SideMenuView: View {
                             NavigationLink(destination: MessageCenterView()) {
                                 MenuItem(icon: "message.badge.circle", title: "消息通知", color: .white, isNew: false)
                             }
-                            Divider() // 分隔线
+                            Divider()
                         }
                         
                         
@@ -246,16 +246,16 @@ struct SideMenuView: View {
                             MenuItem(icon: "questionmark.app", title: "问题解答", color: .white, isNew: false)
                         }
                         
-                        Divider() // 分隔线
+                        Divider()
                         
                         NavigationLink(destination: SupportView()) {
                             MenuItem(icon: "headphones", title: "联系客服", color: .white, isNew: false)
                         }
-                        Divider() // 分隔线
+                        Divider()
                         NavigationLink(destination: AboutUsView()) {
                             MenuItem(icon: "info.circle.fill", title: "关于我们", color: .white, isNew: false)
                         }
-                        Divider() // 分隔线
+                        Divider()
                     }).padding()
                     
                     Button(action: {
@@ -265,7 +265,7 @@ struct SideMenuView: View {
                         alert = Alert(YesOrNOMessage: "确定退出登录吗？", {
                             isLogouting=true
                             UserManager.shared.clearUserData()
-                            //删除订阅信息
+                            // 删除订阅信息
                             Task {
                                 //await reloadSubscribe()
                                 
