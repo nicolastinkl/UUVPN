@@ -20,7 +20,7 @@ struct SubscriptionView: View {
     @Environment(\.openURL) private var openURL
     
     let adimages = ["10-35-24", "10-35-15", "10-35-03"] // 替换为你广告图片的名字
-    let adimagesString = ["小熊加速器 采用最高安全 ECC 加密技术，仅需一键操作，军事级的加密技术将护航您的任何互联网访问", "小熊加速器 拥有170 个热门城市的300+高速服务器，您可以随时随地获得高速安全的互联网体验", "小熊加速器 支持所有当前主流的平台系统，您可以在几乎任何设备上使用"]
+    let adimagesString = ["UUVPN 采用最高安全 ECC 加密技术，仅需一键操作，军事级的加密技术将护航您的任何互联网访问", "UUVPN 拥有170 个热门城市的300+高速服务器，您可以随时随地获得高速安全的互联网体验", "UUVPN 支持所有当前主流的平台系统，您可以在几乎任何设备上使用"]
     @Environment(\.presentationMode) var presentationMode // 环境变量用于控制视图的呈现
     // 当前页的索引
     

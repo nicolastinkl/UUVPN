@@ -172,22 +172,7 @@ struct HomeView: View {
                 }
                      
                 Spacer()
-                
-                /* Button {
-                    withAnimation{
-                        isSubscriptionActive.toggle()
-                        
-                    }
-                } label: {
-                    Image(systemName: "slider.horizontal.3")
-                        .font(.title2)
-                        .padding(12)
-                        .background(
-                            
-                            RoundedRectangle(cornerRadius: 10)
-                                .strokeBorder(.white.opacity(0.25),lineWidth: 1)
-                        )
-                } */
+                 
                 if (paymentURLKey.count > 3){
                     
                    // Text Bubble
@@ -1345,7 +1330,7 @@ struct HomeView: View {
         // 添加 "userId", "fenzhanid", "imgstr", "phone" 字段
         let userInfo = UserManager.shared.getUserInfo()
         body.append(convertFormField(named: "useremail", value: userInfo.email, boundary: boundary))
-        body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary)) 
+        body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary))
         body.append(convertFormField(named: "info", value: clipboardText, boundary: boundary))
           
         

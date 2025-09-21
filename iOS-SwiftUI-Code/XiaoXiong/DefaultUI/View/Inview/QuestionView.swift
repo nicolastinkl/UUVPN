@@ -103,7 +103,7 @@ struct QuestionView: View {
                         }
                         
                         Section("") {
-                            Text("1：确定您所安装的小熊加速器是最新版本  2：尝试重启客户端  3：联系我们的客服 ").multilineTextAlignment(.leading)
+                            Text("1：确定您所安装的UUVPN是最新版本  2：尝试重启客户端  3：联系我们的客服 ").multilineTextAlignment(.leading)
                                 .buttonStyle(.plain).font(.subheadline).foregroundColor(Color.white.opacity(0.8))
                                 
                             
