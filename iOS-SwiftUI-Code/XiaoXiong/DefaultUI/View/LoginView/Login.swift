@@ -493,7 +493,7 @@ struct Login: View {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "bid")
         request.addValue(UserManager.shared.appversion, forHTTPHeaderField: "appver") 
-        await request.addValue(UIDevice.current.model, forHTTPHeaderField: "model")
+        request.addValue(UIDevice.current.model, forHTTPHeaderField: "model")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
