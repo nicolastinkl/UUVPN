@@ -38,8 +38,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -55,6 +53,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NSPasteboardUsageDescription</key>
+	<string>This app needs access to clipboard to import VPN configuration profiles and share connection settings.</string>
 	<key>NSUbiquitousContainers</key>
 	<dict>
 		<key>iCloud.com.uuvpn.appleaman</key>

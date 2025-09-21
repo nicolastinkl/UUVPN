@@ -34,7 +34,7 @@ struct OrderInfoDatum: Codable ,Identifiable {
     let handlingAmount, discountAmount, surplusAmount, refundAmount: Double?
     let balanceAmount, surplusOrderIDS,paymentID: Int?
     let status: Int
-    let actualCommissionBalance, paidAt: String?
+//    let actualCommissionBalance, paidAt: String?
     let createdAt, updatedAt: Int
     let commissionStatus, commissionBalance: Int?
     let tixianstatus: String?
@@ -88,8 +88,8 @@ struct OrderInfoDatum: Codable ,Identifiable {
         case status
         case commissionStatus = "commission_status"
         case commissionBalance = "commission_balance"
-        case actualCommissionBalance = "actual_commission_balance"
-        case paidAt = "paid_at"
+//        case actualCommissionBalance = "actual_commission_balance"
+//        case paidAt = "paid_at"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case tixianstatus, plan

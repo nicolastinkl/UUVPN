@@ -160,6 +160,7 @@
 		3AF342A02A4A9916002B34AC /* ExtensionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF3429F2A4A9916002B34AC /* ExtensionProfile.swift */; };
 		3AF3A3D22B2207F3001FD7C1 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF3A3D12B2207E1001FD7C1 /* libresolv.tbd */; };
 		3AF5E3E72B6F90640058B9E8 /* ProfileOverrideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF5E3E62B6F90640058B9E8 /* ProfileOverrideView.swift */; };
+		C01BFABD2E80052E00D8ACA6 /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C01BFABC2E80052E00D8ACA6 /* Vision.framework */; };
 		C0546F0B2CB91FC600937BAF /* DashboardViewNewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0546F0A2CB91FC600937BAF /* DashboardViewNewUI.swift */; };
 		C0546F0D2CB922C900937BAF /* ActiveDashboardViewNewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0546F0C2CB922C900937BAF /* ActiveDashboardViewNewUI.swift */; };
 		C0DDD66B2CB9058000AE1C0A /* 51a05581.json in Resources */ = {isa = PBXBuildFile; fileRef = C0DDD6602CB9058000AE1C0A /* 51a05581.json */; };
@@ -453,6 +454,7 @@
 		3AF342D32A4AADB2002B34AC /* FormItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItem.swift; sourceTree = "<group>"; };
 		3AF3A3D12B2207E1001FD7C1 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS17.0.sdk/usr/lib/libresolv.tbd; sourceTree = DEVELOPER_DIR; };
 		3AF5E3E62B6F90640058B9E8 /* ProfileOverrideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOverrideView.swift; sourceTree = "<group>"; };
+		C01BFABC2E80052E00D8ACA6 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.4.sdk/System/Library/Frameworks/Vision.framework; sourceTree = DEVELOPER_DIR; };
 		C0546F0A2CB91FC600937BAF /* DashboardViewNewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewNewUI.swift; sourceTree = "<group>"; };
 		C0546F0C2CB922C900937BAF /* ActiveDashboardViewNewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveDashboardViewNewUI.swift; sourceTree = "<group>"; };
 		C0DDD6602CB9058000AE1C0A /* 51a05581.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 51a05581.json; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				C0E540152CA17EBF0054BC97 /* Libbox.xcframework in Frameworks */,
 				3A4EAD372A4FEC20005435B3 /* ApplicationLibrary.framework in Frameworks */,
 				044AE9732CC9D33B00F5813E /* Crisp in Frameworks */,
+				C01BFABD2E80052E00D8ACA6 /* Vision.framework in Frameworks */,
 				C0DDD6752CB905FB00AE1C0A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,6 +745,7 @@
 		3AEC21012A459AE300A63465 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C01BFABC2E80052E00D8ACA6 /* Vision.framework */,
 				3AF3A3D12B2207E1001FD7C1 /* libresolv.tbd */,
 				3A3DEBE62A4FFA6000373BF4 /* AppIntents.framework */,
 				3A3DEBE12A4FFA1A00373BF4 /* ExtensionFoundation.framework */,
@@ -1875,12 +1879,15 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XiaoXiong/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = uuvpn;
+				INFOPLIST_KEY_CFBundleDisplayName = "小熊加速器";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera for capturing photos or videos.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app needs access to contacts to share VPN profiles with your friends and manage subscription invitations.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to the microphone for voice communication.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to save photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to the camera for capturing photos or videos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1923,12 +1930,15 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XiaoXiong/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = uuvpn;
+				INFOPLIST_KEY_CFBundleDisplayName = "小熊加速器";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to the camera for capturing photos or videos.";
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app needs access to contacts to share VPN profiles with your friends and manage subscription invitations.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to the microphone for voice communication.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need access to your photo library to save photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to the camera for capturing photos or videos.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
