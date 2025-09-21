@@ -2,7 +2,7 @@
 //  CustomCorners.swift
 //  CustomCorners
 //
-//  Created by Balaji on 12/09/21.
+//  Created by zues on 12/09/21.
 //
 
 import SwiftUI

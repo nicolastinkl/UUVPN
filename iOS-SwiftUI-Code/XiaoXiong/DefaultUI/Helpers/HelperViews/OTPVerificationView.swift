@@ -2,7 +2,7 @@
 //  OTPVerificationView.swift
 //  AutoOtpTF
 //
-//  Created by Balaji on 23/12/22.
+//  Created by zues on 23/12/22.
 //
 
 import SwiftUI

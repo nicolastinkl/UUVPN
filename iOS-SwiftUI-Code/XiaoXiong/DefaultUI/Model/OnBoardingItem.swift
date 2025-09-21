@@ -2,7 +2,7 @@
 //  OnBoardingItem.swift
 //  AnimatedOnBoardingScreen
 //
-//  Created by Balaji on 17/12/22.
+//  Created by zues on 17/12/22.
 //
 
 import SwiftUI

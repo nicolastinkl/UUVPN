@@ -2,7 +2,7 @@
 //  PasswordResetView.swift
 //  LoginKit
 //
-//  Created by Balaji on 04/08/23.
+//  Created by zues on 04/08/23.
 //
 
 import SwiftUI

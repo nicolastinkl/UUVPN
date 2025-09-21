@@ -2,7 +2,7 @@
 //  UniversalAlert.swift
 //  CustomUniversalAlert
 //
-//  Created by Balaji Venkatesh on 18/09/23.
+//  Created by zues Venkatesh on 18/09/23.
 //
 
 import SwiftUI
