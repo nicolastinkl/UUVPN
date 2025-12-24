@@ -406,7 +406,7 @@
             android:layout_marginTop="16dp"
             android:id="@+id/view_accountinfo5"
             android:background="@color/white"
-
+            android:backgroundTint="@color/white"
             app:cardElevation="4dp"
             app:cardCornerRadius="6dp"
             android:layout_margin="4dp" >
