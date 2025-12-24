@@ -241,6 +241,7 @@ class LoginActivity : AppCompatActivity() {
                     // Handle error response, even if it's 422
                     try {
                         val errorResponse = it?.errorBody()?.string()  ?: ""
+                        print(errorResponse)
                         val errorJson = JSONObject(errorResponse)
                         val message = errorJson.optString("message")
                         // Process the error message or show it to the user

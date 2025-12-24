@@ -80,7 +80,11 @@ class ClashService : BaseService() {
 
 
         StaticNotificationModule.createNotificationChannel(this)
-        StaticNotificationModule.notifyLoadingNotification(this)
+        try {
+            StaticNotificationModule.notifyLoadingNotification(this)
+        } catch (e: SecurityException) {
+            Log.e("Failed to post loading notification: ${e.message}", e)
+        }
 
         runtime.launch()
     }
