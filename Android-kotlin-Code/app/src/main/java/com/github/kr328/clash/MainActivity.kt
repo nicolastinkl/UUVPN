@@ -293,7 +293,7 @@ class MainActivity : BaseActivity<MainDesign>() {
 
     }
 
-    private suspend fun configRequesting(){
+    private suspend fun configRequesting(retryCount: Int = 0){
         val gson = Gson()
         val currentTime = System.currentTimeMillis()
         /*apiService.getConfig().let {
@@ -333,7 +333,23 @@ class MainActivity : BaseActivity<MainDesign>() {
                     performSubscrite()
                 }
             }else{
-                configRequesting()
+                if (retryCount < 3) {
+                    configRequesting(retryCount + 1)
+                } else {
+                    withContext(Dispatchers.Main) {
+                        LoadingDialog.hide()
+                        showCustomDialog(
+                            title = "提示",
+                            message = "初始化失败，请检查配置是否正确",
+                            positiveButtonText = "确定",
+                            negativeButtonText = "",
+                            onPositiveClick = {
+                            },
+                            onNegativeClick = {
+                            }
+                        )
+                    }
+                }
             }
 
         }
