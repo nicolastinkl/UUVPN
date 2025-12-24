@@ -43,8 +43,8 @@ subprojects {
 
             compileSdkVersion(34)
             targetSdkVersion(34)
-            versionName = "3.1.0"
-            versionCode = 323001
+            versionName = "4.0.0"
+            versionCode = 423001
 
             resValue("string", "release_name", "v$versionName")
             resValue("integer", "release_code", "$versionCode")
