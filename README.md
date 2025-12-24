@@ -31,7 +31,7 @@ UUVPN  is a **native performance** on iOS/macOS and Android, utilizing the power
 
 ![](screenshots/android/combined_image11-19_12-04-1.jpeg)
 
-[![Play YouTube]()](https://www.youtube.com/watch?v=ApWpUrYRINg)
+[![Play YouTube](https://img.youtube.com/vi/ApWpUrYRINg/maxresdefault.jpg)](https://www.youtube.com/watch?v=ApWpUrYRINg)
 
  
 ### The new version features:
