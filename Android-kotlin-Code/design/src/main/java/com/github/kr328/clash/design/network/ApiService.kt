@@ -143,10 +143,10 @@ suspend fun <T> safeApiCall(
             null
         }
     } catch (e: TimeoutException) {
-        println("请求超时，请检查网络连接")
+        println("请求超时，请检查网络连接: ${e.message}")
         null
     } catch (e: IOException) {
-        println("网络错误，请检查网络连接")
+        println("网络错误，请检查网络连接: ${e.message}")
         null
     } catch (e: Exception) {
         println("未知错误: ${e.message}")

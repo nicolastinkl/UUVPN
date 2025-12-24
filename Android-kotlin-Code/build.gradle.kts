@@ -42,7 +42,7 @@ subprojects {
             minSdk = 24
 
             compileSdkVersion(34)
-//            targetSdkVersion(34)
+            targetSdkVersion(34)
             versionName = "3.1.0"
             versionCode = 323001
 
@@ -140,8 +140,8 @@ subprojects {
 
         buildTypes {
             named("release") {
-                isMinifyEnabled = isApp
-                isShrinkResources = isApp
+                isMinifyEnabled = false
+                isShrinkResources = false
                 signingConfig = signingConfigs.findByName("release")
                 proguardFiles(
                     getDefaultProguardFile("proguard-android-optimize.txt"),

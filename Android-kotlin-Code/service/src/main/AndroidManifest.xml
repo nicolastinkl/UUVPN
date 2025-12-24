@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission
@@ -15,13 +17,15 @@
             android:name=".ClashService"
             android:exported="false"
             android:label="@string/clash_meta_for_android"
-            android:process=":background" />
+            android:process=":background"
+            android:foregroundServiceType="specialUse" />
         <service
             android:name=".TunService"
             android:exported="false"
             android:label="@string/clash_meta_for_android"
             android:permission="android.permission.BIND_VPN_SERVICE"
-            android:process=":background">
+            android:process=":background"
+            android:foregroundServiceType="specialUse">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
@@ -29,11 +33,13 @@
         <service
             android:name=".RemoteService"
             android:exported="false"
-            android:process=":background" />
+            android:process=":background"
+            android:foregroundServiceType="specialUse" />
         <service
             android:name=".ProfileWorker"
             android:exported="false"
-            android:process=":background" />
+            android:process=":background"
+            android:foregroundServiceType="dataSync" />
 
         <provider
             android:name=".FilesProvider"

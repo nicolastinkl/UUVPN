@@ -53,6 +53,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     private var isPasswordVisible = false
+    private var configRetryCount = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,7 +130,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun getconfig(){
 
-        LoadingDialog.show(this, "正在初始化...")
+        runOnUiThread {
+            LoadingDialog.show(this, "正在初始化...")
+        }
         CoroutineScope(Dispatchers.IO).launch {
 
             safeApiCall {apiService.getConfig()}.let {
@@ -142,7 +145,15 @@ class LoginActivity : AppCompatActivity() {
                         //重新初始化 ApiClint
                     }
                 }else{
-                    getconfig()
+                    configRetryCount++
+                    if (configRetryCount < 3) {
+                        getconfig()
+                    } else {
+                        withContext(Dispatchers.Main) {
+                            LoadingDialog.hide()
+                            Toast.makeText(this@LoginActivity, "初始化失败，请检查配置是否正确", Toast.LENGTH_LONG).show()
+                        }
+                    }
                 }
             }
         }
