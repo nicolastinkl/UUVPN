@@ -556,7 +556,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="版本：3.0.2"
+            android:text=""
             android:gravity="center_horizontal"
             android:drawablePadding="10dp"
             android:textColor="@color/gray"
