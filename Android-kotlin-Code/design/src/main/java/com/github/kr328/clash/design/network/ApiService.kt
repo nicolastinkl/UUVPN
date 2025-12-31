@@ -18,7 +18,7 @@ import java.util.concurrent.TimeoutException
 /// 所有网络接口
 interface ApiService {
 
-    @POST("config")
+    @GET("config")
     suspend fun getConfig(): Response<ConfigResponse>
 
     @POST("passport/auth/login")
